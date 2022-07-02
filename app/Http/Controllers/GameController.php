@@ -12,9 +12,8 @@ class GameController extends Controller
     {
         $games = Games::all();
         $patchnotes = Patchnotes::latest()->take(2)->get();
-        $latestgame = Games::latest()->take(4)->get();
 
-        return view('welcome', compact('games','latestgame','patchnotes'));
+        return view('welcome', compact('games', 'patchnotes'));
     }
 
     public function hamham()

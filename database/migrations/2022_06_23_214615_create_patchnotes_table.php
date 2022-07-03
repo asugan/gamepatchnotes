@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('post_image');
             $table->string('post_title');
             $table->text('post_body');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

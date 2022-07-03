@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('release_date');
             $table->string('genre');
             $table->string('developer');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

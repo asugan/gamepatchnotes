@@ -1,33 +1,33 @@
-$('.owl1').owlCarousel({
+$(".owl1").owlCarousel({
     loop: true,
     margin: 10,
-    nav: true,
+    nav: false,
     responsive: {
         0: {
-            items: 1
+            items: 1,
         },
         600: {
-            items: 3
+            items: 3,
         },
         1000: {
-            items: 5
-        }
-    }
+            items: 5,
+        },
+    },
 });
 
-$('.owl2').owlCarousel({
+$(".owl2").owlCarousel({
     loop: true,
     margin: 10,
-    nav: true,
+    nav: false,
     responsive: {
         0: {
-            items: 1
+            items: 1,
         },
         600: {
-            items: 3
+            items: 3,
         },
         1000: {
-            items: 5
-        }
-    }
+            items: 5,
+        },
+    },
 });

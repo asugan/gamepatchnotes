@@ -9,8 +9,8 @@
             @endforeach
         </div>
     </section>
-    <section class="patch-slider bg-dark pt-5 pb-5 mt-2">
-        <div class="container">
+    <section class="patch-slider bg-dark mt-2">
+        <div class="container pt-4">
             <div class="owl-carousel owl2">
                 @foreach ($games as $game)
                     @foreach ($patchnotes as $patchnote)

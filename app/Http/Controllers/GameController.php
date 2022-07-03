@@ -15,10 +15,14 @@ class GameController extends Controller
 
         return view('welcome', compact('games', 'patchnotes'));
     }
-
-    public function hamham()
+    public function showpatchnote(Patchnotes $patchnote)
     {
-        $hamham = Games::all();
-        return view('hamham', compact('hamham'));
+        return view('patchnotepage', ['patchnote' => $patchnote]);
+    }
+    public function showcategory(Games $game)
+    {
+        $post = $game->patchnotes()->paginate(9);
+
+        return view('gamepage', ['game' => $game, 'patchnote' => $post]);
     }
 }

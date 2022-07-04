@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Conner\Likeable\Likeable;
 
 class Games extends Model
 {
     use HasFactory;
     use Sluggable;
+    use Likeable;
 
     protected $guarded = [];
 

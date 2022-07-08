@@ -4,7 +4,7 @@
         <div class="owl-carousel owl1">
             @foreach ($games as $game)
                 <div class="item">
-                    <img src="{{ url('storage/' . $game->game_image) }}" alt="" />
+                    <img src="{{ @App::make('url')->to('/') . '/storage' . $game->game_image }}" alt="" />
                 </div>
                 <td class="px-6 py-4 text-sm text-gray-500 border-b border-gray-200 ">
                     <form action="{{ route('like.post', $game->id) }}" method="post">
@@ -13,7 +13,6 @@
                             like {{ $game->likeCount }}
                         </button>
                     </form>
-
                 </td>
                 <td class="px-6 py-4 text-sm text-gray-500 border-b border-gray-200">
                     <form action="{{ route('unlike.post', $game->id) }}" method="post">

@@ -1,13 +1,11 @@
 @extends('layouts.app-master')
 
 @section('content')
-    <h1 class="mb-3">Maraba123</h1>
-
     <div class="bg-light p-4 rounded">
-        <h2>Posts</h2>
+        <h2>Admin Game Page</h2>
         <div class="lead">
-            Manage your posts here.
-            <a href="{{ route('games.create') }}" class="btn btn-primary btn-sm float-right">Add post</a>
+            Manage Your Games Here.
+            <a href="{{ route('games.create') }}" class="btn btn-primary btn-sm float-right">Add Game!</a>
         </div>
 
         <div class="mt-2">
@@ -17,7 +15,7 @@
         <table class="table table-bordered">
             <tr>
                 <th width="1%">No</th>
-                <th>Name</th>
+                <th>Game Name</th>
                 <th width="3%" colspan="5">Action</th>
             </tr>
             @foreach ($posts as $key => $post)

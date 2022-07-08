@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Games;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Helper\File;
+
 
 class AdminGamesController extends Controller
 {
+    use File;
     /**
      * Display a listing of the resource.
      *
@@ -37,12 +41,25 @@ class AdminGamesController extends Controller
      */
     public function store(Request $request)
     {
-        Games::create(array_merge($request->only('title', 'description', 'body'), [
-            'user_id' => auth()->id()
-        ]));
+        if ($file = $request->file('game_image')) {
+            $path = 'games/images';
+            $url = $this->file($file, $path, 300, 400);
+        }
 
-        return redirect()->route('admingames.index')
-            ->withSuccess(__('Post created successfully.'));
+        $data = new Games([
+            'game_name' => $request->game_name,
+            'game_platform' => $request->game_platform,
+            'release_date' => $request->release_date,
+            'genre' => $request->genre,
+            'developer' => $request->developer,
+        ]);
+
+        $data->game_image = $url;
+
+        $data->save();
+
+        return redirect()->route('games.index')
+            ->withSuccess(__('Games created successfully.'));
     }
 
     /**
@@ -82,7 +99,7 @@ class AdminGamesController extends Controller
     {
         $post->update($request->only('title', 'description', 'body'));
 
-        return redirect()->route('admingames.index')
+        return redirect()->route('games.index')
             ->withSuccess(__('Post updated successfully.'));
     }
 
@@ -94,9 +111,11 @@ class AdminGamesController extends Controller
      */
     public function destroy(Games $post)
     {
+        unlink("storage/" . $post->game_image);
+
         $post->delete();
 
-        return redirect()->route('admingames.index')
+        return redirect()->route('games.index')
             ->withSuccess(__('Post deleted successfully.'));
     }
 }

@@ -52,9 +52,8 @@ class AdminGamesController extends Controller
             'release_date' => $request->release_date,
             'genre' => $request->genre,
             'developer' => $request->developer,
+            'game_image' => $url,
         ]);
-
-        $data->game_image = $url;
 
         $data->save();
 
@@ -97,7 +96,23 @@ class AdminGamesController extends Controller
      */
     public function update(Request $request, Games $post)
     {
-        $post->update($request->only('title', 'description', 'body'));
+
+        if ($file = $request->file('game_image')) {
+            unlink("storage/" . $post->game_image);
+            $path = 'games/images';
+            $url = $this->file($file, $path, 300, 400);
+        } elseif ($request->file('game_image') == null) {
+            $url = $post->game_image;
+        }
+
+        $post->update([
+            'game_name' => $request->game_name,
+            'game_platform' => $request->game_platform,
+            'release_date' => $request->release_date,
+            'genre' => $request->genre,
+            'developer' => $request->developer,
+            'game_image' => $url,
+        ]);
 
         return redirect()->route('games.index')
             ->withSuccess(__('Post updated successfully.'));

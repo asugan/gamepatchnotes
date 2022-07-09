@@ -31,7 +31,8 @@
                 @foreach ($games as $game)
                     @foreach ($patchnotes as $patchnote)
                         <div class="item">
-                            <img alt="" src="{{ url('storage/' . $patchnote->post_image) }}" />
+                            <img alt=""
+                                src="{{ @App::make('url')->to('/') . '/storage' . $patchnote->post_image }}" />
                         </div>
                     @endforeach
                 @endforeach

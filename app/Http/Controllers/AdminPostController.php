@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Patchnotes;
 use Illuminate\Http\Request;
+use App\Helper\File;
 
 class AdminPostController extends Controller
 {
+    use File;
     /**
      * Display a listing of the resource.
      *
@@ -37,11 +39,21 @@ class AdminPostController extends Controller
      */
     public function store(Request $request)
     {
-        Patchnotes::create(array_merge($request->only('title', 'description', 'body'), [
-            'user_id' => auth()->id()
-        ]));
+        if ($file = $request->file('post_image')) {
+            $path = 'patchnotes/images';
+            $url = $this->file($file, $path, 300, 400);
+        }
 
-        return redirect()->route('adminpatchnotes.index')
+        $data = new Patchnotes([
+            'post_title' => $request->post_title,
+            'post_body' => $request->post_body,
+            'games_id' => $request->games_id,
+            'post_image' => $url,
+        ]);
+
+        $data->save();
+
+        return redirect()->route('patchnotes.index')
             ->withSuccess(__('Post created successfully.'));
     }
 
@@ -80,9 +92,23 @@ class AdminPostController extends Controller
      */
     public function update(Request $request, Patchnotes $post)
     {
-        $post->update($request->only('title', 'description', 'body'));
 
-        return redirect()->route('adminpatchnotes.index')
+        if ($file = $request->file('post_image')) {
+            unlink("storage/" . $post->post_image);
+            $path = 'patchnotes/images';
+            $url = $this->file($file, $path, 300, 400);
+        } elseif ($request->file('post_image') == null) {
+            $url = $post->post_image;
+        }
+
+        $post->update([
+            'post_title' => $request->post_title,
+            'post_body' => $request->post_body,
+            'games_id' => $request->games_id,
+            'post_image' => $url,
+        ]);
+
+        return redirect()->route('patchnotes.index')
             ->withSuccess(__('Post updated successfully.'));
     }
 
@@ -94,9 +120,10 @@ class AdminPostController extends Controller
      */
     public function destroy(Patchnotes $post)
     {
+        unlink("storage/" . $post->post_image);
         $post->delete();
 
-        return redirect()->route('adminpatchnotes.index')
+        return redirect()->route('patchnotes.index')
             ->withSuccess(__('Post deleted successfully.'));
     }
 }

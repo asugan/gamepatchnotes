@@ -9,7 +9,7 @@
 
         <div class="container mt-4">
 
-            <form method="POST" action="{{ route('games.update', $post->id) }}">
+            <form method="POST" action="{{ route('games.update', $post->slug) }}" enctype="multipart/form-data">
                 @method('patch')
                 @csrf
                 <div class="row">
@@ -77,6 +77,10 @@
                         <div class="d-flex justify-content-center">
                             <div class="col-6">
                                 <input type="file" name="game_image" class="form-control">
+                                <div class="col-12 text-center mt-4">
+                                    <img src="{{ @App::make('url')->to('/') . '/storage' . $post->game_image }}"
+                                        width="150">
+                                </div>
                             </div>
                         </div>
                     </div>

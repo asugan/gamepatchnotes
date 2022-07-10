@@ -18,6 +18,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
      * Home Routes
      */
     Route::get('/', [App\Http\Controllers\GameController::class, 'index'])->name('welcome');
+    Route::get('/patchnote/{patchnote}', [App\Http\Controllers\GameController::class, 'showpatchnote'])->name('show');
+    Route::get('/game/{game}', [App\Http\Controllers\GameController::class, 'showcategory'])->name('showcg');
 
     Route::group(['middleware' => ['guest']], function () {
         /**
@@ -102,6 +104,3 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::post('/unlike-post/{id}', [App\Http\Controllers\GameController::class, 'UnlikePost'])->name('unlike.post');
     });
 });
-
-Route::get('/patchnote/{patchnote}', [App\Http\Controllers\GameController::class, 'showpatchnote'])->name('show');
-Route::get('/game/{game}', [App\Http\Controllers\GameController::class, 'showcategory'])->name('showcg');

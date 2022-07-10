@@ -52,6 +52,7 @@ class AdminGamesController extends Controller
             'release_date' => $request->release_date,
             'genre' => $request->genre,
             'developer' => $request->developer,
+            'recommended' => $request->recommended,
             'game_image' => $url,
         ]);
 
@@ -111,6 +112,7 @@ class AdminGamesController extends Controller
             'release_date' => $request->release_date,
             'genre' => $request->genre,
             'developer' => $request->developer,
+            'recommended' => $request->recommended,
             'game_image' => $url,
         ]);
 

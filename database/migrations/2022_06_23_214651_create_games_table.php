@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
+            $table->string('recommended')->nullable();
             $table->string('game_name');
             $table->string('game_platform');
             $table->string('game_image');

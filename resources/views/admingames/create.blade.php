@@ -70,6 +70,11 @@
                         </div>
                     </div>
 
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="recommended">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                    </div>
+
                     <div class="col-12 mb-4 mt-3">
                         <div class="d-flex justify-content-center">
                             <div class="col-6">

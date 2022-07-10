@@ -73,6 +73,23 @@
                         </div>
                     </div>
 
+                    <div class="col-12">
+                        <div class="d-flex justify-content-center">
+                            @if ($post->recommended == 'on')
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                    <label class="form-check-label" for="flexSwitchCheckChecked">Recommended</label>
+                                </div>
+                            @else
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
+                                        name="recommended">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Recommended</label>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
                     <div class="col-12 mb-4 mt-3">
                         <div class="d-flex justify-content-center">
                             <div class="col-6">

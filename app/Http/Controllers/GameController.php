@@ -11,14 +11,19 @@ class GameController extends Controller
 {
     public function index()
     {
-        $games = Games::all();
-        $patchnotes = Patchnotes::latest()->take(2)->get();
         $user = Auth::id();
-        $likedgames = Games::whereLikedBy($user)
-            ->with('likeCounter')
+
+        $games = Games::with(['patchnotes' => function ($q) {
+            $q->latest()->take(1);
+        }])->where('recommended', 'on')->get();
+
+        $likedgames = Games::with(['patchnotes' => function ($q) {
+            $q->latest()->take(1);
+        }])
+            ->whereLikedBy($user)
             ->get();
 
-        return view('welcome', compact('games', 'patchnotes', 'likedgames'));
+        return view('welcome', compact('games', 'likedgames'));
     }
 
     public function likePost($id)

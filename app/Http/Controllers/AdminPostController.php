@@ -18,7 +18,7 @@ class AdminPostController extends Controller
     {
         $posts = Patchnotes::latest()->paginate(10);
 
-        return view('adminpatchnotes.index', compact('posts'));
+        return view('admin.adminpatchnotes.index', compact('posts'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        return view('adminpatchnotes.create');
+        return view('admin.adminpatchnotes.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class AdminPostController extends Controller
      */
     public function show(Patchnotes $post)
     {
-        return view('adminpatchnotes.show', [
+        return view('admin.adminpatchnotes.show', [
             'post' => $post
         ]);
     }
@@ -78,7 +78,7 @@ class AdminPostController extends Controller
      */
     public function edit(Patchnotes $post)
     {
-        return view('adminpatchnotes.edit', [
+        return view('admin.adminpatchnotes.edit', [
             'post' => $post
         ]);
     }

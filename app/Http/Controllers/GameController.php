@@ -23,7 +23,13 @@ class GameController extends Controller
             ->whereLikedBy($user)
             ->get();
 
-        return view('welcome', compact('games', 'likedgames'));
+        $latest = Games::with(['patchnotes' => function ($q) {
+            $q->latest()->take(1);
+        }])
+            ->latest()
+            ->get();
+
+        return view('welcome', compact('games', 'likedgames', 'latest'));
     }
 
     public function likePost($id)

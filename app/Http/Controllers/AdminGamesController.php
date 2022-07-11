@@ -20,7 +20,7 @@ class AdminGamesController extends Controller
     {
         $posts = Games::latest()->paginate(10);
 
-        return view('admingames.index', compact('posts'));
+        return view('admin.admingames.index', compact('posts'));
     }
 
     /**
@@ -30,7 +30,7 @@ class AdminGamesController extends Controller
      */
     public function create()
     {
-        return view('admingames.create');
+        return view('admin.admingames.create');
     }
 
     /**
@@ -70,7 +70,7 @@ class AdminGamesController extends Controller
      */
     public function show(Games $post)
     {
-        return view('admingames.show', [
+        return view('admin.admingames.show', [
             'post' => $post
         ]);
     }
@@ -83,7 +83,7 @@ class AdminGamesController extends Controller
      */
     public function edit(Games $post)
     {
-        return view('admingames.edit', [
+        return view('admin.admingames.edit', [
             'post' => $post
         ]);
     }

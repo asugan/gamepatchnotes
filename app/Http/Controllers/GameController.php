@@ -29,7 +29,7 @@ class GameController extends Controller
             ->latest()
             ->get();
 
-        return view('welcome', compact('games', 'likedgames', 'latest'));
+        return view('site.index', compact('games', 'likedgames', 'latest'));
     }
 
     public function likePost($id)
@@ -52,13 +52,13 @@ class GameController extends Controller
 
     public function showpatchnote(Patchnotes $patchnote)
     {
-        return view('patchnotepage', ['patchnote' => $patchnote]);
+        return view('site.patchnotepage', ['patchnote' => $patchnote]);
     }
 
     public function showcategory(Games $game)
     {
         $post = $game->patchnotes()->paginate(9);
 
-        return view('gamepage', ['game' => $game, 'patchnote' => $post]);
+        return view('site.gamepage', ['game' => $game, 'patchnote' => $post]);
     }
 }

@@ -13,18 +13,16 @@ class GameController extends Controller
     {
         $user = Auth::id();
 
-        $games = Games::with(['patchnotes' => function ($q) {
-            $q->latest()->take(1);
-        }])->where('recommended', 'on')->get();
+        $games = Games::where('recommended', 'on')->get();
 
         $likedgames = Games::with(['patchnotes' => function ($q) {
-            $q->latest()->take(1);
+            $q->latest();
         }])
             ->whereLikedBy($user)
             ->get();
 
         $latest = Games::with(['patchnotes' => function ($q) {
-            $q->latest()->take(1);
+            $q->latest();
         }])
             ->latest()
             ->get();
@@ -60,5 +58,28 @@ class GameController extends Controller
         $post = $game->patchnotes()->paginate(9);
 
         return view('site.gamepage', ['game' => $game, 'patchnote' => $post]);
+    }
+
+    public function allgames()
+    {
+
+        $games = Games::with(['patchnotes' => function ($q) {
+            $q->latest();
+        }])->paginate(10);
+
+        return view('site.allgames', compact('games'));
+    }
+
+    public function followedgames()
+    {
+        $user = Auth::id();
+
+        $games = Games::with(['patchnotes' => function ($q) {
+            $q->latest();
+        }])
+            ->whereLikedBy($user)
+            ->paginate(10);
+
+        return view('site.allfavgames', compact('games'));
     }
 }

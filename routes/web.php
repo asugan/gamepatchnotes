@@ -18,8 +18,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
      * Home Routes
      */
     Route::get('/', [App\Http\Controllers\GameController::class, 'index'])->name('welcome');
+    Route::get('/games', [App\Http\Controllers\GameController::class, 'allgames'])->name('allgames');
+    Route::get('/favgames', [App\Http\Controllers\GameController::class, 'followedgames'])->name('followedgames');
     Route::get('/patchnote/{patchnote}', [App\Http\Controllers\GameController::class, 'showpatchnote'])->name('show');
     Route::get('/game/{game}', [App\Http\Controllers\GameController::class, 'showcategory'])->name('showcg');
+    Route::get('search', [App\Http\Controllers\SearchController::class, 'Search'])->name('search');
 
     Route::group(['middleware' => ['guest']], function () {
         /**

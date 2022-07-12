@@ -36,6 +36,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
          */
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
+        Route::get('auth/steam', 'AuthController@redirectToSteam')->name('auth.steam');
+        Route::get('auth/steam/handle', 'AuthController@handle')->name('auth.steam.handle');
     });
 
     Route::group(['middleware' => ['auth', 'permission']], function () {

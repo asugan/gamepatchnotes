@@ -50,6 +50,22 @@
                         <li>
                             <a href="/contact" class="hover:underline">Contact</a>
                         </li>
+                        @guest
+                            <li>
+                                <a href="/register" class="hover:underline">Register</a>
+                            </li>
+                            <li>
+                                <a href="/login" class="hover:underline">Login</a>
+                            </li>
+                            <li>
+                                <a href="/auth/steam" class="hover:underline">Login with Steam</a>
+                            </li>
+                        @endguest
+                        @auth
+                            <li>
+                                <a href="/logout" class="hover:underline">Logout</a>
+                            </li>
+                        @endauth
                     </ul>
                 </div>
                 <div class="md:hidden flex items-center pr-20">

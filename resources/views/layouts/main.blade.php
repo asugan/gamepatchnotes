@@ -29,12 +29,12 @@
 
         <div class="navbg bg-neutral-50 shadow-lg pt-3 pb-3">
             <nav class="flex justify-between container">
-                <div class="logo pl-20">
+                <div class="logo">
                     <img src="https://www.logodesignlove.com/wp-content/uploads/2022/01/logo-wave-symbol-01.jpg"
                         alt="" class="w-24">
                 </div>
                 <div class="navlist flex items-center">
-                    <ul class="hidden md:flex flex-row gap-4 font-bold text-xl pr-20 uppercase">
+                    <ul class="hidden md:flex flex-row gap-4 font-bold text-xl uppercase">
                         <li>
                             <a href="/" class="hover:underline">Home</a>
                         </li>
@@ -43,12 +43,6 @@
                         </li>
                         <li>
                             <a href="/favgames" class="hover:underline">Followed Games</a>
-                        </li>
-                        <li>
-                            <a href="/about" class="hover:underline">About</a>
-                        </li>
-                        <li>
-                            <a href="/contact" class="hover:underline">Contact</a>
                         </li>
                         @guest
                             <li>

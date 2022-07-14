@@ -13,18 +13,20 @@ class GameController extends Controller
     {
         $user = Auth::id();
 
-        $games = Games::where('recommended', 'on')->get();
+        $games = Games::where('recommended', 'on')->take(10)->get();
 
         $likedgames = Games::with(['patchnotes' => function ($q) {
             $q->latest();
         }])
             ->whereLikedBy($user)
+            ->take(5)
             ->get();
 
         $latest = Games::with(['patchnotes' => function ($q) {
             $q->latest();
         }])
             ->latest()
+            ->take(5)
             ->get();
 
         return view('site.index', compact('games', 'likedgames', 'latest'));

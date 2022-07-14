@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+body{
+    font-family: 'Sora', sans-serif;
+}
+
+
+.owl-prev, .owl-next {
+    width: 15px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block !important;
+    border:0px solid black;
+}
+.owl-prev { left: -40px; }
+.owl-next { right: -40px; }
+.owl-prev i, .owl-next i {transform : scale(3,5); color: black;}

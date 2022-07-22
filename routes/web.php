@@ -18,11 +18,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
      * Home Routes
      */
     Route::get('/', [App\Http\Controllers\GameController::class, 'index'])->name('welcome');
+    Route::get('/arrays', [App\Http\Controllers\ApiContoller::class, 'arraybakmak'])->name('arrays');
+    Route::get('/lnotes', [App\Http\Controllers\GameController::class, 'latestpatchnotes'])->name('lpatchnotes');
     Route::get('/games', [App\Http\Controllers\GameController::class, 'allgames'])->name('allgames');
     Route::get('/favgames', [App\Http\Controllers\GameController::class, 'followedgames'])->name('followedgames');
     Route::get('/patchnote/{patchnote}', [App\Http\Controllers\GameController::class, 'showpatchnote'])->name('show');
     Route::get('/game/{game}', [App\Http\Controllers\GameController::class, 'showcategory'])->name('showcg');
     Route::get('search', [App\Http\Controllers\SearchController::class, 'Search'])->name('search');
+    Route::get('searchpn', [App\Http\Controllers\SearchController::class, 'Patchnote'])->name('searchpn');
 
     Route::group(['middleware' => ['guest']], function () {
         /**
@@ -60,19 +63,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         });
 
         /**
-         * User Routes
-         */
-        Route::group(['prefix' => 'admin/posts'], function () {
-            Route::get('/', 'PostsController@index')->name('posts.index');
-            Route::get('/create', 'PostsController@create')->name('posts.create');
-            Route::post('/create', 'PostsController@store')->name('posts.store');
-            Route::get('/{post}/show', 'PostsController@show')->name('posts.show');
-            Route::get('/{post}/edit', 'PostsController@edit')->name('posts.edit');
-            Route::patch('/{post}/update', 'PostsController@update')->name('posts.update');
-            Route::delete('/{post}/delete', 'PostsController@destroy')->name('posts.destroy');
-        });
-
-        /**
          * Games Routes
          */
         Route::group(['prefix' => 'admin/games'], function () {
@@ -102,10 +92,16 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
          * Admin Routes
          */
         Route::get('/admin', 'HomeController@index')->name('home.index');
-
         Route::resource('admin/roles', RolesController::class);
         Route::resource('admin/permissions', PermissionsController::class);
+
+        /**
+         * Permission Routes
+         */
         Route::post('/like-post/{id}', [App\Http\Controllers\GameController::class, 'LikePost'])->name('like.post');
         Route::post('/unlike-post/{id}', [App\Http\Controllers\GameController::class, 'UnlikePost'])->name('unlike.post');
+
+        Route::get('/oyuntara', 'ApiContoller@Addgames')->name('oyunekle');
+        Route::get('/patchnotetara', 'ApiContoller@Addpatchnotes')->name('patchnoteekle');
     });
 });

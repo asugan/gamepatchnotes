@@ -1,21 +1,29 @@
 @extends('layouts.main')
 @section('content')
-    <div class="container pt-4 pb-4">
-        <form action="{{ route('search') }}" method="get">
-            {{ csrf_field() }}
-            <div class="flex items-center justify-center">
-                <div class="flex border-2 rounded">
-                    <input name="search" type="text" class="px-4 py-2 w-80" placeholder="Search a Game!">
-                    <button class="flex items-center justify-center px-4 border-l">
-                        <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-                        </svg>
-                    </button>
+    <div class="container grid lg:grid-cols-3 pt-4 pb-4 text-center gap-4 lg:gap-0">
+        <div class="gamecount">
+            <h1 class="text-2xl font-bold">Total Games In DB : {{ $gamecount }}</h1>
+        </div>
+        <div class="searchbar">
+            <form action="{{ route('search') }}" method="get">
+                {{ csrf_field() }}
+                <div class="flex items-center justify-center">
+                    <div class="flex border-2 rounded">
+                        <input name="search" type="text" class="px-4 py-2 w-80" placeholder="Search a Game!">
+                        <button class="flex items-center justify-center px-4 border-l">
+                            <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        <div class="patchnotecount">
+            <h1 class="text-2xl font-bold">Total Patchnotes In DB : {{ $patchnotescount }}</h1>
+        </div>
     </div>
 
     <section class="game-slider px-24">
@@ -23,8 +31,7 @@
             @foreach ($games as $game)
                 <div class="item">
                     <a href="{{ route('showcg', ['game' => $game->slug]) }}">
-                        <img src="{{ @App::make('url')->to('/') . '/storage' . $game->game_image }}" alt=""
-                            class="h-96" />
+                        <img src="{{ $game->game_image }}" alt="" class="h-96" />
                     </a>
                 </div>
             @endforeach
@@ -45,14 +52,13 @@
                             <div class="bg-neutral-50 rounded overflow-hidden shadow-lg mt-4 mb-4">
                                 <div class="grid grid-cols-1 lg:grid-cols-2">
                                     <div class="firstgrid image p-4 self-center">
-                                        <a href="{{ route('showcg', ['game' => $game->slug]) }}">
-                                            <img src="{{ @App::make('url')->to('/') . '/storage' . $gameliked->game_image }}"
-                                                class="h-64 w-full" alt="">
+                                        <a href="{{ route('showcg', ['game' => $gameliked->slug]) }}">
+                                            <img src="{{ $gameliked->game_image }}" class="h-64 w-full" alt="">
                                         </a>
                                     </div>
                                     <div class="secondgrid pr-2 pl-2 lg:pl-0 flex flex-col justify-between">
                                         <div class="text">
-                                            <a href="{{ route('showcg', ['game' => $game->slug]) }}">
+                                            <a href="{{ route('showcg', ['game' => $gameliked->slug]) }}">
                                                 <h1 class="text-3xl text-center pt-4 pb-4">
                                                     {{ $gameliked->game_name }}
                                                 </h1>
@@ -60,14 +66,7 @@
                                         </div>
                                         @if (!$gameliked->patchnotes->isEmpty())
                                             <div class="grid grid-cols-3 gap-3 bg-slate-200 shadow-lg px-1 py-1">
-                                                <div class="imagediv self-center">
-                                                    <a
-                                                        href="{{ route('show', ['patchnote' => $gameliked->patchnotes->first()->slug]) }}">
-                                                        <img src="{{ @App::make('url')->to('/') . '/storage' . $gameliked->patchnotes->first()->post_image }}"
-                                                            class="object fill h-24 w-24" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="patchnote flex flex-col gap-1 col-start-2 col-end-4">
+                                                <div class="patchnote flex flex-col gap-1 col-start-1 col-end-4">
                                                     <a
                                                         href="{{ route('show', ['patchnote' => $gameliked->patchnotes->first()->slug]) }}">
                                                         <h1 class="text-lg">
@@ -131,14 +130,13 @@
                         <div class="bg-neutral-50 rounded overflow-hidden shadow-lg mt-4 mb-4">
                             <div class="grid grid-cols-1 lg:grid-cols-2">
                                 <div class="firstgrid image p-4 self-center">
-                                    <a href="{{ route('showcg', ['game' => $game->slug]) }}">
-                                        <img src="{{ @App::make('url')->to('/') . '/storage' . $gameliked->game_image }}"
-                                            class="h-64 w-full" alt="">
+                                    <a href="{{ route('showcg', ['game' => $gameliked->slug]) }}">
+                                        <img src="{{ $gameliked->game_image }}" class="h-64 w-full" alt="">
                                     </a>
                                 </div>
                                 <div class="secondgrid pr-2 pl-2 lg:pl-0 flex flex-col justify-between">
                                     <div class="text">
-                                        <a href="{{ route('showcg', ['game' => $game->slug]) }}">
+                                        <a href="{{ route('showcg', ['game' => $gameliked->slug]) }}">
                                             <h1 class="text-3xl text-center pt-4 pb-4
                                     ">
                                                 {{ $gameliked->game_name }}
@@ -147,14 +145,7 @@
                                     </div>
                                     @if (!$gameliked->patchnotes->isEmpty())
                                         <div class="grid grid-cols-3 gap-3 bg-slate-200 shadow-lg px-1 py-1">
-                                            <div class="imagediv self-center">
-                                                <a
-                                                    href="{{ route('show', ['patchnote' => $gameliked->patchnotes->first()->slug]) }}">
-                                                    <img src="{{ @App::make('url')->to('/') . '/storage' . $gameliked->patchnotes->first()->post_image }}"
-                                                        class="object fill h-24 w-24" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="patchnote flex flex-col gap-1 col-start-2 col-end-4">
+                                            <div class="patchnote flex flex-col gap-1 col-start-1 col-end-4">
                                                 <a
                                                     href="{{ route('show', ['patchnote' => $gameliked->patchnotes->first()->slug]) }}">
                                                     <h1 class="text-lg">{{ $gameliked->patchnotes->first()->post_title }}
@@ -170,8 +161,7 @@
                                     <div class="likebutton py-4 flex justify-center content-center">
                                         <td class="px-6 py-4 text-sm text-gray-500 border-b border-gray-200">
                                             @if ($gameliked->liked())
-                                                <form action="{{ route('unlike.post', $gameliked->id) }}"
-                                                    method="post">
+                                                <form action="{{ route('unlike.post', $gameliked->id) }}" method="post">
                                                     @csrf
                                                     <button
                                                         class="{{ $gameliked->liked() ? 'block' : 'hidden' }} px-4 py-2 text-white bg-red-600">

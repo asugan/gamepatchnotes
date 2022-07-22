@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="container pt-4 pb-4">
+    <div class="container pt-8">
         <form action="{{ route('search') }}" method="get">
             {{ csrf_field() }}
             <div class="flex items-center justify-center">
@@ -18,8 +18,8 @@
         </form>
     </div>
 
-    <div class="container pb-8">
-        <h1 class="text-center text-4xl font-bold pb-4">All Games</h1>
+    <div class="container py-8">
+        <h1 class="text-center text-4xl font-bold pb-8">All Games ({{ $gamecount }})</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             @foreach ($games as $gameliked)
                 <div class="likedgames">
@@ -27,8 +27,7 @@
                         <div class="grid grid-cols-1 lg:grid-cols-2">
                             <div class="firstgrid image p-4 self-center">
                                 <a href="{{ route('showcg', ['game' => $gameliked->slug]) }}">
-                                    <img src="{{ @App::make('url')->to('/') . '/storage' . $gameliked->game_image }}"
-                                        class="h-64 w-full" alt="">
+                                    <img src="{{ $gameliked->game_image }}" class="h-64 w-full" alt="">
                                 </a>
                             </div>
                             <div class="secondgrid pr-2 pl-2 lg:pl-0 flex flex-col justify-between">
@@ -42,14 +41,7 @@
                                 </div>
                                 @if (!$gameliked->patchnotes->isEmpty())
                                     <div class="grid grid-cols-3 gap-3 bg-slate-200 shadow-lg px-1 py-1">
-                                        <div class="imagediv self-center">
-                                            <a
-                                                href="{{ route('show', ['patchnote' => $gameliked->patchnotes->first()->slug]) }}">
-                                                <img src="{{ @App::make('url')->to('/') . '/storage' . $gameliked->patchnotes->first()->post_image }}"
-                                                    class="object fill h-24 w-24" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="patchnote flex flex-col gap-1 col-start-2 col-end-4">
+                                        <div class="patchnote flex flex-col gap-1 col-start-1 col-end-4">
                                             <a
                                                 href="{{ route('show', ['patchnote' => $gameliked->patchnotes->first()->slug]) }}">
                                                 <h1 class="text-lg">{{ $gameliked->patchnotes->first()->post_title }}
@@ -89,7 +81,7 @@
                 </div>
             @endforeach
         </div>
-        <div class="">
+        <div class="mt-5">
             {{ $games->links() }}
         </div>
     </div>

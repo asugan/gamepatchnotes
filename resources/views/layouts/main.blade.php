@@ -31,10 +31,10 @@
             <nav class="flex justify-between container">
                 <div class="logo">
                     <img src="https://www.logodesignlove.com/wp-content/uploads/2022/01/logo-wave-symbol-01.jpg"
-                        alt="" class="w-24">
+                        alt="" class="w-12">
                 </div>
                 <div class="navlist flex items-center">
-                    <ul class="hidden md:flex flex-row gap-4 font-bold text-xl uppercase">
+                    <ul class="hidden md:flex flex-row gap-4 font-bold uppercase">
                         <li>
                             <a href="/" class="hover:underline">Home</a>
                         </li>
@@ -43,6 +43,9 @@
                         </li>
                         <li>
                             <a href="/favgames" class="hover:underline">Followed Games</a>
+                        </li>
+                        <li>
+                            <a href="/lnotes" class="hover:underline">Latest Patchnotes</a>
                         </li>
                         @guest
                             <li>

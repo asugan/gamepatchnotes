@@ -21,13 +21,23 @@
         <div class="flex flex-col gap-8">
             <h1 class="text-center text-3xl">Total Results in DB : ({{ count($results) }})</h1>
             @foreach ($results as $item)
-                <div class="patchnote bg-neutral-50 shadow-lg flex gap-4">
-                    <a href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                        <h3 class="text-xl px-4 py-4">{{ $item->games_id }}</h3>
-                    </a>
-                    <a href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                        <h1 class="text-2xl py-4">{{ $item->post_title }}</h1>
-                    </a>
+                <div
+                    class="patchnote bg-neutral-50 shadow-lg grid grid-cols-1 md:grid-cols-4 md:gap-4 text-center md:text-left py-2">
+                    <div class="grid1 md:col-start-1 md:col-end-2">
+                        <a href="{{ route('show', ['patchnote' => $item->slug]) }}">
+                            <h3 class="text-xl px-4 py-4">Steam APP ID : {{ $item->games_id }}</h3>
+                        </a>
+                    </div>
+                    <div class="grid2 md:col-start-2 md:col-end-5">
+                        <div class="flex flex-cols gap-4">
+                            <a href="{{ route('show', ['patchnote' => $item->slug]) }}">
+                                <img src="{{ $item->post_image }}" alt="" class="w-32 max-h-16 ml-2 md:ml-0">
+                            </a>
+                            <a href="{{ route('show', ['patchnote' => $item->slug]) }}">
+                                <h1 class="text-xl py-4">{{ $item->post_title }}</h1>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             @endforeach
         </div>

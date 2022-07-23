@@ -18,13 +18,6 @@ class GameController extends Controller
         $gamecount = Games::all()->count();
         $patchnotescount = Patchnotes::all()->count();
 
-        $likedgames = Games::with(['patchnotes' => function ($q) {
-            $q->latest();
-        }])
-            ->whereLikedBy($user)
-            ->take(5)
-            ->get();
-
         $latest = Games::with(['patchnotes' => function ($q) {
             $q->latest();
         }])
@@ -32,7 +25,9 @@ class GameController extends Controller
             ->take(5)
             ->get();
 
-        return view('site.index', compact('games', 'likedgames', 'latest', 'gamecount', 'patchnotescount'));
+        $hamham = Patchnotes::latest()->take(12)->get();
+
+        return view('site.index', compact('games', 'latest', 'gamecount', 'patchnotescount', 'hamham'));
     }
 
     public function likePost($id)
@@ -96,7 +91,8 @@ class GameController extends Controller
     {
 
         $hamham = Patchnotes::latest()->paginate(10);
+        $patchnotescount = Patchnotes::all()->count();
 
-        return view('site.latestpatchnotes', compact('hamham'));
+        return view('site.latestpatchnotes', compact('hamham', 'patchnotescount'));
     }
 }

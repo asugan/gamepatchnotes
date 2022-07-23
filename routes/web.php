@@ -103,5 +103,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
         Route::get('/oyuntara', 'ApiContoller@Addgames')->name('oyunekle');
         Route::get('/patchnotetara', 'ApiContoller@Addpatchnotes')->name('patchnoteekle');
+        Route::get('/pn', 'NewApiController@topla')->name('patchnoteekle2');
+        Route::get('/bibakam', 'NewApiController@bibakam')->name('bibakam');
+        Route::get('/postpage', 'NewApiController@postpage')->name('postpage');
+        Route::get('/postpage2', 'NewApiController@post')->name('post');
     });
 });

@@ -42,10 +42,10 @@
                             <a href="/games" class="hover:underline">All Games</a>
                         </li>
                         <li>
-                            <a href="/favgames" class="hover:underline">Followed Games</a>
+                            <a href="/lnotes" class="hover:underline">All Patchnotes</a>
                         </li>
                         <li>
-                            <a href="/lnotes" class="hover:underline">Latest Patchnotes</a>
+                            <a href="/favgames" class="hover:underline">Followed Games</a>
                         </li>
                         @guest
                             <li>

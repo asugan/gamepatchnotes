@@ -1,3 +1,3 @@
-@foreach ($response2 as $item)
-    {{ dd($item) }}
+@foreach ($bak as $item)
+    {{ $item->id }}
 @endforeach

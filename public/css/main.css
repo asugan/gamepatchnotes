@@ -17,3 +17,34 @@ body{
 .owl-prev { left: -40px; }
 .owl-next { right: -40px; }
 .owl-prev i, .owl-next i {transform : scale(3,5); color: black;}
+
+.pncontainer p {
+    margin: 1rem 0;
+}
+
+.pncontainer h2 {
+    margin: 1rem 0;
+}
+
+.pncontainer li {
+    margin: 1rem 0;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.pncontainer ul {
+    margin: 1rem 0;
+    list-style-type: disc;
+}
+
+.pncontainer h3 {
+    margin: 1rem 0;
+}
+.pncontainer h1 {
+    margin: 1rem 0;
+}
+
+.pncontainer h4 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}

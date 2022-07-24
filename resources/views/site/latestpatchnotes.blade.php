@@ -25,17 +25,19 @@
                     class="patchnote bg-neutral-50 shadow-lg grid grid-cols-1 md:grid-cols-4 md:gap-4 text-center md:text-left py-2 items-center">
                     <div class="grid1 md:col-start-1 md:col-end-2">
                         <a href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                            <h3 class="text-xl text-center">APP ID : {{ $item->games_id }}</h3>
+                            <h3 class="text-xl text-center duration-150 hover:text-indigo-500">APP ID :
+                                {{ $item->games_id }}</h3>
                         </a>
                     </div>
                     <div class="grid2 md:col-start-2 md:col-end-3 justify-self-center px-2 py-2">
-                        <a href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                            <img src="{{ $item->post_image }}" alt="" class="w-32 h-16 ml-2 md:ml-0">
+                        <a class="bg-indigo-800 inline-block" href="{{ route('show', ['patchnote' => $item->slug]) }}">
+                            <img src="{{ $item->post_image }}" alt=""
+                                class="w-32 h-16 ml-2 md:ml-0 hover:opacity-50 duration-300">
                         </a>
                     </div>
                     <div class="grid3 md:col-start-3 md:col-end-5 md:pr-8 pr-0">
                         <a href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                            <h1 class="text-xl py-4">{{ $item->post_title }}</h1>
+                            <h1 class="text-xl py-4 duration-150 hover:text-indigo-500">{{ $item->post_title }}</h1>
                         </a>
                     </div>
                 </div>

@@ -17,7 +17,7 @@ class NewApiController extends Controller
             $ids = array($hamham->id);
 
             foreach ($ids as $q) {
-                $hamham_response = HTTP::acceptJson()->get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=' . $q . '&count=1&maxlength=0&format=json&tags=patchnotes');
+                $hamham_response = HTTP::acceptJson()->get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=' . $q . '&count=1&maxlength=0&format=json&feedlabel=SteamDB');
                 $response2 = json_decode($hamham_response);
                 $game_image = 'https://cdn.cloudflare.steamstatic.com/steam/apps/' . $q . '/header.jpg';
                 if ($game_image === null) {

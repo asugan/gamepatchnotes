@@ -44,7 +44,7 @@
         </table>
 
         <div class="d-flex">
-            {!! $posts->links() !!}
+            {!! $posts->links('pagination::bootstrap-4') !!}
         </div>
 
     </div>

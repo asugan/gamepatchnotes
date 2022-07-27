@@ -50,7 +50,7 @@
         </table>
 
         <div class="d-flex">
-            {!! $users->links() !!}
+            {!! $users->links('pagination::bootstrap-4') !!}
         </div>
 
     </div>

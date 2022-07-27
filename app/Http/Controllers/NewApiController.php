@@ -54,18 +54,6 @@ class NewApiController extends Controller
         return redirect()->route('home.index');
     }
 
-    public function bibakam()
-    {
-        $bak = Games::all();
-
-        return view('site.arrays', compact('bak'));
-    }
-
-    public function postpage()
-    {
-        return view('site.postpage');
-    }
-
     public function post(Request $request)
     {
         $q = $request->input('gameid');
@@ -105,6 +93,6 @@ class NewApiController extends Controller
             }
         }
 
-        return redirect()->route('postpage');
+        return redirect()->route('home.index');
     }
 }

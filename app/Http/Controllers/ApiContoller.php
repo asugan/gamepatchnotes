@@ -9,17 +9,6 @@ use Illuminate\Support\Facades\Http;
 
 class ApiContoller extends Controller
 {
-    public function arraybakmak()
-    {
-        $api_response = HTTP::acceptJson()->get('https://store.steampowered.com/api/appdetails?appids=730');
-        $response = json_decode($api_response);
-        $hamham_response = HTTP::acceptJson()->get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=730&count=1&maxlength=0&format=json&tags=patchnotes');
-        $response2 = json_decode($hamham_response);
-
-
-        return view('site.arrays', compact('response'));
-    }
-
     public function Addgames(Request $request)
     {
         for ($q = 10; $q <= 10000; $q += 10) {

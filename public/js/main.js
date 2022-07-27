@@ -1,17 +1,20 @@
 const btn = document.querySelector("button.mobile-menu-button");
 const menu = document.querySelector(".mobile-menu");
+const container = $(".pncontainer");
 
 btn.addEventListener("click", () => {
     menu.classList.toggle("hidden");
 });
 
-$(function () {
-    $("body").html(
-        $("body")
-            .html()
-            .replace(/<br>\\*/g, "</p><p>")
-    );
-});
+if (container.length) {
+    var elems = document.getElementsByTagName("body")[0];
+
+    var target = elems.innerHTML;
+    elems.innerHTML = target
+        .replace(/(<br)/gim, "<p")
+        .replace(/<\/br>/gim, "</p>");
+    $("img").addClass("mx-auto");
+}
 
 jQuery(document).ready(function () {
     jQuery("p").each(function () {

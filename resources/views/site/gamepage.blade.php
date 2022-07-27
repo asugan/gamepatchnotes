@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="patchnote md:col-start-1 md:col-end-4 md:row-start-1">
+            <article class="patchnote md:col-start-1 md:col-end-4 md:row-start-1">
                 @forelse ($patchnotes as $patchnote)
                     @php
                         $hamham = Illuminate\Support\Str::replace('{STEAM_CLAN_IMAGE}', 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans', $patchnote->post_body);
@@ -65,30 +65,32 @@
                         $hamham14 = Illuminate\Support\Str::replace('[*]', '<li>', $hamham13);
                         $hamham15 = Illuminate\Support\Str::replace('[hr]', '', $hamham14);
                         $hamham16 = Illuminate\Support\Str::replace('[/hr]', '', $hamham15);
-                        $hamham17 = Illuminate\Support\Str::replace(['[url=', ']', '[/url>', '[i>', '[/i>', '[previewyoutube=' , '[/previewyoutube>', ';full>', '[code>', '[/code>'], ['<a href=', '>', '</a>', '<i>', '</i>', 'https://www.youtube.com/watch?v=' , '<br>', '', '', ''], $hamham16);
+                        $hamham17 = Illuminate\Support\Str::replace(['[url=', ']', '[/url>', '[i>', '[/i>', '[previewyoutube=' , '[/previewyoutube>', ';full>', '[code>', '[/code>', '[/*>'], ['<a href=', '>', '</a>', '<i>', '</i>', 'https://www.youtube.com/watch?v=' , '<br>', '', '', '', ''], $hamham16);
                         
                         $hamham18 = nl2br($hamham17);
                     @endphp
-                    <div class="flex flex-col items-center bg-neutral-50 shadow-lg mb-4 py-8 gap-2">
-                        <a href="{{ route('show', ['patchnote' => $patchnote->slug]) }}">
-                            <h1
-                                class="text-center text-4xl font-bold pb-4 px-0 lg:px-24 duration-150 hover:text-indigo-500">
-                                {{ $patchnote->post_title }}
-                            </h1>
-                        </a>
-                        <a class="bg-indigo-800 inline-block"
-                            href="{{ route('show', ['patchnote' => $patchnote->slug]) }}">
-                            <img class="object-fill h-64 w-96 hover:opacity-50 duration-300"
-                                src="{{ $patchnote->post_image }}" alt="">
-                        </a>
-                        <div class="px-4 pb-8 pt-4 break-all pncontainer md:px-24">
-                            {!! Illuminate\Support\Str::limit($hamham18, 500, $end = '...') !!}
+                    <section class="{{ $patchnote->post_title }}">
+                        <div class="flex flex-col items-center bg-neutral-50 shadow-lg mb-4 py-8 gap-2">
+                            <a href="{{ route('show', ['patchnote' => $patchnote->slug]) }}">
+                                <h1
+                                    class="text-center text-4xl font-bold pb-4 px-0 lg:px-24 duration-150 hover:text-indigo-500">
+                                    {{ $patchnote->post_title }}
+                                </h1>
+                            </a>
+                            <a class="bg-indigo-800 inline-block"
+                                href="{{ route('show', ['patchnote' => $patchnote->slug]) }}">
+                                <img class="object-fill h-64 w-96 hover:opacity-50 duration-300"
+                                    src="{{ $patchnote->post_image }}" alt="">
+                            </a>
+                            <div class="px-4 pb-8 pt-4 break-all pncontainer md:px-24">
+                                {!! Illuminate\Support\Str::limit($hamham18, 500, $end = '...') !!}
+                            </div>
+                            <div class="button">
+                                <a class="inline-flex items-center h-12 px-8 mb-6 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-gray-600 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+                                    href="{{ route('show', ['patchnote' => $patchnote->slug]) }}">Read the Patchnote</a>
+                            </div>
                         </div>
-                        <div class="button">
-                            <a class="inline-flex items-center h-12 px-8 mb-6 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-gray-600 rounded-lg focus:shadow-outline hover:bg-indigo-800"
-                                href="{{ route('show', ['patchnote' => $patchnote->slug]) }}">Read the Patchnote</a>
-                        </div>
-                    </div>
+                    </section>
                     <div class="mt-5">
                         {{ $patchnotes->links() }}
                     </div>
@@ -97,7 +99,7 @@
                         <h1 class="text-3xl font-bold">No Patchnotes Yet...</h1>
                     </div>
                 @endforelse
-            </div>
+            </article>
         </div>
     </div>
 @endsection

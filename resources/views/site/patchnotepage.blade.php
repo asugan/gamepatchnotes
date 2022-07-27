@@ -20,19 +20,21 @@
     $hamham14 = Illuminate\Support\Str::replace('[*]', '<li>', $hamham13);
     $hamham15 = Illuminate\Support\Str::replace('[hr]', '', $hamham14);
     $hamham16 = Illuminate\Support\Str::replace('[/hr]', '', $hamham15);
-    $hamham17 = Illuminate\Support\Str::replace(['[url=', ']', '[/url>', '[i>', '[/i>', '[previewyoutube=' , '[/previewyoutube>', ';full>', '[code>', '[/code>'], ['<a href=', '>', '</a>', '<i>', '</i>', 'https://www.youtube.com/watch?v=' , '<br>', '', '', ''], $hamham16);
+    $hamham17 = Illuminate\Support\Str::replace(['[url=', ']', '[/url>', '[i>', '[/i>', '[previewyoutube=' , '[/previewyoutube>', ';full>', '[code>', '[/code>', '[/*>'], ['<a href=', '>', '</a>', '<i>', '</i>', 'https://www.youtube.com/watch?v=' , '<br>', '', '', '', ''], $hamham16);
 
     $hamham18 = nl2br($hamham17);
 
     @endphp
 
     <div class="container pt-8 pb-8">
-        <div class="flex flex-col items-center bg-neutral-50 shadow-lg px-12 py-8">
-            <h1 class="text-center text-4xl font-bold pb-4 px-0 lg:px-24">{{ $patchnote->post_title }}</h1>
-            <img class="object-fill h-64 w-96" src="{{ $patchnote->post_image }}" alt="">
-            <div class="px-4 pb-8 pt-4 md:px-24 break-all pncontainer">
-                {!! $hamham18 !!}
+        <article class="{{ $patchnote->post_title }}">
+            <div class="flex flex-col items-center bg-neutral-50 shadow-lg px-12 py-8">
+                <h1 class="text-center text-4xl font-bold pb-4 px-0 lg:px-24">{{ $patchnote->post_title }}</h1>
+                <img class="object-fill h-64 w-96" src="{{ $patchnote->post_image }}" alt="">
+                <div class="px-4 pb-8 pt-4 md:px-24 break-all pncontainer">
+                    {!! $hamham18 !!}
+                </div>
             </div>
-        </div>
+        </article>
     </div>
 @endsection

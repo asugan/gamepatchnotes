@@ -48,3 +48,9 @@ body{
     margin-top: 30px;
     margin-bottom: 10px;
 }
+
+@media (max-width: 768px) { 
+    .md{
+        display: none;
+    }
+}

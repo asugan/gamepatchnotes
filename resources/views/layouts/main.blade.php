@@ -3,16 +3,30 @@
 
 <head>
     <!-- Metas -->
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="title" content="@yield('title')">
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
     <meta name="author" content="Skidrow and Codex Torrent">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url()->current() }}/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="All Patch Notes - Every News and Patch Releases for Games">
+    <meta property="og:description"
+        content="Find the Most Popular Games Updates, News and Patch Notes when the developer releases. Follow your game and get notifications when updated.">
+    <meta property="og:url" content="{{ url()->current() }}/">
+    <meta property="og:site_name" content="All Patch Notes">
+    <meta property="article:publisher" content="https://www.facebook.com/allpatchnotes">
+    <meta property="article:published_time" content="2022-06-08T12:09:44+00:00">
+    <meta property="article:modified_time" content="2022-02-24T08:31:04+00:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:label1" content="Est. reading time">
+    <meta name="twitter:data1" content="1 minute">
 
     <!-- Title  -->
     <title>@yield('title')</title>
@@ -45,7 +59,7 @@
                     </a>
                 </div>
                 <div class="navlist flex items-center">
-                    <ul class="hidden lg:flex flex-row gap-4 font-bold uppercase">
+                    <ul class="hidden xl:flex flex-row gap-4 font-bold uppercase items-center">
                         <li>
                             <a href="/" class="duration-150 hover:text-indigo-500 hover:underline">Home</a>
                         </li>
@@ -53,7 +67,7 @@
                             <a href="/games" class="duration-150 hover:text-indigo-500 hover:underline">All Games</a>
                         </li>
                         <li>
-                            <a href="/lnotes" class="duration-150 hover:text-indigo-500 hover:underline">All
+                            <a href="/latestnotes" class="duration-150 hover:text-indigo-500 hover:underline">All
                                 Patchnotes</a>
                         </li>
                         <li>
@@ -68,8 +82,9 @@
                                 <a href="/login" class="duration-150 hover:text-indigo-500 hover:underline">Login</a>
                             </li>
                             <li>
-                                <a href="/auth/steam" class="duration-150 hover:text-indigo-500 hover:underline">Login with
-                                    Steam</a>
+                                <a href="/auth/steam" class="bg-indigo-800 inline-block"><img
+                                        class="w-48 hover:opacity-50 duration-300"
+                                        src="https://www.luvclan.nl/images/steam_login_bar.png" alt=""></a>
                             </li>
                         @endguest
                         @auth
@@ -79,7 +94,29 @@
                         @endauth
                     </ul>
                 </div>
-                <div class="lg:hidden flex items-center pr-20">
+                <div class="xl:hidden navlist md flex items-center">
+                    <ul class="flex flex-row gap-4 font-bold uppercase items-center">
+                        @guest
+                            <li>
+                                <a href="/register" class="duration-150 hover:text-indigo-500 hover:underline">Register</a>
+                            </li>
+                            <li>
+                                <a href="/login" class="duration-150 hover:text-indigo-500 hover:underline">Login</a>
+                            </li>
+                            <li>
+                                <a href="/auth/steam" class="bg-indigo-800 inline-block"><img
+                                        class="w-48 hover:opacity-50 duration-300"
+                                        src="https://www.luvclan.nl/images/steam_login_bar.png" alt=""></a>
+                            </li>
+                        @endguest
+                        @auth
+                            <li>
+                                <a href="/logout" class="duration-150 hover:text-indigo-500 hover:underline">Logout</a>
+                            </li>
+                        @endauth
+                    </ul>
+                </div>
+                <div class="xl:hidden flex items-center">
                     <button class="outline-none mobile-menu-button">
                         <svg class=" w-6 h-6 text-gray-500 hover:text-green-500 " x-show="!showMenu" fill="none"
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
@@ -89,7 +126,7 @@
                     </button>
                 </div>
             </nav>
-            <div class="hidden mobile-menu">
+            <div class="hidden mobile-menu text-center">
                 <ul class="">
                     <li class="active"><a href="/"
                             class="block text-sm px-2 py-4 text-white bg-indigo-800 font-semibold">Home</a></li>

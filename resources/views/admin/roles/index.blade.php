@@ -40,7 +40,7 @@
         </table>
 
         <div class="d-flex">
-            {!! $roles->links() !!}
+            {!! $roles->links('pagination::bootstrap-4') !!}
         </div>
 
     </div>

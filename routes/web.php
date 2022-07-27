@@ -18,8 +18,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
      * Home Routes
      */
     Route::get('/', [App\Http\Controllers\GameController::class, 'index'])->name('welcome');
-    Route::get('/arrays', [App\Http\Controllers\ApiContoller::class, 'arraybakmak'])->name('arrays');
-    Route::get('/lnotes', [App\Http\Controllers\GameController::class, 'latestpatchnotes'])->name('lpatchnotes');
+    Route::get('/latestnotes', [App\Http\Controllers\GameController::class, 'latestpatchnotes'])->name('lpatchnotes');
     Route::get('/games', [App\Http\Controllers\GameController::class, 'allgames'])->name('allgames');
     Route::get('/favgames', [App\Http\Controllers\GameController::class, 'followedgames'])->name('followedgames');
     Route::get('/patchnote/{patchnote}', [App\Http\Controllers\GameController::class, 'showpatchnote'])->name('show');
@@ -102,11 +101,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::post('/like-post/{id}', [App\Http\Controllers\GameController::class, 'LikePost'])->name('like.post');
         Route::post('/unlike-post/{id}', [App\Http\Controllers\GameController::class, 'UnlikePost'])->name('unlike.post');
 
-        Route::get('/oyuntara', 'ApiContoller@Addgames')->name('oyunekle');
-        Route::get('/patchnotetara', 'ApiContoller@Addpatchnotes')->name('patchnoteekle');
+        /**
+         * Game and Add Patchnote
+         */
         Route::get('/pn', 'NewApiController@topla')->name('patchnoteekle2');
-        Route::get('/bibakam', 'NewApiController@bibakam')->name('bibakam');
-        Route::get('/postpage', 'NewApiController@postpage')->name('postpage');
-        Route::get('/postpage2', 'NewApiController@post')->name('post');
+        Route::get('/postgame', 'NewApiController@post')->name('post');
     });
 });

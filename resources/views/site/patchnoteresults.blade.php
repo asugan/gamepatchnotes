@@ -1,4 +1,14 @@
 @extends('layouts.main')
+@section('title', 'Latest Patch Notes - Get Latest News and Latest Patchnotes for Games')
+@section('description', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
+    'notification when game updated!')
+@section('keywords', 'Patchnotes,Latest Patchnotes,Game Patchnotes,Game News,Game Latest Patchnotes,Game Latest,' .
+    'News,Patchnotes for games,latest news')
+@section('og.title', 'Latest Patch Notes - Get Latest News and Latest Patchnotes for Games')
+@section('og.desc', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
+    'notification when game updated!')
+@section('og.type', 'website')
+@section('og_image', 'http://latestpatchnote.com/images/lpnotes.png')
 @section('content')
     <div class="container pt-8">
         <form action="{{ route('searchpn') }}" method="get">

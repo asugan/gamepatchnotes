@@ -55,7 +55,7 @@ class GameController extends Controller
 
     public function showcategory(Games $game)
     {
-        $post = $game->patchnotes()->paginate(4);
+        $post = $game->patchnotes()->latest()->paginate(4);
 
         return view('site.gamepage', ['game' => $game, 'patchnotes' => $post]);
     }

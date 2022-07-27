@@ -1,7 +1,11 @@
 @extends('layouts.main')
-@section('title', $patchnote->post_title . ' | GamePatchNotes')
+@section('title', $patchnote->post_title . ' - Latestpatchnotes')
 @section('description', Str::limit($patchnote->post_body, 120, '...'))
-@section('keywords', $patchnote->post_title . ',Gamepatchnotes,' . $patchnote->post_title . ' | GamePatchNotes')
+@section('keywords', $patchnote->post_title . ',Latestpatchnotes,' . $patchnote->post_title . ' - Latestpatchnotes')
+@section('og.title', $patchnote->post_title . ' - Latestpatchnotes')
+@section('og.desc', Str::limit($patchnote->post_body, 120, '...'))
+@section('og.type', 'article')
+@section('og_image', $patchnote->post_image)
 @section('content')
     @php
     $hamham = Illuminate\Support\Str::replace('{STEAM_CLAN_IMAGE}', 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans', $patchnote->post_body);

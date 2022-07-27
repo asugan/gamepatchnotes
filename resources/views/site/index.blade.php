@@ -1,11 +1,15 @@
 @extends('layouts.main')
-@section('title', 'GamePatchNotes')
-@section('description',
-    'Skidrow and Codex Torrent-Download Games for PC with Torrent, Repacks, patches and
-    updates,Crack By SKIDROW, 3DM, RELOADED, CODEX, PROPHET, CPY',)
-@section('keywords',
-    'Skidrow,Codex,Torrent,PC Torrent,Repack,Skidrow
-    Reloaded,Reloaded,Cpy,Skidrow,Torrent,Reloaded,Torrent,Torrent Download,Skidrow and Codex Torrent',)
+@section('title', 'Latest Patch Notes - Get Latest News and Latest Patchnotes for Games')
+@section('description', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
+    'notification when game updated!')
+@section('keywords', 'Patchnotes,Latest Patchnotes,Game Patchnotes,Game News,Game Latest Patchnotes,Game Latest,' .
+    'News,Patchnotes for games,latest news')
+@section('og.title', 'Latest Patch Notes - Get Latest News and Latest Patchnotes for Games')
+@section('og.desc', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
+    'notification when game updated!')
+@section('og.type', 'website')
+@section('og_image', 'http://latestpatchnote.com/images/lpnotes.png')
+
 @section('content')
 
     <div class="searchbar pt-4 pb-4">
@@ -61,6 +65,7 @@
                                             <img src="{{ $item->post_image }}" alt=""
                                                 class="w-32 h-16 hover:opacity-50 duration-300">
                                         </a>
+                                        <h5 class="text-center">{{ $item->created_at->format('d/m/Y') }}</h5>
                                     </div>
                                     <div class="grid3 md:col-start-2 md:col-end-5 md:pr-8 pr-0">
                                         <a href="{{ route('show', ['patchnote' => $item->slug]) }}">

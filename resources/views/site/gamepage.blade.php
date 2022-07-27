@@ -1,9 +1,14 @@
 @extends('layouts.main')
-@section('title', $game->game_name . ' | GamePatchNotes')
-@section('description', Str::limit('Follow the latest patchnotes of ' . $game->game_name . ' in GamePatchNotes.com!',
+@section('title', $game->game_name . ' - Latestpatchnotes')
+@section('description', Str::limit('Follow the latest patchnotes of ' . $game->game_name . ' in Latestpatchnotes.com!',
     120, '...'))
-@section('keywords', $game->game_name . ',Gamepatchnotes,' . $game->game_name . ' | GamePatchNotes,' . $game->game_name
-    . ' Patchnotes')
+@section('keywords', $game->game_name . ',Latestpatchnotes,' . $game->game_name . ' - Latestpatchnotes,' .
+    $game->game_name . ' Patchnotes')
+@section('og.title', $game->game_name . ' - Latestpatchnotes')
+@section('og.desc', Str::limit('Follow the latest patchnotes of ' . $game->game_name . ' in Latestpatchnotes.com!', 120,
+    '...'))
+@section('og.type', 'article')
+@section('og_image', $game->game_image)
 @section('content')
     <div class="container pt-8 pb-8">
         <div class="grid md:grid-cols-4 grid-cols-1 gap-4">

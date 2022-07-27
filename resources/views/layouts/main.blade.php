@@ -1,29 +1,27 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 
 <head>
     <!-- Metas -->
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="title" content="@yield('title')">
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
     <meta name="language" content="English">
-    <meta name="author" content="Skidrow and Codex Torrent">
+    <meta name="author" content="LatestPatchNotes">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{{ url()->current() }}/">
+    <link rel="icon" href="{{ asset('images/lpnotes.png') }}" type="image/x-icon" />
     <meta property="og:locale" content="en_US">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="All Patch Notes - Every News and Patch Releases for Games">
-    <meta property="og:description"
-        content="Find the Most Popular Games Updates, News and Patch Notes when the developer releases. Follow your game and get notifications when updated.">
+    <meta property="og:type" content="@yield('og.type')">
+    <meta property="og:title" content="@yield('og.title')">
+    <meta property="og:description" content="@yield('og.desc')">
     <meta property="og:url" content="{{ url()->current() }}/">
-    <meta property="og:site_name" content="All Patch Notes">
-    <meta property="article:publisher" content="https://www.facebook.com/allpatchnotes">
-    <meta property="article:published_time" content="2022-06-08T12:09:44+00:00">
-    <meta property="article:modified_time" content="2022-02-24T08:31:04+00:00">
+    <meta property="og:site_name" content="Latest Patch Notes">
+    <meta property="og:image" content="@yield('og_image')">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:label1" content="Est. reading time">
     <meta name="twitter:data1" content="1 minute">
@@ -54,42 +52,53 @@
             <nav class="flex justify-between container">
                 <div class="logo">
                     <a href="/">
-                        <img src="https://www.logodesignlove.com/wp-content/uploads/2022/01/logo-wave-symbol-01.jpg"
-                            alt="" class="w-12">
+                        <img src="{{ asset('images/lpnotes.png') }}" alt="" class="w-40">
                     </a>
                 </div>
                 <div class="navlist flex items-center">
                     <ul class="hidden xl:flex flex-row gap-4 font-bold uppercase items-center">
                         <li>
-                            <a href="/" class="duration-150 hover:text-indigo-500 hover:underline">Home</a>
+                            <a href="{{ route('welcome') }}"
+                                class="duration-150 hover:text-indigo-500 hover:underline">Home</a>
                         </li>
                         <li>
-                            <a href="/games" class="duration-150 hover:text-indigo-500 hover:underline">All Games</a>
+                            <a href="{{ route('allgames') }}"
+                                class="duration-150 hover:text-indigo-500 hover:underline">All Games</a>
                         </li>
                         <li>
-                            <a href="/latestnotes" class="duration-150 hover:text-indigo-500 hover:underline">All
+                            <a href="{{ route('lpatchnotes') }}"
+                                class="duration-150 hover:text-indigo-500 hover:underline">All
                                 Patchnotes</a>
                         </li>
                         <li>
-                            <a href="/favgames" class="duration-150 hover:text-indigo-500 hover:underline">Followed
+                            <a href="{{ route('followedgames') }}"
+                                class="duration-150 hover:text-indigo-500 hover:underline">Followed
                                 Games</a>
                         </li>
                         @guest
                             <li>
-                                <a href="/register" class="duration-150 hover:text-indigo-500 hover:underline">Register</a>
+                                <a href="{{ route('register.show') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Register</a>
                             </li>
                             <li>
-                                <a href="/login" class="duration-150 hover:text-indigo-500 hover:underline">Login</a>
+                                <a href="{{ route('login.show') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Login</a>
                             </li>
                             <li>
                                 <a href="/auth/steam" class="bg-indigo-800 inline-block"><img
-                                        class="w-48 hover:opacity-50 duration-300"
-                                        src="https://www.luvclan.nl/images/steam_login_bar.png" alt=""></a>
+                                        class="w-48 hover:opacity-50 duration-300" src="{{ asset('images/steam.png') }}"
+                                        alt=""></a>
                             </li>
                         @endguest
                         @auth
+                            @role('admin')
+                                <li>
+                                    <a href="/admin" class="duration-150 hover:text-indigo-500 hover:underline">Admin Panel</a>
+                                </li>
+                            @endrole
                             <li>
-                                <a href="/logout" class="duration-150 hover:text-indigo-500 hover:underline">Logout</a>
+                                <a href="{{ route('logout.perform') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Logout</a>
                             </li>
                         @endauth
                     </ul>
@@ -98,10 +107,12 @@
                     <ul class="flex flex-row gap-4 font-bold uppercase items-center">
                         @guest
                             <li>
-                                <a href="/register" class="duration-150 hover:text-indigo-500 hover:underline">Register</a>
+                                <a href="{{ route('register.show') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Register</a>
                             </li>
                             <li>
-                                <a href="/login" class="duration-150 hover:text-indigo-500 hover:underline">Login</a>
+                                <a href="{{ route('login.show') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Login</a>
                             </li>
                             <li>
                                 <a href="/auth/steam" class="bg-indigo-800 inline-block"><img
@@ -111,7 +122,17 @@
                         @endguest
                         @auth
                             <li>
-                                <a href="/logout" class="duration-150 hover:text-indigo-500 hover:underline">Logout</a>
+                                <a href="{{ route('welcome') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Home</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('followedgames') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Followed
+                                    Games</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('logout.perform') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Logout</a>
                             </li>
                         @endauth
                     </ul>
@@ -134,7 +155,7 @@
                             class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">All
                             Games</a>
                     </li>
-                    <li><a href="/lnotes"
+                    <li><a href="/latestnotes"
                             class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">All
                             Patchnotes</a>
                     </li>
@@ -170,29 +191,41 @@
 
         <footer class="navbg bg-neutral-50 shadow-lg py-4">
             <div class="container">
-                <div class="grid grid-cols-1 md:grid-cols-3">
-                    <div class="firstgrid flex gap-3 justify-center items-center">
-                        <div class="logo"><img
-                                src="https://www.logodesignlove.com/wp-content/uploads/2022/01/logo-wave-symbol-01.jpg"
-                                alt="" class="w-24">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="baslik text-center text-2xl pb-2">
+                            <h1>Social Media</h1>
                         </div>
-                        <div class="text text-2xl">
-                            <h1>Gamepatchnotes®</h1>
+                        <div class="social flex gap-4">
+                            <a href="#">
+                                <i
+                                    class="fa-brands fa-twitter-square fa-4x text-gray-600 hover:text-indigo-800 transition duration-150"></i>
+                            </a>
+                            <a href="#">
+                                <i
+                                    class="fa-brands fa-facebook-square fa-4x text-gray-600 hover:text-indigo-800 transition duration-150"></i>
+                            </a>
+                            <a href="#">
+                                <i
+                                    class="fa-brands fa-instagram-square fa-4x text-gray-600 hover:text-indigo-800 transition duration-150"></i>
+                            </a>
                         </div>
                     </div>
+
                     <div class="middle">
                         <div class="flex text-xl justify-center text-center">
                             <ul>
                                 <li>
-                                    <a href="#"
+                                    <a href="{{ route('welcome') }}"
                                         class="duration-150 hover:text-indigo-500 hover:underline">Home</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="duration-150 hover:text-indigo-500 hover:underline">All
+                                    <a href="{{ route('allgames') }}"
+                                        class="duration-150 hover:text-indigo-500 hover:underline">All
                                         Games</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="{{ route('followedgames') }}"
                                         class="duration-150 hover:text-indigo-500 hover:underline">Followed Games</a>
                                 </li>
                                 <li>
@@ -206,14 +239,14 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="baslik text-center text-2xl pb-2">
-                            <h1>Social Media</h1>
+
+                    <div class="firstgrid flex flex-col gap-3 justify-center items-center">
+                        <div class="logo"><a href="/">
+                                <img src="{{ asset('images/lpnotes.png') }}" alt="" class="w-40">
+                            </a>
                         </div>
-                        <div class="social flex gap-4">
-                            <i class="fa-brands fa-twitter-square fa-4x"></i>
-                            <i class="fa-brands fa-facebook-square fa-4x"></i>
-                            <i class="fa-brands fa-instagram-square fa-4x"></i>
+                        <div class="text">
+                            <h1>©2022 LatestPatchNotes</h1>
                         </div>
                     </div>
                 </div>

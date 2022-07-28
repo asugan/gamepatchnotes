@@ -14,7 +14,7 @@
     <meta name="author" content="LatestPatchNotes">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{{ url()->current() }}/">
-    <link rel="icon" href="{{ asset('images/lpnotes.png') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon" />
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="@yield('og.type')">
     <meta property="og:title" content="@yield('og.title')">

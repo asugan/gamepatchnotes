@@ -38,8 +38,8 @@
                     <div class="col-4">
                         <div class="mb-3">
                             <label for="description" class="form-label">Game Platform</label>
-                            <input value="{{ old('description') }}" type="text" class="form-control"
-                                name="game_platform" placeholder="Game Platform" required>
+                            <input value="{{ old('description') }}" type="text" class="form-control" name="game_platform"
+                                placeholder="Game Platform" required>
 
                             @if ($errors->has('description'))
                                 <span class="text-danger text-left">{{ $errors->first('description') }}</span>
@@ -70,6 +70,18 @@
                         </div>
                     </div>
 
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label for="body" class="form-label">Game App ID</label>
+                            <input class="form-control" name="id" placeholder="Game APP ID"
+                                required>{{ old('body') }}
+
+                            @if ($errors->has('body'))
+                                <span class="text-danger text-left">{{ $errors->first('body') }}</span>
+                            @endif
+                        </div>
+                    </div>
+
                     <div class="col-12">
                         <div class="d-flex justify-content-center">
                             <div class="form-check form-switch">
@@ -81,11 +93,17 @@
                     </div>
 
                     <div class="col-12 mb-4 mt-3">
-                        <div class="d-flex justify-content-center">
-                            <div class="col-6">
-                                <input type="file" name="game_image" class="form-control">
-                            </div>
+
+                        <div class="mb-3 px-5">
+                            <label for="body" class="form-label">Game Image URL</label>
+                            <input class="form-control" name="game_image" placeholder="Game Image URL"
+                                required>{{ old('body') }}
+
+                            @if ($errors->has('body'))
+                                <span class="text-danger text-left">{{ $errors->first('body') }}</span>
+                            @endif
                         </div>
+
                     </div>
                 </div>
 

@@ -44,9 +44,12 @@ class AdminGamesController extends Controller
         if ($file = $request->file('game_image')) {
             $path = 'games/images';
             $url = $this->file($file, $path, 300, 400);
+        } else {
+            $url = $request->game_image;
         }
 
         $data = new Games([
+            'id' => $request->id,
             'game_name' => $request->game_name,
             'game_platform' => $request->game_platform,
             'release_date' => $request->release_date,
@@ -128,7 +131,9 @@ class AdminGamesController extends Controller
      */
     public function destroy(Games $post)
     {
-        unlink("storage/" . $post->game_image);
+        if ("storage/" . $post->game_image === !null) {
+            unlink("storage/" . $post->game_image);
+        }
 
         $post->delete();
 

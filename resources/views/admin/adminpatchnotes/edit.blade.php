@@ -13,7 +13,7 @@
                 @method('patch')
                 @csrf
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="mb-3">
                             <label for="title" class="form-label">Post Title</label>
                             <input value="{{ $post->post_title }}" type="text" class="form-control" name="post_title"
@@ -25,19 +25,17 @@
                         </div>
                     </div>
 
-                    <div class="col-6">
-                        <div class="mb-3">
-                            <label for="body" class="form-label">Patch Notes</label>
-                            <input class="form-control" value="{{ $post->post_body }}" name="post_body"
-                                placeholder="Developer" required>
+                    <div class="col-md-7 offset-3 mt-4">
+                        <div class="card-body">
 
-                            @if ($errors->has('body'))
-                                <span class="text-danger text-left">{{ $errors->first('body') }}</span>
-                            @endif
+                            <div class="form-group">
+                                <textarea class="ckeditor form-control" name="post_body">{{ $post->post_body }}</textarea>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="mb-3">
                             <label for="description" class="form-label">Game ID</label>
                             <input value="{{ $post->games_id }}" type="text" class="form-control" name="games_id"
@@ -49,15 +47,15 @@
                         </div>
                     </div>
 
-                    <div class="col-12 mb-4 mt-3">
-                        <div class="d-flex justify-content-center">
-                            <div class="col-6">
-                                <input type="file" name="post_image" class="form-control">
-                                <div class="col-12 text-center mt-4">
-                                    <img src="{{ @App::make('url')->to('/') . '/storage' . $post->post_image }}"
-                                        width="150">
-                                </div>
-                            </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Header Image URL</label>
+                            <input value="{{ $post->post_image }}" type="text" class="form-control" name="post_image"
+                                placeholder="Header Image URL" required>
+
+                            @if ($errors->has('description'))
+                                <span class="text-danger text-left">{{ $errors->first('description') }}</span>
+                            @endif
                         </div>
                     </div>
                 </div>

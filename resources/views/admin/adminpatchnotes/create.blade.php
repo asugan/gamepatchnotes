@@ -11,11 +11,11 @@
             <form method="POST" action="{{ route('patchnotes.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="mb-3">
-                            <label for="title" class="form-label">Game Name</label>
+                            <label for="title" class="form-label">Patchnote Title</label>
                             <input value="{{ old('title') }}" type="text" class="form-control" name="post_title"
-                                placeholder="Game Name" required>
+                                placeholder="Patchnote Title" required>
 
                             @if ($errors->has('title'))
                                 <span class="text-danger text-left">{{ $errors->first('title') }}</span>
@@ -23,23 +23,23 @@
                         </div>
                     </div>
 
-                    <div class="col-6">
-                        <div class="mb-3">
-                            <label for="body" class="form-label">Developer</label>
-                            <input class="form-control" name="post_body" placeholder="Developer"
-                                required>{{ old('body') }}
 
-                            @if ($errors->has('body'))
-                                <span class="text-danger text-left">{{ $errors->first('body') }}</span>
-                            @endif
+                    <div class="col-md-7 offset-3 mt-4">
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <textarea class="ckeditor form-control" name="post_body"></textarea>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="col-4">
+
+                    <div class="col-6">
                         <div class="mb-3">
-                            <label for="description" class="form-label">Game Platform</label>
+                            <label for="description" class="form-label">App ID</label>
                             <input value="{{ old('description') }}" type="text" class="form-control" name="games_id"
-                                placeholder="Game Platform" required>
+                                placeholder="App ID" required>
 
                             @if ($errors->has('description'))
                                 <span class="text-danger text-left">{{ $errors->first('description') }}</span>
@@ -47,11 +47,15 @@
                         </div>
                     </div>
 
-                    <div class="col-12 mb-4 mt-3">
-                        <div class="d-flex justify-content-center">
-                            <div class="col-6">
-                                <input type="file" name="post_image" class="form-control">
-                            </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Header Image URL</label>
+                            <input value="{{ old('description') }}" type="text" class="form-control" name="post_image"
+                                placeholder="Header Image URL" required>
+
+                            @if ($errors->has('description'))
+                                <span class="text-danger text-left">{{ $errors->first('description') }}</span>
+                            @endif
                         </div>
                     </div>
                 </div>

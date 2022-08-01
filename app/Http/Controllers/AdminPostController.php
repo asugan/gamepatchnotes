@@ -42,6 +42,8 @@ class AdminPostController extends Controller
         if ($file = $request->file('post_image')) {
             $path = 'patchnotes/images';
             $url = $this->file($file, $path, 300, 400);
+        } else {
+            $url = $request->post_image;
         }
 
         $data = new Patchnotes([
@@ -120,7 +122,9 @@ class AdminPostController extends Controller
      */
     public function destroy(Patchnotes $post)
     {
-        unlink("storage/" . $post->post_image);
+        if ("storage/" . $post->game_image === !null) {
+            unlink("storage/" . $post->post_image);
+        }
         $post->delete();
 
         return redirect()->route('patchnotes.index')

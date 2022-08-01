@@ -40,8 +40,8 @@
                     <div class="col-4">
                         <div class="mb-3">
                             <label for="body" class="form-label">Release Date</label>
-                            <input value="{{ $post->release_date }}" type="text" class="form-control"
-                                name="release_date" placeholder="Description" required>
+                            <input value="{{ $post->release_date }}" type="text" class="form-control" name="release_date"
+                                placeholder="Description" required>
 
                             @if ($errors->has('body'))
                                 <span class="text-danger text-left">{{ $errors->first('body') }}</span>
@@ -72,6 +72,17 @@
                             @endif
                         </div>
                     </div>
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label for="body" class="form-label">Game App ID</label>
+                            <input class="form-control" value="{{ $post->id }}" name="id"
+                                placeholder="Game APP ID" required>{{ old('body') }}
+
+                            @if ($errors->has('body'))
+                                <span class="text-danger text-left">{{ $errors->first('body') }}</span>
+                            @endif
+                        </div>
+                    </div>
 
                     <div class="col-12">
                         <div class="d-flex justify-content-center">
@@ -91,15 +102,17 @@
                     </div>
 
                     <div class="col-12 mb-4 mt-3">
-                        <div class="d-flex justify-content-center">
-                            <div class="col-6">
-                                <input type="file" name="game_image" class="form-control">
-                                <div class="col-12 text-center mt-4">
-                                    <img src="{{ @App::make('url')->to('/') . '/storage' . $post->game_image }}"
-                                        width="150">
-                                </div>
-                            </div>
+
+                        <div class="mb-3 px-5">
+                            <label for="body" class="form-label">Game Image URL</label>
+                            <input class="form-control" name="game_image" value="{{ $post->game_image }}"
+                                placeholder="Game Image URL" required>{{ old('body') }}
+
+                            @if ($errors->has('body'))
+                                <span class="text-danger text-left">{{ $errors->first('body') }}</span>
+                            @endif
                         </div>
+
                     </div>
                 </div>
 

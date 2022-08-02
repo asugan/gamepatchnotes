@@ -1,3 +1,7 @@
 User-agent: *
-Disallow: /admin
+Disallow: /admin/
+Disallow: /search/
+Disallow: /searchpn/
+Disallow: /register/
+Disallow: /login/
 Sitemap: https://latestpatchnotes.com/sitemap.xml

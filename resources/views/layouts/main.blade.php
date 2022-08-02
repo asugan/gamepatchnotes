@@ -2,6 +2,19 @@
 <html lang="en">
 
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
+        crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NGPHW8JVNQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NGPHW8JVNQ');
+    </script>
     <!-- Metas -->
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -52,37 +65,37 @@
             <nav class="flex justify-between container">
                 <div class="logo">
                     <a href="/">
-                        <img src="{{ asset('images/lpnotes.png') }}" alt="" class="w-40">
+                        <img src="{{ asset('images/lpnotes.png') }}" alt="" class="w-32">
                     </a>
                 </div>
                 <div class="navlist flex items-center">
                     <ul class="hidden xl:flex flex-row gap-4 font-bold uppercase items-center">
                         <li>
                             <a href="{{ route('welcome') }}"
-                                class="duration-150 hover:text-indigo-500 hover:underline">Home</a>
+                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">Home</a>
                         </li>
                         <li>
                             <a href="{{ route('allgames') }}"
-                                class="duration-150 hover:text-indigo-500 hover:underline">All Games</a>
+                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">All Games</a>
                         </li>
                         <li>
                             <a href="{{ route('lpatchnotes') }}"
-                                class="duration-150 hover:text-indigo-500 hover:underline">All
+                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">All
                                 Patchnotes</a>
                         </li>
                         <li>
                             <a href="{{ route('followedgames') }}"
-                                class="duration-150 hover:text-indigo-500 hover:underline">Followed
+                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">Followed
                                 Games</a>
                         </li>
                         @guest
                             <li>
                                 <a href="{{ route('register.show') }}"
-                                    class="duration-150 hover:text-indigo-500 hover:underline">Register</a>
+                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Register</a>
                             </li>
                             <li>
                                 <a href="{{ route('login.show') }}"
-                                    class="duration-150 hover:text-indigo-500 hover:underline">Login</a>
+                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Login</a>
                             </li>
                             <li>
                                 <a href="/auth/steam" class="bg-indigo-800 inline-block"><img
@@ -93,12 +106,13 @@
                         @auth
                             @role('admin')
                                 <li>
-                                    <a href="/admin" class="duration-150 hover:text-indigo-500 hover:underline">Admin Panel</a>
+                                    <a href="/admin" class="duration-150 text-sm hover:text-indigo-500 hover:underline">Admin
+                                        Panel</a>
                                 </li>
                             @endrole
                             <li>
                                 <a href="{{ route('logout.perform') }}"
-                                    class="duration-150 hover:text-indigo-500 hover:underline">Logout</a>
+                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Logout</a>
                             </li>
                         @endauth
                     </ul>
@@ -108,11 +122,11 @@
                         @guest
                             <li>
                                 <a href="{{ route('register.show') }}"
-                                    class="duration-150 hover:text-indigo-500 hover:underline">Register</a>
+                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Register</a>
                             </li>
                             <li>
                                 <a href="{{ route('login.show') }}"
-                                    class="duration-150 hover:text-indigo-500 hover:underline">Login</a>
+                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Login</a>
                             </li>
                             <li>
                                 <a href="/auth/steam" class="bg-indigo-800 inline-block"><img
@@ -123,16 +137,16 @@
                         @auth
                             <li>
                                 <a href="{{ route('welcome') }}"
-                                    class="duration-150 hover:text-indigo-500 hover:underline">Home</a>
+                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Home</a>
                             </li>
                             <li>
                                 <a href="{{ route('followedgames') }}"
-                                    class="duration-150 hover:text-indigo-500 hover:underline">Followed
+                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Followed
                                     Games</a>
                             </li>
                             <li>
                                 <a href="{{ route('logout.perform') }}"
-                                    class="duration-150 hover:text-indigo-500 hover:underline">Logout</a>
+                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Logout</a>
                             </li>
                         @endauth
                     </ul>
@@ -193,8 +207,8 @@
             <div class="container">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
                     <div class="flex flex-col justify-center items-center">
-                        <div class="baslik text-center text-2xl pb-2">
-                            <h1>Social Media</h1>
+                        <div class="baslik text-center text-xl pb-2">
+                            <h5>Social Media</h5>
                         </div>
                         <div class="social flex gap-4">
                             <a href="#">
@@ -214,7 +228,7 @@
 
                     <div class="middle">
                         <div class="flex text-xl justify-center text-center">
-                            <ul>
+                            <ul class="text-lg">
                                 <li>
                                     <a href="{{ route('welcome') }}"
                                         class="duration-150 hover:text-indigo-500 hover:underline">Home</a>
@@ -226,15 +240,16 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('followedgames') }}"
-                                        class="duration-150 hover:text-indigo-500 hover:underline">Followed Games</a>
+                                        class="duration-150 hover:text-indigo-500 hover:underline">Followed
+                                        Games</a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                        class="duration-150 hover:text-indigo-500 hover:underline">About</a>
+                                    <a href="{{ route('login.show') }}"
+                                        class="duration-150 hover:text-indigo-500 hover:underline">Register</a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                        class="duration-150 hover:text-indigo-500 hover:underline">Contact</a>
+                                    <a href="{{ route('register.show') }}"
+                                        class="duration-150 hover:text-indigo-500 hover:underline">Login</a>
                                 </li>
                             </ul>
                         </div>
@@ -245,8 +260,8 @@
                                 <img src="{{ asset('images/lpnotes.png') }}" alt="" class="w-40">
                             </a>
                         </div>
-                        <div class="text">
-                            <h1>©2022 LatestPatchNotes</h1>
+                        <div class="footercopyright">
+                            <span>©2022 LatestPatchNotes</span>
                         </div>
                     </div>
                 </div>

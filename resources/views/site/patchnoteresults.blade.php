@@ -42,7 +42,7 @@
                         </div>
                         <div class="grid2 md:col-start-2 md:col-end-3 justify-self-center px-2 py-2">
                             <a class="bg-indigo-800 inline-block" href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                                <img src="{{ $item->post_image }}" alt=""
+                                <img src="{{ $item->post_image }}" alt="{{ $item->post_title }}"
                                     class="w-32 h-16 ml-2 md:ml-0 hover:opacity-50 duration-300">
                             </a>
                         </div>

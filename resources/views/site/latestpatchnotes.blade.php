@@ -1,12 +1,10 @@
 @extends('layouts.main')
 @section('title', 'Latest Patch Notes - All Patchnotes')
-@section('description', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
-    'notification when game updated!')
+@section('description', 'We are publishing the latest patch notes for you.Check out all patch notes.')
 @section('keywords', 'Patchnotes,Latest Patchnotes,Game Patchnotes,Game News,Game Latest Patchnotes,Game Latest,' .
     'News,Patchnotes for games,latest news')
 @section('og.title', 'Latest Patch Notes - All Patchnotes')
-@section('og.desc', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
-    'notification when game updated!')
+@section('og.desc', 'We are publishing the latest patch notes for you.Check out all patch notes.')
 @section('og.type', 'website')
 @section('og_image', 'http://latestpatchnote.com/images/lpnotes.png')
 @section('content')
@@ -43,7 +41,7 @@
                         </div>
                         <div class="grid2 md:col-start-2 md:col-end-3 justify-self-center px-2 py-2">
                             <a class="bg-indigo-800 inline-block" href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                                <img src="{{ $item->post_image }}" alt=""
+                                <img src="{{ $item->post_image }}" alt="{{ $item->post_title }}"
                                     class="w-32 h-16 ml-2 md:ml-0 hover:opacity-50 duration-300">
                             </a>
                         </div>

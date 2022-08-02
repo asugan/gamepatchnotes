@@ -31,7 +31,7 @@
         <url>
             <loc>https://latestpatchnotes.com/patchnote/{{ $post->slug }}</loc>
             <lastmod>{{ gmdate('Y-m-d\TH:i:s\Z', strtotime($post->updated_at)) }}</lastmod>
-            <changefreq>monthly</changefreq>
+            <changefreq>weekly</changefreq>
             <priority>0.5</priority>
         </url>
     @endforeach

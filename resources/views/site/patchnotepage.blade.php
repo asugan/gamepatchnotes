@@ -34,7 +34,7 @@
         <article class="{{ $patchnote->post_title }}">
             <div class="flex flex-col items-center bg-neutral-50 shadow-lg px-12 py-8">
                 <h1 class="text-center text-4xl font-bold pb-4 px-0 lg:px-24">{{ $patchnote->post_title }}</h1>
-                <img class="object-fill h-64 w-96" src="{{ $patchnote->post_image }}" alt="">
+                <img class="object-fill h-64 w-96" src="{{ $patchnote->post_image }}" alt="{{ $patchtnote->post_title }}">
                 <div class="px-4 pb-8 pt-4 md:px-24 break-all pncontainer">
                     {!! $hamham18 !!}
                 </div>

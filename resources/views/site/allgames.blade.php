@@ -1,12 +1,10 @@
 @extends('layouts.main')
 @section('title', 'Latest Patch Notes - All Games')
-@section('description', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
-    'notification when game updated!')
+@section('description', 'We are publishing the latest games with patchnotes for you.Check out all published games.')
 @section('keywords', 'Patchnotes,Latest Patchnotes,Game Patchnotes,Game News,Game Latest Patchnotes,Game Latest,' .
     'News,Patchnotes for games,latest news')
 @section('og.title', 'Latest Patch Notes - All Games')
-@section('og.desc', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
-    'notification when game updated!')
+@section('og.desc', 'We are publishing the latest games with patchnotes for you.Check out all published games')
 @section('og.type', 'website')
 @section('og_image', 'http://latestpatchnote.com/images/lpnotes.png')
 @section('content')
@@ -40,7 +38,8 @@
                                     <a class="bg-indigo-800 inline-block"
                                         href="{{ route('showcg', ['game' => $gameliked->slug]) }}">
                                         <img src="{{ $gameliked->game_image }}"
-                                            class="h-64 w-full hover:opacity-50 duration-300" alt="">
+                                            class="h-64 w-full hover:opacity-50 duration-300"
+                                            alt="{{ $gameliked->game_name }}">
                                     </a>
                                 </div>
                                 <div class="secondgrid px-2 flex flex-col justify-between">

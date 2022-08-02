@@ -62,7 +62,7 @@
                                     <div class="grid2 md:col-start-1 md:col-end-2 justify-self-center px-2 py-2">
                                         <a class="bg-indigo-800 inline-block"
                                             href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                                            <img src="{{ $item->post_image }}" alt=""
+                                            <img src="{{ $item->post_image }}" alt="{{ $item->post_title }}"
                                                 class="w-32 h-16 hover:opacity-50 duration-300">
                                         </a>
                                         <h5 class="text-center">{{ $item->created_at->format('d/m/Y') }}</h5>
@@ -96,7 +96,8 @@
                                         <a class="bg-indigo-800 inline-block"
                                             href="{{ route('showcg', ['game' => $gameliked->slug]) }}">
                                             <img src="{{ $gameliked->game_image }}"
-                                                class="h-64 w-full hover:opacity-50 duration-300" alt="">
+                                                class="h-64 w-full hover:opacity-50 duration-300"
+                                                alt="{{ $gameliked->game_name }}">
                                         </a>
                                     </div>
                                     <div class="secondgrid pr-2 pl-2 lg:pl-0 flex flex-col justify-between">

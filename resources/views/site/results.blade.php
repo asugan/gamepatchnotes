@@ -40,7 +40,8 @@
                                     <a class="bg-indigo-800 inline-block"
                                         href="{{ route('showcg', ['game' => $gameliked->slug]) }}">
                                         <img src="{{ $gameliked->game_image }}"
-                                            class="h-64 w-full hover:opacity-50 duration-300" alt="">
+                                            class="h-64 w-full hover:opacity-50 duration-300"
+                                            alt="{{ $gameliked->game_name }}">
                                     </a>
                                 </div>
                                 <div class="secondgrid px-2 flex flex-col justify-between">

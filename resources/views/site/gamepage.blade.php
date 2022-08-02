@@ -20,7 +20,7 @@
                     </a>
                     <a class="bg-indigo-800 inline-block" href="{{ route('showcg', ['game' => $game->slug]) }}">
                         <img class="object-fill h-64 w-64 hover:opacity-50 duration-300" src="{{ $game->game_image }}"
-                            alt="">
+                            alt="{{ $game->game_name }}">
                     </a>
                     <ul class="pt-4 gap-4 text-center text-xl underline">
                         <li>Game Platform : {{ $game->game_platform }}</li>
@@ -85,7 +85,7 @@
                             <a class="bg-indigo-800 inline-block"
                                 href="{{ route('show', ['patchnote' => $patchnote->slug]) }}">
                                 <img class="object-fill h-64 w-96 hover:opacity-50 duration-300"
-                                    src="{{ $patchnote->post_image }}" alt="">
+                                    src="{{ $patchnote->post_image }}" alt="{{ $patchnote->post_title }}">
                             </a>
                             <div class="px-4 pb-8 pt-4 break-all pncontainer md:px-24">
                                 {!! Illuminate\Support\Str::limit($hamham18, 500, $end = '...') !!}

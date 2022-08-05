@@ -35,7 +35,8 @@
             @foreach ($games as $game)
                 <div class="item">
                     <a class="bg-indigo-800 inline-block" href="{{ route('showcg', ['game' => $game->slug]) }}">
-                        <img src="{{ $game->game_image }}" alt="" class="h-96 hover:opacity-50 duration-300" />
+                        <img src="{{ $game->game_image }}" alt="{{ $game->game_name }}"
+                            class="h-96 hover:opacity-50 duration-300" />
                     </a>
                 </div>
             @endforeach

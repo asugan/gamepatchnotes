@@ -9,17 +9,17 @@ use Illuminate\Support\Facades\Http;
 
 class NewApiController extends Controller
 {
-    public function topla(Request $request)
+    public function topla()
     {
-        $gameall = Games::all();
+        $gameall = Games::all('id');
 
         foreach ($gameall as $hamham) {
             $ids = array($hamham->id);
 
             foreach ($ids as $q) {
-                $hamham_response = HTTP::acceptJson()->get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=' . $q . '&count=1&maxlength=0&format=json&feedlabel=SteamDB');
+                $hamham_response = HTTP::acceptJson()->get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=' . $q . '&count=1&maxlength=0&format=json&tags=patchnotes');
                 $response2 = json_decode($hamham_response);
-                $game_image = 'https://cdn.cloudflare.steamstatic.com/steam/apps/' . $q . '/header.jpg';
+                $game_image = 'https://cdn.cloudflare.steamstatic.com/steam/apps/' . $q . '/capsule_231x87.jpg';
                 if ($game_image === null) {
                     $game_image = 'https://steamdb.info/static/img/applogo.svg';
                 };
@@ -27,23 +27,15 @@ class NewApiController extends Controller
 
                     if (count($patchnote->newsitems) > 0) {
 
-                        $request->hamham1 = $patchnote->newsitems[0]->title;
-                        $request->hamham2 = $patchnote->newsitems[0]->contents;
-                        $request->hamham3 = $patchnote->newsitems[0]->appid;
-                        $request->hamham4 = $game_image;
+                        $validate = (Patchnotes::where('post_title', $patchnote->newsitems[0]->title))->first();
+                        if ($validate === null) {
+                            $data2 = new Patchnotes([
+                                'post_title' => $patchnote->newsitems[0]->title,
+                                'post_body' => $patchnote->newsitems[0]->contents,
+                                'games_id' => $patchnote->newsitems[0]->appid,
+                                'post_image' => $game_image,
+                            ]);
 
-
-                        $data2 = new Patchnotes([
-                            'post_title' => $request->hamham1,
-                            'post_body' => $request->hamham2,
-                            'games_id' => $request->hamham3,
-                            'post_image' => $request->hamham4,
-                        ]);
-
-                        $validate = (Patchnotes::where('post_title', $request->hamham1))->first();
-                        $validateslug = $data2->slug;
-                        $validate2 = (Patchnotes::where('slug', $validateslug))->first();
-                        if ($validate === null and $validate2 === null) {
                             $data2->save();
                         }
                     }

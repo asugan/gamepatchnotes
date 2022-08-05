@@ -11,7 +11,6 @@ class GameController extends Controller
 {
     public function index()
     {
-        $user = Auth::id();
 
         $games = Games::where('recommended', 'on')->take(10)->get();
 

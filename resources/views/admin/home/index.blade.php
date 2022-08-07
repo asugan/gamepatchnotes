@@ -22,6 +22,13 @@
                         </form>
                     </div>
                 </div>
+                <div class="col-6 pt-5">
+                    <div class="d-flex justify-content-center">
+                        <form method="get" action="{{ route('steamdb') }}" enctype="multipart/form-data">
+                            <button type="submit button" class="btn btn-dark">Steamdb Tara</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         @endauth
     </div>

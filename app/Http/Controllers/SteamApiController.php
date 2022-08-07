@@ -20,19 +20,12 @@ class SteamApiController extends Controller
 
             foreach ($array as $q) {
 
-                $api_response = HTTP::acceptJson()->get('https://store.steampowered.com/api/appdetails?appids=' . $q);
-                $response = json_decode($api_response);
                 $hamham_response2 = HTTP::acceptJson()->get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=' . $q . '&count=1&maxlength=0&format=json&tags=patchnotes');
                 $response3 = json_decode($hamham_response2);
                 $game_image = 'https://cdn.cloudflare.steamstatic.com/steam/apps/' . $q . '/capsule_231x87.jpg';
                 if ($game_image === null) {
                     $game_image = 'https://steamdb.info/static/img/applogo.svg';
                 };
-                $spacer_size = 8; // increment me until it works
-                echo str_pad('', (1024 * $spacer_size), "\n"); // send 8kb of new line to browser (default), just make sure that this new line will not affect your code.
-                // if you have output compression, make sure your data will reach >8KB.
-
-                if (ob_get_level()) ob_end_clean(); // end output buffering
 
                 foreach ($response3 as $patchnote) {
 
@@ -40,6 +33,9 @@ class SteamApiController extends Controller
 
                         $validate = (Patchnotes::where('post_title', $patchnote->newsitems[0]->title))->first();
                         if ($validate === null) {
+
+                            $api_response = HTTP::acceptJson()->get('https://store.steampowered.com/api/appdetails?appids=' . $q);
+                            $response = json_decode($api_response);
 
                             foreach ((array) $response as $game) {
 

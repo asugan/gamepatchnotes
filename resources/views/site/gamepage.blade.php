@@ -17,18 +17,42 @@
                 <div class="image place-self-center lg:place-self-start">
                     <img class="" src="{{ $game->game_image }}" alt="">
                 </div>
-                <div class="infos">
-                    <a href="{{ route('showcg', ['game' => $game->slug]) }}">
-                        <h1
-                            class="text-center text-4xl font-bold pb-4 pt-4 duration-150 hover:text-indigo-500 hover:underline">
-                            {{ $game->game_name }}</h1>
-                    </a>
-                    <ul class="pt-4 gap-4 text-center text-xl underline">
-                        <li>Game Platform : {{ $game->game_platform }}</li>
-                        <li>Release Date : {{ $game->release_date }}</li>
-                        <li>Genre : {{ $game->genre }}</li>
-                        <li>Developer : {{ $game->developer }}</li>
-                    </ul>
+                <div class="infos grid grid-cols-2">
+                    <div class="firstdiv">
+                        <a href="{{ route('showcg', ['game' => $game->slug]) }}">
+                            <h1
+                                class="text-center text-4xl font-bold pb-4 pt-4 duration-150 hover:text-indigo-500 hover:underline">
+                                {{ $game->game_name }}</h1>
+                        </a>
+                        <ul class="pt-4 gap-4 text-center text-lg">
+                            <li>Game Platform : {{ $game->game_platform }}</li>
+                            <li>Release Date : {{ $game->release_date }}</li>
+                            <li>Genre : {{ $game->genre }}</li>
+                            <li>Developer : {{ $game->developer }}</li>
+                        </ul>
+                    </div>
+
+                    <div class="likebutton py-4 flex justify-center content-center">
+                        <td class="px-6 py-4 text-sm text-gray-500 border-b border-gray-200">
+                            @if ($game->liked())
+                                <form action="{{ route('unlike.post', $game->id) }}" method="post">
+                                    @csrf
+                                    <button
+                                        class="{{ $game->liked() ? 'block' : 'hidden' }} inline-flex items-center h-12 px-8 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-indigo-800">
+                                        Remove From Favourite
+                                    </button>
+                                </form>
+                            @else
+                                <form action="{{ route('like.post', $game->id) }}" method="post">
+                                    @csrf
+                                    <button
+                                        class="{{ $game->liked() ? 'bg-blue-600' : '' }} inline-flex items-center h-12 px-8 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-gray-600 rounded-lg focus:shadow-outline hover:bg-indigo-800">
+                                        Add to Favourite
+                                    </button>
+                                </form>
+                            @endif
+                        </td>
+                    </div>
                 </div>
             </div>
         </div>

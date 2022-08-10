@@ -58,9 +58,13 @@
                                             href="{{ route('showcg', ['game' => $gameliked->slug]) }}">{{ $gameliked->game_name }}</a>
                                     </td>
                                     <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
-                                        <a class="hover:underline"
-                                            href="{{ route('showcg', ['game' => $gameliked->slug]) }}">{{ $gameliked->patchnotes->first()->post_title }}
-                                        </a>
+                                        @if (!$gameliked->patchnotes->isEmpty())
+                                            <a class="hover:underline"
+                                                href="{{ route('showcg', ['game' => $gameliked->slug]) }}">{{ $gameliked->patchnotes->first()->post_title }}
+                                            </a>
+                                        @else
+                                            <p class="font-bold">No Patchnotes Yet...</p>
+                                        @endif
                                     </td>
                                     <td class="text-center py-4 px-6">
                                         @if ($gameliked->liked())

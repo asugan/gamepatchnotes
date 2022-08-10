@@ -62,7 +62,7 @@
                                         <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
                                             @if (!$gameliked->patchnotes->isEmpty())
                                                 <a class="hover:underline"
-                                                    href="{{ route('showcg', ['game' => $gameliked->slug]) }}">{{ $gameliked->patchnotes->first()->post_title }}
+                                                    href="{{ route('show', ['patchnote' => $gameliked->patchnotes->first()->slug]) }}">{{ $gameliked->patchnotes->first()->post_title }}
                                                 </a>
                                             @else
                                                 <p class="font-bold">No Patchnotes Yet...</p>

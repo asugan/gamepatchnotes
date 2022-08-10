@@ -32,7 +32,7 @@
 
     <section class="tanitim">
         <div class="container py-5">
-            <h1 class="tbaslik text-4xl font-bold">Patchnote database of every games.
+            <h1 class="tbaslik text-4xl font-bold">Patch notes database of every games.
             </h1>
             <p class="htext py-5 pr-0 md:pr-48">This third-party website gives you better insight into the patchnotes of
                 games in
@@ -86,7 +86,7 @@
                                     <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
                                         @if (!$gameliked->patchnotes->isEmpty())
                                             <a class="hover:underline"
-                                                href="{{ route('showcg', ['game' => $gameliked->slug]) }}">{{ $gameliked->patchnotes->first()->post_title }}
+                                                href="{{ route('show', ['patchnote' => $gameliked->patchnotes->first()->slug]) }}">{{ $gameliked->patchnotes->first()->post_title }}
                                             </a>
                                         @else
                                             <p class="font-bold">No Patchnotes Yet...</p>

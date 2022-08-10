@@ -21,7 +21,7 @@ class GameController extends Controller
             $q->latest();
         }])
             ->latest()
-            ->take(5)
+            ->take(12)
             ->get();
 
         $hamham = Patchnotes::latest()->take(12)->get();
@@ -64,7 +64,7 @@ class GameController extends Controller
 
         $games = Games::with(['patchnotes' => function ($q) {
             $q->latest();
-        }])->paginate(10);
+        }])->paginate(30);
 
         $gamecount = Games::all()->count();
 
@@ -79,7 +79,7 @@ class GameController extends Controller
             $q->latest();
         }])
             ->whereLikedBy($user)
-            ->paginate(10);
+            ->paginate(30);
 
         $gamecount = Games::whereLikedBy($user)->count();
 
@@ -89,7 +89,7 @@ class GameController extends Controller
     public function latestpatchnotes()
     {
 
-        $hamham = Patchnotes::latest()->paginate(10);
+        $hamham = Patchnotes::latest()->paginate(30);
         $patchnotescount = Patchnotes::all()->count();
 
         return view('site.latestpatchnotes', compact('hamham', 'patchnotescount'));

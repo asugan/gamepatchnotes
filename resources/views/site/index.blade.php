@@ -12,7 +12,7 @@
 
 @section('content')
 
-    <div class="searchbar pt-4 pb-4">
+    <div class="searchbar pt-8 pb-4">
         <form action="{{ route('search') }}" method="get">
             {{ csrf_field() }}
             <div class="flex items-center justify-center">
@@ -30,133 +30,138 @@
         </form>
     </div>
 
-    <section class="game-slider px-12 md:px-24">
-        <div class="owl-carousel owl1">
-            @foreach ($games as $game)
-                <div class="item">
-                    <a class="bg-indigo-800 inline-block" href="{{ route('showcg', ['game' => $game->slug]) }}">
-                        <img src="{{ $game->game_image }}" alt="{{ $game->game_name }}"
-                            class="h-96 hover:opacity-50 duration-300" />
-                    </a>
-                </div>
-            @endforeach
+    <section class="tanitim">
+        <div class="container py-5">
+            <h1 class="tbaslik text-4xl font-bold">Patchnote database of every games.
+            </h1>
+            <p class="htext py-5 pr-0 md:pr-48">This third-party website gives you better insight into the patchnotes of
+                games in
+                every
+                platforms.<br><br>
+
+                Look through our FAQ if you have any questions about LatestPatchNotes, join our Discord. Follow @LPN on
+                Twitter.
+            </p>
         </div>
     </section>
 
-    <div class="patchnotes">
-        <div class="container pt-4 pb-4">
-            <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
-                <div class="patchnotes latestgames xl:row-start-1 xl:row-end-1 row-start-2 row-end-3">
-                    <h1 class="text-center text-4xl font-bold">Latest Patchnotes</h1>
-                    <div class="patchnotecount md:px-16 px-0">
-                        <h1 class="text-2xl font-bold text-center pt-2">Patchnotes In DB : {{ $patchnotescount }}</h1>
-                    </div>
-                    <div class="flex justify-center pt-2">
-                        <a class="inline-flex items-center h-12 px-8 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-gray-600 rounded-lg focus:shadow-outline hover:bg-indigo-800"
-                            href="{{ route('lpatchnotes') }}">View all</a>
-                    </div>
-                    <div class="flex flex-col gap-4 mt-4">
-                        @foreach ($hamham as $item)
-                            <section class="{{ $item->slug }}">
-                                <div
-                                    class="patchnote bg-neutral-50 shadow-lg grid grid-cols-1 md:grid-cols-4 md:gap-4 text-center md:text-left py-2 items-center">
-                                    <div class="grid2 md:col-start-1 md:col-end-2 justify-self-center px-2 py-2">
-                                        <a class="bg-indigo-800 inline-block"
-                                            href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                                            <img src="{{ $item->post_image }}" alt="{{ $item->post_title }}"
-                                                class="w-32 h-16 hover:opacity-50 duration-300">
-                                        </a>
-                                        <h5 class="text-center">{{ $item->created_at->format('d/m/Y') }}</h5>
-                                    </div>
-                                    <div class="grid3 md:col-start-2 md:col-end-5 md:pr-8 pr-0">
-                                        <a href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                                            <h1 class="text-xl py-4 duration-150 hover:text-indigo-500">
-                                                {{ $item->post_title }}</h1>
-                                        </a>
-                                    </div>
-                                </div>
-                            </section>
-                        @endforeach
-                    </div>
-                </div>
+    <section class="gamesection">
+        <h1 class="text-center text-4xl font-bold htext">Latest Games</h1>
+        <div class="gamecount md:px-16 px-0">
+            <h1 class="text-2xl font-bold text-center pt-2 htext">Games In DB : {{ $gamecount }}</h1>
+        </div>
+        <div class="flex justify-center pt-2">
+            <a class="butonbg inline-flex items-center h-12 px-8 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-gray-600 rounded-lg focus:shadow-outline hover:bg-indigo-800 htext"
+                href="{{ route('allgames') }}">View all</a>
+        </div>
 
-                <div class="latestgames xl:row-start-1 xl:row-end-1 row-start-1 row-end-2">
-                    <h1 class="text-center text-4xl font-bold">Latest Games</h1>
-                    <div class="gamecount md:px-16 px-0">
-                        <h1 class="text-2xl font-bold text-center pt-2">Games In DB : {{ $gamecount }}</h1>
-                    </div>
-                    <div class="flex justify-center pt-2">
-                        <a class="inline-flex items-center h-12 px-8 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-gray-600 rounded-lg focus:shadow-outline hover:bg-indigo-800"
-                            href="{{ route('allgames') }}">View all</a>
-                    </div>
-                    @foreach ($latest as $gameliked)
-                        <section class="{{ $gameliked->slug }}">
-                            <div class="bg-neutral-50 rounded overflow-hidden shadow-lg mt-4 mb-4">
-                                <div class="grid grid-cols-1 md:grid-cols-2">
-                                    <div class="firstgrid image p-4 self-center">
+        <div class="container mx-auto pt-4 pb-4">
+            <div class="overflow-x-auto relative">
+                <table class="w-full text-left">
+                    <thead class="tablehead">
+                        <tr>
+                            <th scope="col" class="py-3 px-6">Image</th>
+                            <th scope="col" class="py-3 px-6">Game</th>
+                            <th scope="col" class="py-3 px-6">Latest Patchnote</th>
+                            <th scope="col" class="text-center py-3 px-6">Add Favourite</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tablebody">
+                        @foreach ($latest as $gameliked)
+                            <section class="{{ $gameliked->slug }}">
+                                <tr class="border-b hover:bg-indigo-800">
+                                    <th scope="row"
+                                        class="py-0 px-0 md:py-4 md:px-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         <a class="bg-indigo-800 inline-block"
                                             href="{{ route('showcg', ['game' => $gameliked->slug]) }}">
                                             <img src="{{ $gameliked->game_image }}"
-                                                class="h-64 w-full hover:opacity-50 duration-300"
+                                                class="game_image hover:opacity-50 duration-300"
                                                 alt="{{ $gameliked->game_name }}">
                                         </a>
-                                    </div>
-                                    <div class="secondgrid pr-2 pl-2 lg:pl-0 flex flex-col justify-between">
-                                        <div class="text">
-                                            <a href="{{ route('showcg', ['game' => $gameliked->slug]) }}">
-                                                <h1
-                                                    class="text-3xl text-center pt-4 pb-4 duration-150 hover:text-indigo-500
-                                    ">
-                                                    {{ $gameliked->game_name }}
-                                                </h1>
-                                            </a>
-                                        </div>
-                                        @if (!$gameliked->patchnotes->isEmpty())
-                                            <div class="grid grid-cols-3 gap-3 bg-slate-200 shadow-lg px-1 py-1">
-                                                <div class="patchnote flex flex-col gap-1 col-start-1 col-end-4">
-                                                    <a
-                                                        href="{{ route('show', ['patchnote' => $gameliked->patchnotes->first()->slug]) }}">
-                                                        <h1 class="text-lg duration-150 hover:text-indigo-500">
-                                                            {{ $gameliked->patchnotes->first()->post_title }}
-                                                        </h1>
-                                                    </a>
-                                                    <a href="{{ route('show', ['patchnote' => $gameliked->patchnotes->first()->slug]) }}"
-                                                        class="underline duration-150 hover:text-indigo-500">Read the
-                                                        patchnote</a>
-                                                </div>
-                                            </div>
+                                    </th>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                        <a class="hover:underline"
+                                            href="{{ route('showcg', ['game' => $gameliked->slug]) }}">{{ $gameliked->game_name }}</a>
+                                    </td>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                        <a class="hover:underline"
+                                            href="{{ route('showcg', ['game' => $gameliked->slug]) }}">{{ $gameliked->patchnotes->first()->post_title }}
+                                        </a>
+                                    </td>
+                                    <td class="text-center py-4 px-6">
+                                        @if ($gameliked->liked())
+                                            <form action="{{ route('unlike.post', $gameliked->id) }}" method="post">
+                                                @csrf
+                                                <button class="text-3xl">-</button>
+                                            </form>
                                         @else
-                                            <h1 class="text-center text-2xl font-bold">No Patchnotes Yet...</h1>
+                                            <form action="{{ route('like.post', $gameliked->id) }}" method="post">
+                                                @csrf
+                                                <button class="text-3xl">+</button>
+                                            </form>
                                         @endif
-                                        <div class="likebutton py-4 flex justify-center content-center">
-                                            <td class="px-6 py-4 text-sm text-gray-500 border-b border-gray-200">
-                                                @if ($gameliked->liked())
-                                                    <form action="{{ route('unlike.post', $gameliked->id) }}"
-                                                        method="post">
-                                                        @csrf
-                                                        <button
-                                                            class="{{ $gameliked->liked() ? 'block' : 'hidden' }} inline-flex items-center h-12 px-8 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-indigo-800">
-                                                            Remove From Favourite
-                                                        </button>
-                                                    </form>
-                                                @else
-                                                    <form action="{{ route('like.post', $gameliked->id) }}" method="post">
-                                                        @csrf
-                                                        <button
-                                                            class="{{ $gameliked->liked() ? 'bg-blue-600' : '' }} inline-flex items-center h-12 px-8 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-gray-600 rounded-lg focus:shadow-outline hover:bg-indigo-800">
-                                                            Add to Favourite
-                                                        </button>
-                                                    </form>
-                                                @endif
-                                            </td>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    @endforeach
-                </div>
+                                    </td>
+                                </tr>
+                            </section>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="pnotesection">
+        <h1 class="text-center text-4xl font-bold htext">Latest Patchnotes</h1>
+        <div class="patchnotecount md:px-16 px-0">
+            <h1 class="text-2xl font-bold text-center pt-2 htext">Patchnotes In DB : {{ $patchnotescount }}</h1>
+        </div>
+        <div class="flex justify-center pt-2">
+            <a class="inline-flex items-center h-12 px-8 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-gray-600 rounded-lg focus:shadow-outline hover:bg-indigo-800 htext"
+                href="{{ route('lpatchnotes') }}">View all</a>
+        </div>
+
+        <div class="container mx-auto pt-4 pb-4">
+            <div class="overflow-x-auto relative">
+                <table class="w-full text-left">
+                    <thead class="tablehead">
+                        <tr>
+                            <th scope="col" class="py-3 px-6">Image</th>
+                            <th scope="col" class="py-3 px-6">Date</th>
+                            <th scope="col" class="py-3 px-6">Patch Title</th>
+                            <th scope="col" class="py-3 px-6">Game ID</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tablebody">
+                        @foreach ($hamham as $item)
+                            <section class="{{ $item->slug }}">
+                                <tr class="border-b hover:bg-indigo-800">
+                                    <th scope="row"
+                                        class="py-0 px-0 md:py-4 md:px-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <a class="bg-indigo-800 inline-block"
+                                            href="{{ route('show', ['patchnote' => $item->slug]) }}">
+                                            <img src="{{ $item->post_image }}" alt="{{ $item->post_title }}"
+                                                class="patchnote_image hover:opacity-50 duration-300">
+                                        </a>
+                                    </th>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                        <a class="hover:underline"
+                                            href="{{ route('show', ['patchnote' => $item->slug]) }}">{{ $item->created_at->format('d/m/Y') }}</a>
+                                    </td>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                        <a class="hover:underline"
+                                            href="{{ route('show', ['patchnote' => $item->slug]) }}">{{ $item->post_title }}
+                                        </a>
+                                    </td>
+                                    <td class="py-4 px-6 whitespace-nowrap">
+                                        <p>{{ $item->games_id }}</p>
+                                    </td>
+                                </tr>
+                            </section>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
 @endsection

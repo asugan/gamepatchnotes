@@ -30,12 +30,21 @@
 
     @endphp
 
-    <div class="container pt-8 pb-8">
+    <div class="container">
         <article class="{{ $patchnote->post_title }}">
-            <div class="flex flex-col items-center bg-neutral-50 shadow-lg px-12 py-8">
-                <h1 class="text-center text-4xl font-bold pb-4 px-0 lg:px-24">{{ $patchnote->post_title }}</h1>
+            <div class="flex flex-col htext py-8">
+                <h1 class="text-start text-4xl font-bold pb-4">{{ $patchnote->post_title }}</h1>
                 <img class="object-fill h-64 w-96" src="{{ $patchnote->post_image }}" alt="{{ $patchnote->post_title }}">
-                <div class="px-4 pb-8 pt-4 md:px-24 break-all pncontainer">
+                <div class="steamcom mt-4">
+                    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16"
+                        class="octicon octicon-check-circle-fill" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M8 16A8 8 0 108 0a8 8 0 000 16zm3.78-9.72a.75.75 0 00-1.06-1.06L6.75 9.19 5.28 7.72a.75.75 0 00-1.06 1.06l2 2a.75.75 0 001.06 0l4.5-4.5z">
+                        </path>
+                    </svg>
+                    <span>Patchnotes via Steam Community</span>
+                </div>
+                <div class="pt-4 break-all pncontainer">
                     {!! $hamham18 !!}
                 </div>
             </div>

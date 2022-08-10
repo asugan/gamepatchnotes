@@ -13,7 +13,6 @@ if (container.length) {
     elems.innerHTML = target
         .replace(/(<br)/gim, "<p")
         .replace(/<\/br>/gim, "</p>");
-    $("img").addClass("mx-auto");
 }
 
 jQuery(document).ready(function () {

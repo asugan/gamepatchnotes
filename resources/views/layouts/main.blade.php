@@ -55,21 +55,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
 
 </head>
 
 <body>
     <div class="flex flex-col h-screen">
 
-        <div class="navbg bg-neutral-50 shadow-lg pt-3 pb-3">
+        <div class="navigbg bg-black shadow-lg pt-3 pb-3 border-b-2 border-gray-600">
             <nav class="flex justify-between container">
                 <div class="logo">
                     <a href="/">
-                        <img src="{{ asset('images/lpnotes.png') }}" alt="" class="w-32">
+                        <img src="{{ asset('images/logo2.png') }}" alt="latestpatchnotes" class="w-24">
                     </a>
                 </div>
                 <div class="navlist flex items-center">
-                    <ul class="hidden xl:flex flex-row gap-4 font-bold uppercase items-center">
+                    <ul class="hidden xl:flex flex-row gap-4 font-bold items-center htext">
                         <li>
                             <a href="{{ route('welcome') }}"
                                 class="duration-150 text-sm hover:text-indigo-500 hover:underline">Home</a>
@@ -98,9 +101,14 @@
                                     class="duration-150 text-sm hover:text-indigo-500 hover:underline">Login</a>
                             </li>
                             <li>
-                                <a href="/auth/steam" class="bg-indigo-800 inline-block"><img
-                                        class="w-48 hover:opacity-50 duration-300" src="{{ asset('images/steam.png') }}"
-                                        alt=""></a>
+                                <a href="/auth/steam" class="hover:text-indigo-500 hover:underline"><svg version="1.1"
+                                        width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-steam"
+                                        aria-hidden="true">
+                                        <path
+                                            d="M8 0a8 8 0 00-8 7.47c.07.1.13.21.18.32l4.15 1.67a2.2 2.2 0 011.31-.36l1.97-2.8v-.04c0-1.65 1.37-3 3.05-3a3.03 3.03 0 013.05 3 3.03 3.03 0 01-3.12 3l-2.81 1.97c0 .3-.05.6-.17.9a2.25 2.25 0 01-4.23-.37L.4 10.56A8.01 8.01 0 108 0zm2.66 4.27c-1.12 0-2.03.9-2.03 2s.91 1.99 2.03 1.99c1.12 0 2.03-.9 2.03-2s-.9-2-2.03-2zm0 .5c.85 0 1.53.66 1.53 1.49s-.68 1.5-1.53 1.5c-.84 0-1.52-.67-1.52-1.5s.68-1.5 1.52-1.5zM5.57 9.6c-.22 0-.43.04-.62.11l1.02.42c.65.26.95.99.68 1.62-.27.63-1 .93-1.65.67l-1-.4a1.73 1.73 0 003.13-.08c.18-.42.18-.88.01-1.3A1.69 1.69 0 005.57 9.6z">
+                                        </path>
+                                    </svg>
+                                    <span>Sign in</span></a>
                             </li>
                         @endguest
                         @auth
@@ -118,7 +126,7 @@
                     </ul>
                 </div>
                 <div class="xl:hidden navlist md flex items-center">
-                    <ul class="flex flex-row gap-4 font-bold uppercase items-center">
+                    <ul class="flex flex-row gap-4 font-bold htext items-center">
                         @guest
                             <li>
                                 <a href="{{ route('register.show') }}"
@@ -129,9 +137,16 @@
                                     class="duration-150 text-sm hover:text-indigo-500 hover:underline">Login</a>
                             </li>
                             <li>
-                                <a href="/auth/steam" class="bg-indigo-800 inline-block"><img
-                                        class="w-48 hover:opacity-50 duration-300"
-                                        src="https://www.luvclan.nl/images/steam_login_bar.png" alt=""></a>
+                            <li>
+                                <a href="/auth/steam" class="hover:text-indigo-500 hover:underline"><svg version="1.1"
+                                        width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-steam"
+                                        aria-hidden="true">
+                                        <path
+                                            d="M8 0a8 8 0 00-8 7.47c.07.1.13.21.18.32l4.15 1.67a2.2 2.2 0 011.31-.36l1.97-2.8v-.04c0-1.65 1.37-3 3.05-3a3.03 3.03 0 013.05 3 3.03 3.03 0 01-3.12 3l-2.81 1.97c0 .3-.05.6-.17.9a2.25 2.25 0 01-4.23-.37L.4 10.56A8.01 8.01 0 108 0zm2.66 4.27c-1.12 0-2.03.9-2.03 2s.91 1.99 2.03 1.99c1.12 0 2.03-.9 2.03-2s-.9-2-2.03-2zm0 .5c.85 0 1.53.66 1.53 1.49s-.68 1.5-1.53 1.5c-.84 0-1.52-.67-1.52-1.5s.68-1.5 1.52-1.5zM5.57 9.6c-.22 0-.43.04-.62.11l1.02.42c.65.26.95.99.68 1.62-.27.63-1 .93-1.65.67l-1-.4a1.73 1.73 0 003.13-.08c.18-.42.18-.88.01-1.3A1.69 1.69 0 005.57 9.6z">
+                                        </path>
+                                    </svg>
+                                    <span>Sign in</span></a>
+                            </li>
                             </li>
                         @endguest
                         @auth
@@ -162,7 +177,7 @@
                 </div>
             </nav>
             <div class="hidden mobile-menu text-center">
-                <ul class="">
+                <ul class="htext">
                     <li class="active"><a href="/"
                             class="block text-sm px-2 py-4 text-white bg-indigo-800 font-semibold">Home</a></li>
                     <li><a href="/games"
@@ -199,11 +214,11 @@
             </div>
         </div>
 
-        <div class="background bg-slate-200 flex-grow">
+        <div class="background flex-grow">
             @yield('content')
         </div>
 
-        <footer class="navbg bg-neutral-50 shadow-lg py-4">
+        <footer class="navbg py-4 htext border-t-2 border-gray-600">
             <div class="container">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
                     <div class="flex flex-col justify-center items-center">
@@ -257,7 +272,7 @@
 
                     <div class="firstgrid flex flex-col gap-3 justify-center items-center">
                         <div class="logo"><a href="/">
-                                <img src="{{ asset('images/lpnotes.png') }}" alt="" class="w-40">
+                                <img src="{{ asset('images/logo2.png') }}" alt="latestpatchnotes" class="w-40">
                             </a>
                         </div>
                         <div class="footercopyright">

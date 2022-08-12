@@ -14,68 +14,63 @@ class SteamApiController extends Controller
         $hamham_response = HTTP::acceptJson()->get('https://hamhamapi.herokuapp.com/steamdb');
         $response2 = json_decode($hamham_response);
 
-        foreach ($response2 as $gameid) {
+        foreach ($response2 as $key => $q) {
 
-            $array = array($gameid->appid);
+            $hamham_response2 = HTTP::acceptJson()->get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=' . $q->appid . '&count=1&maxlength=0&format=json&tags=patchnotes');
+            $response3 = json_decode($hamham_response2);
+            $game_image = 'https://cdn.cloudflare.steamstatic.com/steam/apps/' . $q->appid . '/capsule_231x87.jpg';
+            if ($game_image === null) {
+                $game_image = 'https://steamdb.info/static/img/applogo.svg';
+            };
 
-            foreach ($array as $q) {
+            foreach ($response3 as $patchnote) {
 
-                $hamham_response2 = HTTP::acceptJson()->get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=' . $q . '&count=1&maxlength=0&format=json&tags=patchnotes');
-                $response3 = json_decode($hamham_response2);
-                $game_image = 'https://cdn.cloudflare.steamstatic.com/steam/apps/' . $q . '/capsule_231x87.jpg';
-                if ($game_image === null) {
-                    $game_image = 'https://steamdb.info/static/img/applogo.svg';
-                };
+                if (count($patchnote->newsitems) > 0) {
 
-                foreach ($response3 as $patchnote) {
+                    $validate = (Patchnotes::where('post_title', $patchnote->newsitems[0]->title))->first();
+                    if ($validate === null) {
 
-                    if (count($patchnote->newsitems) > 0) {
+                        $api_response = HTTP::acceptJson()->get('https://store.steampowered.com/api/appdetails?appids=' . $q->appid);
+                        $response = json_decode($api_response);
 
-                        $validate = (Patchnotes::where('post_title', $patchnote->newsitems[0]->title))->first();
-                        if ($validate === null) {
+                        foreach ((array) $response as $game) {
 
-                            $api_response = HTTP::acceptJson()->get('https://store.steampowered.com/api/appdetails?appids=' . $q);
-                            $response = json_decode($api_response);
-
-                            foreach ((array) $response as $game) {
-
-                                if (!empty($game->data)) {
-                                    $request->hamham1 = $game->data->name;
-                                    $validate = (Games::where('game_name', $request->hamham1))->first();
-                                    if ($validate === null) {
-                                        $request->hamham2 = $game->data->steam_appid;
-                                        $request->hamham3 = $game->data->header_image;
-                                        $request->hamham4 = $game->data->release_date->date;
-                                        if (empty($game->data->genres[0])) {
-                                            $request->hamham5 = 'No Info';
-                                        } else {
-                                            $request->hamham5 = $game->data->genres[0]->description;
-                                        }
-                                        if (empty($game->data->developers[0])) {
-                                            $request->hamham6 = 'No Info';
-                                        } else {
-                                            $request->hamham6 = $game->data->developers[0];
-                                        }
-                                        $data = new Games([
-                                            'game_name' => $request->hamham1,
-                                            'id' => $request->hamham2,
-                                            'game_image' => $request->hamham3,
-                                            'release_date' => $request->hamham4,
-                                            'game_platform' => 'PC',
-                                            'genre' => $request->hamham5,
-                                            'developer' => $request->hamham6,
-                                        ]);
-                                        $data->save();
+                            if (!empty($game->data)) {
+                                $request->hamham1 = $game->data->name;
+                                $validate = (Games::where('game_name', $request->hamham1))->first();
+                                if ($validate === null) {
+                                    $request->hamham2 = $game->data->steam_appid;
+                                    $request->hamham3 = $game->data->header_image;
+                                    $request->hamham4 = $game->data->release_date->date;
+                                    if (empty($game->data->genres[0])) {
+                                        $request->hamham5 = 'No Info';
+                                    } else {
+                                        $request->hamham5 = $game->data->genres[0]->description;
                                     }
-                                    $data2 = new Patchnotes([
-                                        'post_title' => $patchnote->newsitems[0]->title,
-                                        'post_body' => $patchnote->newsitems[0]->contents,
-                                        'games_id' => $patchnote->newsitems[0]->appid,
-                                        'post_image' => $game_image,
+                                    if (empty($game->data->developers[0])) {
+                                        $request->hamham6 = 'No Info';
+                                    } else {
+                                        $request->hamham6 = $game->data->developers[0];
+                                    }
+                                    $data = new Games([
+                                        'game_name' => $request->hamham1,
+                                        'id' => $request->hamham2,
+                                        'game_image' => $request->hamham3,
+                                        'release_date' => $request->hamham4,
+                                        'game_platform' => 'PC',
+                                        'genre' => $request->hamham5,
+                                        'developer' => $request->hamham6,
                                     ]);
-
-                                    $data2->save();
+                                    $data->save();
                                 }
+                                $data2 = new Patchnotes([
+                                    'post_title' => $patchnote->newsitems[0]->title,
+                                    'post_body' => $patchnote->newsitems[0]->contents,
+                                    'games_id' => $patchnote->newsitems[0]->appid,
+                                    'post_image' => $game_image,
+                                ]);
+
+                                $data2->save();
                             }
                         }
                     }

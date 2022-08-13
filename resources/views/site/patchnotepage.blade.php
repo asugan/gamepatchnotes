@@ -24,7 +24,7 @@
     $hamham14 = Illuminate\Support\Str::replace('[*]', '<li>', $hamham13);
     $hamham15 = Illuminate\Support\Str::replace('[hr]', '', $hamham14);
     $hamham16 = Illuminate\Support\Str::replace('[/hr]', '', $hamham15);
-    $hamham17 = Illuminate\Support\Str::replace(['[url=', ']', '[/url>', '[i>', '[/i>', '[previewyoutube=' , '[/previewyoutube>', ';full>', '[code>', '[/code>', '[/*>'], ['<a href=', '>', '</a>', '<i>', '</i>', 'https://www.youtube.com/watch?v=' , '<br>', '', '', '', ''], $hamham16);
+    $hamham17 = Illuminate\Support\Str::replace(['[url=', ']', '[/url>', '[i>', '[/i>', '[previewyoutube=' , '[/previewyoutube>', ';full>', '[code>', '[/code>', '[/*>', '[olist>', '[/olist>', '[u>', '[/u>'], ['<a href=', '>', '</a>', '<i>', '</i>', 'https://www.youtube.com/watch?v=' , '<br>', '', '', '', '', '<ul>', '</ul>', '<u>', '</u>'], $hamham16);
 
     $hamham18 = nl2br($hamham17);
 
@@ -33,7 +33,7 @@
     <div class="pnheader py-16"
         style="background-image: url('https://cdn.cloudflare.steamstatic.com/steam/apps/{{ $game->id }}/page_bg_generated_v6b.jpg?t=1660374201')">
         <div class="container flex flex-col gap-4">
-            <h2 class="text-3xl pb-4"><a class="hover:underline text-blue-600"
+            <h2 class="text-3xl pb-4"><a class="link"
                     href="{{ route('showcg', ['game' => $game->slug]) }}">{{ $game->game_name }}</a>
                 <span class="text-blue-400">update for {{ $patchnote->created_at->format('d/m/Y') }}</span>
             </h2>

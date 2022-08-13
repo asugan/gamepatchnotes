@@ -35,9 +35,7 @@
             <h1 class="tbaslik text-4xl font-bold">Patch notes database of every games.
             </h1>
             <p class="htext py-5 pr-0 md:pr-48">This third-party website gives you better insight into the patchnotes of
-                games in
-                every
-                platforms.<br><br>
+                games in every platforms.<br><br>
 
                 Look through our FAQ if you have any questions about LatestPatchNotes, join our Discord. Follow @LPN on
                 Twitter.

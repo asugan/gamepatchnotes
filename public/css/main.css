@@ -2,6 +2,8 @@
     --background-color : #161920;
     --background-arkaplan : #1f232e;
     --font-color:#ddd;
+    --link-color:#00aff4;
+    --link-hover:#0095ff;
 }
 
 .navbg{
@@ -19,6 +21,15 @@ body{
 
 .background{
     background-color: var(--background-color);
+}
+
+.link{
+    color: var(--link-color);
+}
+
+.link:hover{
+    color: var(--link-hover);
+    text-decoration: underline;
 }
 
 .octicon{

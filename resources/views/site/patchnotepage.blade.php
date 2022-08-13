@@ -9,7 +9,7 @@
 @section('content')
     @php
     $hamham = Illuminate\Support\Str::replace('{STEAM_CLAN_IMAGE}', 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans', $patchnote->post_body);
-    $hamham2 = Illuminate\Support\Str::replace('[img]', '<img class="mx-auto" src="', $hamham);
+    $hamham2 = Illuminate\Support\Str::replace('[img]', '<img src="', $hamham);
     $hamham3 = Illuminate\Support\Str::replace('[/img]', '">  ', $hamham2);
     $hamham4 = Illuminate\Support\Str::replace('[h1]', '<h1 class="text-3xl">', $hamham3);
     $hamham5 = Illuminate\Support\Str::replace('[/h1]', '</h1>', $hamham4);
@@ -30,12 +30,30 @@
 
     @endphp
 
+    <div class="pnheader py-16"
+        style="background-image: url('https://cdn.cloudflare.steamstatic.com/steam/apps/{{ $game->id }}/page_bg_generated_v6b.jpg?t=1660374201')">
+        <div class="container flex flex-col gap-4">
+            <h2 class="text-3xl pb-4"><a class="hover:underline text-blue-600"
+                    href="{{ route('showcg', ['game' => $game->slug]) }}">{{ $game->game_name }}</a>
+                <span class="text-blue-400">update for {{ $patchnote->created_at->format('d/m/Y') }}</span>
+            </h2>
+            <h1 class="text-3xl htext">{{ $patchnote->post_title }}</h1>
+            <p class="flex"><span class="flex-grow text-gray-400">
+                    <a href="{{ route('showcg', ['game' => $game->slug]) }}">View all patches</a> · <a
+                        href="{{ route('showcg', ['game' => $game->slug]) }}" rel="nofollow">Gameid {{ $game->id }}</a>
+                    · Last
+                    edited
+                    <time>{{ $patchnote->updated_at->format('d/m/Y') }}</time>
+                </span></p>
+        </div>
+    </div>
+
+
     <div class="container">
         <article class="{{ $patchnote->post_title }}">
             <div class="flex flex-col htext py-8">
-                <h1 class="text-start text-4xl font-bold pb-4">{{ $patchnote->post_title }}</h1>
-                <img class="object-fill h-64 w-96" src="{{ $patchnote->post_image }}" alt="{{ $patchnote->post_title }}">
-                <div class="steamcom mt-4">
+                <h3 class="text-start text-3xl font-bold pb-4">Patch Notes</h3>
+                <div class="steamcom">
                     <svg version="1.1" width="16" height="16" viewBox="0 0 16 16"
                         class="octicon octicon-check-circle-fill" aria-hidden="true">
                         <path fill-rule="evenodd"

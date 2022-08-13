@@ -7,7 +7,7 @@ btn.addEventListener("click", () => {
 });
 
 if (container.length) {
-    var elems = document.getElementsByTagName("body")[0];
+    var elems = document.getElementsByClassName("pncontainer")[0];
 
     var target = elems.innerHTML;
     elems.innerHTML = target

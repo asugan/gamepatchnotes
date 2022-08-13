@@ -49,7 +49,9 @@ class GameController extends Controller
 
     public function showpatchnote(Patchnotes $patchnote)
     {
-        return view('site.patchnotepage', ['patchnote' => $patchnote]);
+        $game = Games::where('id', $patchnote->games_id)->first();
+
+        return view('site.patchnotepage', ['patchnote' => $patchnote, 'game' => $game]);
     }
 
     public function showcategory(Games $game)

@@ -17,7 +17,7 @@
                 <div class="image place-self-center lg:place-self-start">
                     <img class="" src="{{ $game->game_image }}" alt="">
                 </div>
-                <div class="infos grid grid-cols-2">
+                <div class="infos grid grid-cols-1 lg:grid-cols-2">
                     <div class="firstdiv">
                         <a href="{{ route('showcg', ['game' => $game->slug]) }}">
                             <h1

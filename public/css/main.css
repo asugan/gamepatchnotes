@@ -28,6 +28,12 @@ body{
     background-color: #161920 !important;
 }
 
+.pnheader{
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .tbaslik{
     background: linear-gradient(-70deg,#a2facf,#64acff);
     background-image: linear-gradient(-70deg, rgb(162, 250, 207), rgb(100, 172, 255));

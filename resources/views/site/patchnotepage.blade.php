@@ -1,9 +1,28 @@
+@php
+
+function strip_tags_content($string)
+{
+    // ----- remove HTML TAGs -----
+    $string = preg_replace('/<[^>]*>/', ' ', $string);
+    // ----- remove control characters -----
+    $string = str_replace("\r", '', $string);
+    $string = str_replace("\n", ' ', $string);
+    $string = str_replace("\t", ' ', $string);
+    // ----- remove multiple spaces -----
+    $string = trim(preg_replace('/ {2,}/', ' ', $string));
+    return $string;
+}
+
+$description = Illuminate\Support\Str::replace(['{STEAM_CLAN_IMAGE}', '[img]', '[/img]', '[h1]', '[/h1]', '[h3]', '[/h3]', '[h2]', '[/h2]', '[b]', '[/b]', '[list]', '[/list]', '[*]', '[hr]', '[/hr]', '[i>', '[/i>', '[u>', '[/u>', '<br />', '<u>', '</u>'], ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], $patchnote->post_body);
+
+@endphp
+
 @extends('layouts.main')
 @section('title', $patchnote->post_title . ' - Latestpatchnotes')
-@section('description', Str::limit($patchnote->post_body, 120, '...'))
+@section('description', Str::limit(strip_tags_content($description), 150, '...'))
 @section('keywords', $patchnote->post_title . ',Latestpatchnotes,' . $patchnote->post_title . ' - Latestpatchnotes')
 @section('og.title', $patchnote->post_title . ' - Latestpatchnotes')
-@section('og.desc', Str::limit($patchnote->post_body, 120, '...'))
+@section('og.desc', Str::limit(strip_tags_content($description), 150, '...'))
 @section('og.type', 'article')
 @section('og_image', $patchnote->post_image)
 @section('content')

@@ -128,37 +128,6 @@ body{
     }
 }
 
-@media (min-width: 450px){
-    .asugan{
-        width: 300px;
-        height: 250px;
-    }
-}
-
-@media (min-width: 640px){
-    .asugan{
-        width: 450px;
-        height: 250px;
-    }
-}
-
-@media (min-width: 768px){
-    .asugan{
-        width: 700px;
-        height: 250px;
-    }
-}
-
-@media (min-width: 1024px){
-    .asugan{
-        width: 900px;
-        height: 250px;
-    }
-}
-
-@media (min-width: 1280px){
-    .asugan{
-        width: 1120px;
-        height: 250px;
-    }
+.google-auto-placed{
+    display: none;
 }

@@ -43,15 +43,6 @@
         </div>
     </section>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
-        crossorigin="anonymous"></script>
-    <!-- Yatay -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4215212273469017" data-ad-slot="1904430142"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-
     <section class="gamesection">
         <h1 class="text-center text-4xl font-bold htext">Latest Games</h1>
         <div class="gamecount md:px-16 px-0">
@@ -120,15 +111,6 @@
             </div>
         </div>
     </section>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
-        crossorigin="anonymous"></script>
-    <!-- Yatay -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4215212273469017" data-ad-slot="1904430142"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
 
     <section class="pnotesection">
         <h1 class="text-center text-4xl font-bold htext">Latest Patchnotes</h1>

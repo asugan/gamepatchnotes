@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
-        crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NGPHW8JVNQ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -26,13 +24,13 @@
     <meta name="language" content="English">
     <meta name="author" content="LatestPatchNotes">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="{{ url()->current() }}/">
+    <link rel="canonical" href="{{ url()->current() }}">
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon" />
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="@yield('og.type')">
     <meta property="og:title" content="@yield('og.title')">
     <meta property="og:description" content="@yield('og.desc')">
-    <meta property="og:url" content="{{ url()->current() }}/">
+    <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:site_name" content="Latest Patch Notes">
     <meta property="og:image" content="@yield('og_image')">
     <meta name="twitter:card" content="summary_large_image">

@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Http;
 
 class SteamApiController extends Controller
 {
-    public function topla(Request $request)
+    public function topla()
     {
         $hamham_response = HTTP::acceptJson()->get('https://hamhamapi.herokuapp.com/steamdb');
         $response2 = json_decode($hamham_response);
 
-        foreach ($response2 as $key => $q) {
+        foreach ($response2 as $q) {
 
             $hamham_response2 = HTTP::acceptJson()->get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=' . $q->appid . '&count=1&maxlength=0&format=json&tags=patchnotes');
             $response3 = json_decode($hamham_response2);
@@ -36,30 +36,26 @@ class SteamApiController extends Controller
                         foreach ((array) $response as $game) {
 
                             if (!empty($game->data)) {
-                                $request->hamham1 = $game->data->name;
-                                $validate = (Games::where('game_name', $request->hamham1))->first();
+                                $validate = (Games::where('id', $game->data->steam_appid))->first();
                                 if ($validate === null) {
-                                    $request->hamham2 = $game->data->steam_appid;
-                                    $request->hamham3 = $game->data->header_image;
-                                    $request->hamham4 = $game->data->release_date->date;
                                     if (empty($game->data->genres[0])) {
-                                        $request->hamham5 = 'No Info';
+                                        $genre = 'No Info';
                                     } else {
-                                        $request->hamham5 = $game->data->genres[0]->description;
+                                        $genre = $game->data->genres[0]->description;
                                     }
                                     if (empty($game->data->developers[0])) {
-                                        $request->hamham6 = 'No Info';
+                                        $developer = 'No Info';
                                     } else {
-                                        $request->hamham6 = $game->data->developers[0];
+                                        $developer = $game->data->developers[0];
                                     }
                                     $data = new Games([
-                                        'game_name' => $request->hamham1,
-                                        'id' => $request->hamham2,
-                                        'game_image' => $request->hamham3,
-                                        'release_date' => $request->hamham4,
+                                        'game_name' => $game->data->name,
+                                        'id' => $game->data->steam_appid,
+                                        'game_image' => $game->data->header_image,
+                                        'release_date' => $game->data->release_date->date,
                                         'game_platform' => 'PC',
-                                        'genre' => $request->hamham5,
-                                        'developer' => $request->hamham6,
+                                        'genre' => $genre,
+                                        'developer' => $developer,
                                     ]);
                                     $data->save();
                                 }

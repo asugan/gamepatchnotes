@@ -34,10 +34,11 @@
         <div class="container py-5">
             <h1 class="tbaslik text-4xl font-bold">Patch notes database of every games.
             </h1>
-            <p class="htext py-5 pr-0 md:pr-48">This third-party website gives you better insight into the patchnotes of
+            <p class="htext py-5 pr-0 md:pr-48">This third-party website gives you better insight into the latest patch
+                notes of
                 games in every platforms.<br><br>
 
-                Look through our FAQ if you have any questions about LatestPatchNotes, join our Discord. Follow @LPN on
+                Look through our FAQ if you have any questions, join our Discord. Follow @latestpnotes on
                 Twitter.
             </p>
         </div>

@@ -12,8 +12,6 @@ class GameController extends Controller
     public function index()
     {
 
-        $games = Games::where('recommended', 'on')->take(10)->get();
-
         $gamecount = Games::all()->count();
         $patchnotescount = Patchnotes::all()->count();
 
@@ -26,7 +24,7 @@ class GameController extends Controller
 
         $hamham = Patchnotes::latest()->take(12)->get();
 
-        return view('site.index', compact('games', 'latest', 'gamecount', 'patchnotescount', 'hamham'));
+        return view('site.index', compact('latest', 'gamecount', 'patchnotescount', 'hamham'));
     }
 
     public function likePost($id)
@@ -56,7 +54,7 @@ class GameController extends Controller
 
     public function showcategory(Games $game)
     {
-        $post = $game->patchnotes()->latest()->paginate(4);
+        $post = $game->patchnotes()->latest()->paginate(10);
 
         return view('site.gamepage', ['game' => $game, 'patchnotes' => $post]);
     }

@@ -59,10 +59,14 @@ class SteamApiController extends Controller
                                     ]);
                                     $data->save();
                                 }
+                                $patchnote_id = $patchnote->newsitems[0]->appid;
+                                $game_take = Games::where('id', $patchnote_id)->first();
+                                $game_name = $game_take->game_name;
+
                                 $data2 = new Patchnotes([
-                                    'post_title' => $patchnote->newsitems[0]->title,
+                                    'post_title' => $game_name . ' ' . $patchnote->newsitems[0]->title,
                                     'post_body' => $patchnote->newsitems[0]->contents,
-                                    'games_id' => $patchnote->newsitems[0]->appid,
+                                    'games_id' => $patchnote_id,
                                     'post_image' => $game_image,
                                 ]);
 

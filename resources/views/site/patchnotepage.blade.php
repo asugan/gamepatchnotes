@@ -18,10 +18,11 @@ $description = Illuminate\Support\Str::replace(['{STEAM_CLAN_IMAGE}', '[img]', '
 @endphp
 
 @extends('layouts.main')
-@section('title', $patchnote->post_title . ' - Latestpatchnotes')
+@section('title', $game->game_name . ' ' . $patchnote->post_title . ' - Latestpatchnotes')
 @section('description', Str::limit(strip_tags_content($description), 150, '...'))
-@section('keywords', $patchnote->post_title . ',Latestpatchnotes,' . $patchnote->post_title . ' - Latestpatchnotes')
-@section('og.title', $patchnote->post_title . ' - Latestpatchnotes')
+@section('keywords', $patchnote->post_title . ',Latestpatchnotes,' . $patchnote->post_title . ' - Latestpatchnotes,' .
+    $game->game_name . ' ' . $patchnote->post_title . ' patchnotes')
+@section('og.title', $game->game_name . ' ' . $patchnote->post_title . ' - Latestpatchnotes')
 @section('og.desc', Str::limit(strip_tags_content($description), 150, '...'))
 @section('og.type', 'article')
 @section('og_image', $patchnote->post_image)

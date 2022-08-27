@@ -1,10 +1,10 @@
 @extends('layouts.main')
-@section('title', $game->game_name . ' - Latestpatchnotes')
+@section('title', $game->game_name . ' - Latest Patch Notes')
 @section('description', Str::limit('Follow the latest patchnotes of ' . $game->game_name . ' in Latestpatchnotes.com!',
     120, '...'))
 @section('keywords', $game->game_name . ',Latestpatchnotes,' . $game->game_name . ' - Latestpatchnotes,' .
     $game->game_name . ' Patchnotes')
-@section('og.title', $game->game_name . ' - Latestpatchnotes')
+@section('og.title', $game->game_name . ' - Latest Patch Notes')
 @section('og.desc', Str::limit('Follow the latest patchnotes of ' . $game->game_name . ' in Latestpatchnotes.com!', 120,
     '...'))
 @section('og.type', 'article')
@@ -103,7 +103,8 @@
                                         </a>
                                     </td>
                                     <td class="py-4 px-6 whitespace-nowrap">
-                                        <p>{{ $item->games_id }}</p>
+                                        <a class="hover:underline"
+                                            href="{{ route('showcg', ['game' => $game->slug]) }}">{{ $item->games_id }}</a>
                                     </td>
                                 </tr>
                             </section>

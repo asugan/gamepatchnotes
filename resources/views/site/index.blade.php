@@ -58,7 +58,7 @@
     <section class="gamesection">
         <h1 class="text-center text-4xl font-bold htext">Latest Games</h1>
         <div class="gamecount md:px-16 px-0">
-            <h1 class="text-2xl font-bold text-center pt-2 htext">Games In DB : {{ $gamecount }}</h1>
+            <h1 class="text-2xl font-bold text-center pt-2 htext">Games In DB : {{ $cumcum->count() }}</h1>
         </div>
         <div class="flex justify-center pt-2">
             <a class="butonbg inline-flex items-center h-12 px-8 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-gray-600 rounded-lg focus:shadow-outline hover:bg-indigo-800 htext"
@@ -158,30 +158,33 @@
                     </thead>
                     <tbody class="tablebody">
                         @foreach ($hamham as $item)
-                            <section class="{{ $item->slug }}">
-                                <tr class="border-b hover:bg-indigo-800">
-                                    <th scope="row"
-                                        class="py-0 px-0 md:py-4 md:px-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <a class="bg-indigo-800 inline-block"
-                                            href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                                            <img src="{{ $item->post_image }}" alt="{{ $item->post_title }}"
-                                                class="patchnote_image hover:opacity-50 duration-300">
-                                        </a>
-                                    </th>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
-                                        <a class="hover:underline"
-                                            href="{{ route('show', ['patchnote' => $item->slug]) }}">{{ $item->created_at->format('d/m/Y') }}</a>
-                                    </td>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
-                                        <a class="hover:underline"
-                                            href="{{ route('show', ['patchnote' => $item->slug]) }}">{{ $item->post_title }}
-                                        </a>
-                                    </td>
-                                    <td class="py-4 px-6 whitespace-nowrap">
-                                        <p>{{ $item->games_id }}</p>
-                                    </td>
-                                </tr>
-                            </section>
+                            @foreach ($cumcum->where('id', $item->games_id) as $cum)
+                                <section class="{{ $item->slug }}">
+                                    <tr class="border-b hover:bg-indigo-800">
+                                        <th scope="row"
+                                            class="py-0 px-0 md:py-4 md:px-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <a class="bg-indigo-800 inline-block"
+                                                href="{{ route('show', ['patchnote' => $item->slug]) }}">
+                                                <img src="{{ $item->post_image }}" alt="{{ $item->post_title }}"
+                                                    class="patchnote_image hover:opacity-50 duration-300">
+                                            </a>
+                                        </th>
+                                        <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                            <a class="hover:underline"
+                                                href="{{ route('show', ['patchnote' => $item->slug]) }}">{{ $item->created_at->format('d/m/Y') }}</a>
+                                        </td>
+                                        <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                            <a class="hover:underline"
+                                                href="{{ route('show', ['patchnote' => $item->slug]) }}">{{ $item->post_title }}
+                                            </a>
+                                        </td>
+                                        <td class="py-4 px-6 whitespace-nowrap">
+                                            <a class="hover:underline"
+                                                href="{{ route('showcg', ['game' => $cum->slug]) }}">{{ $item->games_id }}</a>
+                                        </td>
+                                    </tr>
+                                </section>
+                            @endforeach
                         @endforeach
                     </tbody>
                 </table>

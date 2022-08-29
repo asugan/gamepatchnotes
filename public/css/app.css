@@ -562,8 +562,20 @@ video {
 .col-start-1 {
   grid-column-start: 1;
 }
+.col-start-3 {
+  grid-column-start: 3;
+}
+.col-start-2 {
+  grid-column-start: 2;
+}
 .col-end-3 {
   grid-column-end: 3;
+}
+.col-end-4 {
+  grid-column-end: 4;
+}
+.col-end-2 {
+  grid-column-end: 2;
 }
 .float-right {
   float: right;
@@ -578,14 +590,6 @@ video {
 .-mx-3 {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
-}
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 .mt-24 {
   margin-top: 6rem;
@@ -608,6 +612,12 @@ video {
 .mt-5 {
   margin-top: 1.25rem;
 }
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -619,12 +629,6 @@ video {
 }
 .-ml-px {
   margin-left: -1px;
-}
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-.mt-1 {
-  margin-top: 0.25rem;
 }
 .block {
   display: block;
@@ -699,6 +703,15 @@ video {
 }
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -776,6 +789,9 @@ video {
 }
 .border-b {
   border-bottom-width: 1px;
+}
+.border-r {
+  border-right-width: 1px;
 }
 .border-red-500 {
   --tw-border-opacity: 1;
@@ -886,14 +902,6 @@ video {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
-.px-24 {
-  padding-left: 6rem;
-  padding-right: 6rem;
-}
-.px-48 {
-  padding-left: 12rem;
-  padding-right: 12rem;
-}
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -929,6 +937,15 @@ video {
 }
 .pt-5 {
   padding-top: 1.25rem;
+}
+.pr-8 {
+  padding-right: 2rem;
+}
+.pr-12 {
+  padding-right: 3rem;
+}
+.pt-0 {
+  padding-top: 0px;
 }
 .text-left {
   text-align: left;
@@ -1183,6 +1200,22 @@ video {
 }
 @media (min-width: 768px) {
 
+  .md\:col-start-1 {
+    grid-column-start: 1;
+  }
+
+  .md\:col-start-3 {
+    grid-column-start: 3;
+  }
+
+  .md\:col-end-3 {
+    grid-column-end: 3;
+  }
+
+  .md\:col-end-4 {
+    grid-column-end: 4;
+  }
+
   .md\:mb-0 {
     margin-bottom: 0px;
   }
@@ -1220,6 +1253,18 @@ video {
 
   .md\:pr-48 {
     padding-right: 12rem;
+  }
+
+  .md\:pr-12 {
+    padding-right: 3rem;
+  }
+
+  .md\:pr-8 {
+    padding-right: 2rem;
+  }
+
+  .md\:pt-0 {
+    padding-top: 0px;
   }
 }
 @media (min-width: 1024px) {

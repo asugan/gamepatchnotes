@@ -13,25 +13,59 @@
 
     <section class="game">
         <div class="container py-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 htext">
-                <div class="image place-self-center lg:place-self-start">
-                    <img class="" src="{{ $game->game_image }}" alt="">
-                </div>
-                <div class="infos grid grid-cols-1 lg:grid-cols-2">
-                    <div class="firstdiv">
-                        <a href="{{ route('showcg', ['game' => $game->slug]) }}">
-                            <h1
-                                class="text-center text-4xl font-bold pb-4 pt-4 duration-150 hover:text-indigo-500 hover:underline">
-                                {{ $game->game_name }}</h1>
-                        </a>
-                        <ul class="pt-4 gap-4 text-center text-lg">
-                            <li>Game Platform : {{ $game->game_platform }}</li>
-                            <li>Release Date : {{ $game->release_date }}</li>
-                            <li>Genre : {{ $game->genre }}</li>
-                            <li>Developer : {{ $game->developer }}</li>
-                        </ul>
+            <div class="grid grid-cols-1 md:grid-cols-3">
+                <div class="md:col-start-1 md:col-end-3 md:pr-12 pr-0">
+                    <div class="overflow-x-auto relative">
+                        <table class="w-full text-left border">
+                            <tbody class="tablebody">
+                                <tr class="border-b hover:bg-indigo-800">
+                                    <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
+                                        App ID
+                                    </td>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                        {{ $game->id }}
+                                    </td>
+                                </tr>
+                                <tr class="border-b hover:bg-indigo-800">
+                                    <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
+                                        Release Date
+                                    </td>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                        {{ $game->release_date }}
+                                    </td>
+                                </tr>
+                                <tr class="border-b hover:bg-indigo-800">
+                                    <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
+                                        Genre
+                                    </td>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                        {{ $game->genre }}
+                                    </td>
+                                </tr>
+                                <tr class="border-b hover:bg-indigo-800">
+                                    <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
+                                        Developer
+                                    </td>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                        {{ $game->developer }}
+                                    </td>
+                                </tr>
+                                <tr class="border-b hover:bg-indigo-800">
+                                    <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
+                                        Game Platform
+                                    </td>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                        {{ $game->game_platform }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-
+                </div>
+                <div class="md:col-start-3 md:col-end-4 pt-8 md:pt-0">
+                    <div class="image flex justify-center">
+                        <img class="" src="{{ $game->game_image }}" alt="">
+                    </div>
                     <div class="likebutton py-4 flex justify-center content-center">
                         <td class="px-6 py-4 text-sm text-gray-500 border-b border-gray-200">
                             @if ($game->liked())

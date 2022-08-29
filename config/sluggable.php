@@ -59,12 +59,11 @@ return [
      *    'method' => array('Str','slug'),
      */
 
-    'method' => function ($string, $sep) {
-        $slug = (mb_strlen($string, "Big5") == strlen($string)) ?
-            $slug = strtolower(preg_replace('/[^A-Za-z0-9]+/i', $sep, $string)) :
-            $string;
-
-        return $slug;
+    'method' => function ($string, $separator) {
+        $slug = mb_strtolower(
+            preg_replace('/([?]|\p{P}|\s)+/u', $separator, $string)
+        );
+        return trim($slug, $separator);
     },
 
     /**

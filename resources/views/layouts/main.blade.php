@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
+        crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NGPHW8JVNQ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -52,228 +54,227 @@
 
 </head>
 
-<body>
-    <div class="flex flex-col h-screen">
+<body class="min-h-screen">
 
-        <div class="navigbg bg-black shadow-lg pt-3 pb-3 border-b-2 border-gray-600">
-            <nav class="flex justify-between container">
-                <div class="logo">
-                    <a href="{{ route('welcome') }}">
-                        <img src="{{ asset('images/logo2.png') }}" alt="latestpatchnotes" class="w-24">
-                    </a>
-                </div>
-                <div class="navlist flex items-center">
-                    <ul class="hidden xl:flex flex-row gap-4 font-bold items-center htext">
+    <nav class="navigbg bg-black shadow-lg pt-3 pb-3 border-b-2 border-gray-600">
+        <div class="flex justify-between container">
+            <div class="logo">
+                <a href="{{ route('welcome') }}">
+                    <img src="{{ asset('images/logo2.png') }}" alt="latestpatchnotes" class="w-24">
+                </a>
+            </div>
+            <div class="navlist flex items-center">
+                <ul class="hidden xl:flex flex-row gap-4 font-bold items-center htext">
+                    <li>
+                        <a href="{{ route('welcome') }}"
+                            class="duration-150 text-sm hover:text-indigo-500 hover:underline">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('allgames') }}"
+                            class="duration-150 text-sm hover:text-indigo-500 hover:underline">All Games</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('lpatchnotes') }}"
+                            class="duration-150 text-sm hover:text-indigo-500 hover:underline">All
+                            Patchnotes</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('followedgames') }}"
+                            class="duration-150 text-sm hover:text-indigo-500 hover:underline">Followed
+                            Games</a>
+                    </li>
+                    @guest
+                        <li>
+                            <a href="{{ route('register.show') }}"
+                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">Register</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('login.show') }}"
+                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">Login</a>
+                        </li>
+                        <li>
+                            <a href="/auth/steam" class="hover:text-indigo-500 hover:underline"><svg version="1.1"
+                                    width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-steam"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M8 0a8 8 0 00-8 7.47c.07.1.13.21.18.32l4.15 1.67a2.2 2.2 0 011.31-.36l1.97-2.8v-.04c0-1.65 1.37-3 3.05-3a3.03 3.03 0 013.05 3 3.03 3.03 0 01-3.12 3l-2.81 1.97c0 .3-.05.6-.17.9a2.25 2.25 0 01-4.23-.37L.4 10.56A8.01 8.01 0 108 0zm2.66 4.27c-1.12 0-2.03.9-2.03 2s.91 1.99 2.03 1.99c1.12 0 2.03-.9 2.03-2s-.9-2-2.03-2zm0 .5c.85 0 1.53.66 1.53 1.49s-.68 1.5-1.53 1.5c-.84 0-1.52-.67-1.52-1.5s.68-1.5 1.52-1.5zM5.57 9.6c-.22 0-.43.04-.62.11l1.02.42c.65.26.95.99.68 1.62-.27.63-1 .93-1.65.67l-1-.4a1.73 1.73 0 003.13-.08c.18-.42.18-.88.01-1.3A1.69 1.69 0 005.57 9.6z">
+                                    </path>
+                                </svg>
+                                <span>Sign in</span></a>
+                        </li>
+                    @endguest
+                    @auth
+                        @role('admin')
+                            <li>
+                                <a href="/admin" class="duration-150 text-sm hover:text-indigo-500 hover:underline">Admin
+                                    Panel</a>
+                            </li>
+                        @endrole
+                        <li>
+                            <a href="{{ route('logout.perform') }}"
+                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">Logout</a>
+                        </li>
+                    @endauth
+                </ul>
+            </div>
+            <div class="xl:hidden navlist md flex items-center">
+                <ul class="flex flex-row gap-4 font-bold htext items-center">
+                    @guest
+                        <li>
+                            <a href="{{ route('register.show') }}"
+                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">Register</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('login.show') }}"
+                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">Login</a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="/auth/steam" class="hover:text-indigo-500 hover:underline"><svg version="1.1"
+                                    width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-steam"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M8 0a8 8 0 00-8 7.47c.07.1.13.21.18.32l4.15 1.67a2.2 2.2 0 011.31-.36l1.97-2.8v-.04c0-1.65 1.37-3 3.05-3a3.03 3.03 0 013.05 3 3.03 3.03 0 01-3.12 3l-2.81 1.97c0 .3-.05.6-.17.9a2.25 2.25 0 01-4.23-.37L.4 10.56A8.01 8.01 0 108 0zm2.66 4.27c-1.12 0-2.03.9-2.03 2s.91 1.99 2.03 1.99c1.12 0 2.03-.9 2.03-2s-.9-2-2.03-2zm0 .5c.85 0 1.53.66 1.53 1.49s-.68 1.5-1.53 1.5c-.84 0-1.52-.67-1.52-1.5s.68-1.5 1.52-1.5zM5.57 9.6c-.22 0-.43.04-.62.11l1.02.42c.65.26.95.99.68 1.62-.27.63-1 .93-1.65.67l-1-.4a1.73 1.73 0 003.13-.08c.18-.42.18-.88.01-1.3A1.69 1.69 0 005.57 9.6z">
+                                    </path>
+                                </svg>
+                                <span>Sign in</span></a>
+                        </li>
+                        </li>
+                    @endguest
+                    @auth
                         <li>
                             <a href="{{ route('welcome') }}"
                                 class="duration-150 text-sm hover:text-indigo-500 hover:underline">Home</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('allgames') }}"
-                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">All Games</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('lpatchnotes') }}"
-                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">All
-                                Patchnotes</a>
                         </li>
                         <li>
                             <a href="{{ route('followedgames') }}"
                                 class="duration-150 text-sm hover:text-indigo-500 hover:underline">Followed
                                 Games</a>
                         </li>
-                        @guest
-                            <li>
-                                <a href="{{ route('register.show') }}"
-                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Register</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('login.show') }}"
-                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Login</a>
-                            </li>
-                            <li>
-                                <a href="/auth/steam" class="hover:text-indigo-500 hover:underline"><svg version="1.1"
-                                        width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-steam"
-                                        aria-hidden="true">
-                                        <path
-                                            d="M8 0a8 8 0 00-8 7.47c.07.1.13.21.18.32l4.15 1.67a2.2 2.2 0 011.31-.36l1.97-2.8v-.04c0-1.65 1.37-3 3.05-3a3.03 3.03 0 013.05 3 3.03 3.03 0 01-3.12 3l-2.81 1.97c0 .3-.05.6-.17.9a2.25 2.25 0 01-4.23-.37L.4 10.56A8.01 8.01 0 108 0zm2.66 4.27c-1.12 0-2.03.9-2.03 2s.91 1.99 2.03 1.99c1.12 0 2.03-.9 2.03-2s-.9-2-2.03-2zm0 .5c.85 0 1.53.66 1.53 1.49s-.68 1.5-1.53 1.5c-.84 0-1.52-.67-1.52-1.5s.68-1.5 1.52-1.5zM5.57 9.6c-.22 0-.43.04-.62.11l1.02.42c.65.26.95.99.68 1.62-.27.63-1 .93-1.65.67l-1-.4a1.73 1.73 0 003.13-.08c.18-.42.18-.88.01-1.3A1.69 1.69 0 005.57 9.6z">
-                                        </path>
-                                    </svg>
-                                    <span>Sign in</span></a>
-                            </li>
-                        @endguest
-                        @auth
-                            @role('admin')
-                                <li>
-                                    <a href="/admin" class="duration-150 text-sm hover:text-indigo-500 hover:underline">Admin
-                                        Panel</a>
-                                </li>
-                            @endrole
-                            <li>
-                                <a href="{{ route('logout.perform') }}"
-                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Logout</a>
-                            </li>
-                        @endauth
-                    </ul>
-                </div>
-                <div class="xl:hidden navlist md flex items-center">
-                    <ul class="flex flex-row gap-4 font-bold htext items-center">
-                        @guest
-                            <li>
-                                <a href="{{ route('register.show') }}"
-                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Register</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('login.show') }}"
-                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Login</a>
-                            </li>
-                            <li>
-                            <li>
-                                <a href="/auth/steam" class="hover:text-indigo-500 hover:underline"><svg version="1.1"
-                                        width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-steam"
-                                        aria-hidden="true">
-                                        <path
-                                            d="M8 0a8 8 0 00-8 7.47c.07.1.13.21.18.32l4.15 1.67a2.2 2.2 0 011.31-.36l1.97-2.8v-.04c0-1.65 1.37-3 3.05-3a3.03 3.03 0 013.05 3 3.03 3.03 0 01-3.12 3l-2.81 1.97c0 .3-.05.6-.17.9a2.25 2.25 0 01-4.23-.37L.4 10.56A8.01 8.01 0 108 0zm2.66 4.27c-1.12 0-2.03.9-2.03 2s.91 1.99 2.03 1.99c1.12 0 2.03-.9 2.03-2s-.9-2-2.03-2zm0 .5c.85 0 1.53.66 1.53 1.49s-.68 1.5-1.53 1.5c-.84 0-1.52-.67-1.52-1.5s.68-1.5 1.52-1.5zM5.57 9.6c-.22 0-.43.04-.62.11l1.02.42c.65.26.95.99.68 1.62-.27.63-1 .93-1.65.67l-1-.4a1.73 1.73 0 003.13-.08c.18-.42.18-.88.01-1.3A1.69 1.69 0 005.57 9.6z">
-                                        </path>
-                                    </svg>
-                                    <span>Sign in</span></a>
-                            </li>
-                            </li>
-                        @endguest
-                        @auth
-                            <li>
-                                <a href="{{ route('welcome') }}"
-                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Home</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('followedgames') }}"
-                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Followed
-                                    Games</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('logout.perform') }}"
-                                    class="duration-150 text-sm hover:text-indigo-500 hover:underline">Logout</a>
-                            </li>
-                        @endauth
-                    </ul>
-                </div>
-                <div class="xl:hidden flex items-center">
-                    <button class="outline-none mobile-menu-button">
-                        <svg class=" w-6 h-6 text-gray-500 hover:text-green-500 " x-show="!showMenu" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </nav>
-            <div class="hidden mobile-menu text-center">
-                <ul class="htext">
-                    <li class="active"><a href="/"
-                            class="block text-sm px-2 py-4 text-white bg-indigo-800 font-semibold">Home</a></li>
-                    <li><a href="/games"
-                            class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">All
-                            Games</a>
-                    </li>
-                    <li><a href="/latestnotes"
-                            class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">All
-                            Patchnotes</a>
-                    </li>
-                    <li><a href="/favgames"
-                            class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Followed
-                            Games</a>
-                    </li>
-                    @guest
-                        <li><a href="/register"
-                                class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Register</a>
-                        </li>
-                        <li><a href="/login"
-                                class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Login</a>
-                        </li>
-                        <li><a href="/auth/steam"
-                                class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Login
-                                with
-                                Steam</a>
-                        </li>
-                    @endguest
-                    @auth
-                        <li><a href="/logout"
-                                class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Logout</a>
+                        <li>
+                            <a href="{{ route('logout.perform') }}"
+                                class="duration-150 text-sm hover:text-indigo-500 hover:underline">Logout</a>
                         </li>
                     @endauth
                 </ul>
             </div>
+            <div class="xl:hidden flex items-center">
+                <button class="outline-none mobile-menu-button">
+                    <svg class=" w-6 h-6 text-gray-500 hover:text-green-500 " x-show="!showMenu" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
+    </nav>
+    <div class="hidden mobile-menu text-center">
+        <ul class="htext">
+            <li class="active"><a href="/"
+                    class="block text-sm px-2 py-4 text-white bg-indigo-800 font-semibold">Home</a></li>
+            <li><a href="/games"
+                    class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">All
+                    Games</a>
+            </li>
+            <li><a href="/latestnotes"
+                    class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">All
+                    Patchnotes</a>
+            </li>
+            <li><a href="/favgames"
+                    class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Followed
+                    Games</a>
+            </li>
+            @guest
+                <li><a href="/register"
+                        class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Register</a>
+                </li>
+                <li><a href="/login"
+                        class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Login</a>
+                </li>
+                <li><a href="/auth/steam"
+                        class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Login
+                        with
+                        Steam</a>
+                </li>
+            @endguest
+            @auth
+                <li><a href="/logout"
+                        class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Logout</a>
+                </li>
+            @endauth
+        </ul>
+    </div>
 
-        <div class="background flex-grow">
-            @yield('content')
-        </div>
 
-        <footer class="navbg py-4 htext border-t-2 border-gray-600">
-            <div class="container">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="baslik text-center text-xl pb-2">
-                            <h5>Social Media</h5>
-                        </div>
-                        <div class="social flex gap-4">
-                            <a href="https://twitter.com/latestpnotes">
-                                <i
-                                    class="fa-brands fa-twitter-square fa-4x text-gray-600 hover:text-indigo-800 transition duration-150"></i>
-                            </a>
-                            <a href="#">
-                                <i
-                                    class="fa-brands fa-facebook-square fa-4x text-gray-600 hover:text-indigo-800 transition duration-150"></i>
-                            </a>
-                            <a href="#">
-                                <i
-                                    class="fa-brands fa-instagram-square fa-4x text-gray-600 hover:text-indigo-800 transition duration-150"></i>
-                            </a>
-                        </div>
+    <section class="content">
+        @yield('content')
+    </section>
+
+    <footer class="py-4 htext border-t-2 border-gray-600 sticky top-[100vh]">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
+                <div class="flex flex-col justify-center items-center">
+                    <div class="baslik text-center text-xl pb-2">
+                        <h5>Social Media</h5>
                     </div>
-
-                    <div class="middle">
-                        <div class="flex text-xl justify-center text-center">
-                            <ul class="text-lg">
-                                <li>
-                                    <a href="{{ route('welcome') }}"
-                                        class="duration-150 hover:text-indigo-500 hover:underline">Home</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('allgames') }}"
-                                        class="duration-150 hover:text-indigo-500 hover:underline">All
-                                        Games</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('terms') }}"
-                                        class="duration-150 hover:text-indigo-500 hover:underline">Terms and
-                                        Conditions</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('privacy') }}"
-                                        class="duration-150 hover:text-indigo-500 hover:underline">Privacy Policy</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('cookie') }}"
-                                        class="duration-150 hover:text-indigo-500 hover:underline">Cookie Policy</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="social flex gap-4">
+                        <a href="https://twitter.com/latestpnotes">
+                            <i
+                                class="fa-brands fa-twitter-square fa-4x text-gray-600 hover:text-indigo-800 transition duration-150"></i>
+                        </a>
+                        <a href="#">
+                            <i
+                                class="fa-brands fa-facebook-square fa-4x text-gray-600 hover:text-indigo-800 transition duration-150"></i>
+                        </a>
+                        <a href="#">
+                            <i
+                                class="fa-brands fa-instagram-square fa-4x text-gray-600 hover:text-indigo-800 transition duration-150"></i>
+                        </a>
                     </div>
+                </div>
 
-                    <div class="firstgrid flex flex-col gap-3 justify-center items-center">
-                        <div class="logo"><a href="/">
-                                <img src="{{ asset('images/logo2.png') }}" alt="latestpatchnotes" class="w-40">
-                            </a>
-                        </div>
-                        <div class="footercopyright">
-                            <span>©2022 LatestPatchNotes</span>
-                        </div>
+                <div class="middle">
+                    <div class="flex text-xl justify-center text-center">
+                        <ul class="text-lg">
+                            <li>
+                                <a href="{{ route('welcome') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Home</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('allgames') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">All
+                                    Games</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('terms') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Terms and
+                                    Conditions</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('privacy') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('cookie') }}"
+                                    class="duration-150 hover:text-indigo-500 hover:underline">Cookie Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="firstgrid flex flex-col gap-3 justify-center items-center">
+                    <div class="logo"><a href="/">
+                            <img src="{{ asset('images/logo2.png') }}" alt="latestpatchnotes" class="w-40">
+                        </a>
+                    </div>
+                    <div class="footercopyright">
+                        <span>©2022 LatestPatchNotes</span>
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="

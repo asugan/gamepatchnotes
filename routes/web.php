@@ -25,6 +25,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/game/{game}', [App\Http\Controllers\GameController::class, 'showcategory'])->name('showcg');
     Route::get('search', [App\Http\Controllers\SearchController::class, 'Search'])->name('search');
     Route::get('searchpn', [App\Http\Controllers\SearchController::class, 'Patchnote'])->name('searchpn');
+    Route::get('/privacy-policy', [App\Http\Controllers\Privacy::class, 'privacyfunction'])->name('privacy');
+    Route::get('/terms-of-use', [App\Http\Controllers\Privacy::class, 'termsfunction'])->name('terms');
+    Route::get('/cookies-policy', [App\Http\Controllers\Privacy::class, 'cookiefunction'])->name('cookie');
     Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index']);
 
     Route::group(['middleware' => ['guest']], function () {

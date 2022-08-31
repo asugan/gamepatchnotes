@@ -20,6 +20,14 @@
                             <tbody class="tablebody">
                                 <tr class="border-b hover:bg-indigo-800">
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
+                                        Game
+                                    </td>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                        {{ $game->game_name }}
+                                    </td>
+                                </tr>
+                                <tr class="border-b hover:bg-indigo-800">
+                                    <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
                                         App ID
                                     </td>
                                     <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
@@ -44,18 +52,10 @@
                                 </tr>
                                 <tr class="border-b hover:bg-indigo-800">
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
-                                        Developer
+                                        Developer / Platform
                                     </td>
                                     <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
-                                        {{ $game->developer }}
-                                    </td>
-                                </tr>
-                                <tr class="border-b hover:bg-indigo-800">
-                                    <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
-                                        Game Platform
-                                    </td>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
-                                        {{ $game->game_platform }}
+                                        {{ $game->developer }} / {{ $game->game_platform }}
                                     </td>
                                 </tr>
                             </tbody>
@@ -66,7 +66,7 @@
                     <div class="image flex justify-center">
                         <img class="" src="{{ $game->game_image }}" alt="">
                     </div>
-                    <div class="likebutton py-4 flex justify-center content-center">
+                    <div class="likebutton pt-4 flex justify-center content-center">
                         <td class="px-6 py-4 text-sm text-gray-500 border-b border-gray-200">
                             @if ($game->liked())
                                 <form action="{{ route('unlike.post', $game->id) }}" method="post">

@@ -58,7 +58,7 @@
         <div class="navigbg bg-black shadow-lg pt-3 pb-3 border-b-2 border-gray-600">
             <nav class="flex justify-between container">
                 <div class="logo">
-                    <a href="/">
+                    <a href="{{ route('welcome') }}">
                         <img src="{{ asset('images/logo2.png') }}" alt="latestpatchnotes" class="w-24">
                     </a>
                 </div>
@@ -217,7 +217,7 @@
                             <h5>Social Media</h5>
                         </div>
                         <div class="social flex gap-4">
-                            <a href="#">
+                            <a href="https://twitter.com/latestpnotes">
                                 <i
                                     class="fa-brands fa-twitter-square fa-4x text-gray-600 hover:text-indigo-800 transition duration-150"></i>
                             </a>
@@ -245,17 +245,17 @@
                                         Games</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('followedgames') }}"
-                                        class="duration-150 hover:text-indigo-500 hover:underline">Followed
-                                        Games</a>
+                                    <a href="{{ route('terms') }}"
+                                        class="duration-150 hover:text-indigo-500 hover:underline">Terms and
+                                        Conditions</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('register.show') }}"
-                                        class="duration-150 hover:text-indigo-500 hover:underline">Register</a>
+                                    <a href="{{ route('privacy') }}"
+                                        class="duration-150 hover:text-indigo-500 hover:underline">Privacy Policy</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('login.show') }}"
-                                        class="duration-150 hover:text-indigo-500 hover:underline">Login</a>
+                                    <a href="{{ route('cookie') }}"
+                                        class="duration-150 hover:text-indigo-500 hover:underline">Cookie Policy</a>
                                 </li>
                             </ul>
                         </div>

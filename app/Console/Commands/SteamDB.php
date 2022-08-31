@@ -35,7 +35,7 @@ class SteamDB extends Command
 
         foreach ($response2 as $q) {
 
-            $hamham_response2 = HTTP::acceptJson()->get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=' . $q->appid . '&count=1&maxlength=0&format=json&tags=patchnotes');
+            $hamham_response2 = HTTP::acceptJson()->get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=' . $q->appid . '&count=1&maxlength=0&feeds=steam_community_announcements');
             $response3 = json_decode($hamham_response2);
             $game_image = 'https://cdn.cloudflare.steamstatic.com/steam/apps/' . $q->appid . '/capsule_231x87.jpg';
             if ($game_image === null) {

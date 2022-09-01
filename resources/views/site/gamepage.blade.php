@@ -14,18 +14,13 @@
     <section class="game">
         <div class="container py-8">
             <div class="grid grid-cols-1 md:grid-cols-3">
+                <div class="md:col-start-1 md:col-end-4">
+                    <h1 class="text-center text-4xl text-white pb-8">{{ $game->game_name }}</h1>
+                </div>
                 <div class="md:col-start-1 md:col-end-3 md:pr-12 pr-0">
                     <div class="overflow-x-auto relative">
                         <table class="w-full text-left border">
                             <tbody class="tablebody">
-                                <tr class="border-b hover:bg-indigo-800">
-                                    <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
-                                        Game
-                                    </td>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
-                                        {{ $game->game_name }}
-                                    </td>
-                                </tr>
                                 <tr class="border-b hover:bg-indigo-800">
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
                                         App ID
@@ -52,10 +47,18 @@
                                 </tr>
                                 <tr class="border-b hover:bg-indigo-800">
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
-                                        Developer / Platform
+                                        Developer
                                     </td>
                                     <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
-                                        {{ $game->developer }} / {{ $game->game_platform }}
+                                        {{ $game->developer }}
+                                    </td>
+                                </tr>
+                                <tr class="border-b hover:bg-indigo-800">
+                                    <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
+                                        Platform
+                                    </td>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                        {{ $game->game_platform }}
                                     </td>
                                 </tr>
                             </tbody>

@@ -20,7 +20,7 @@ class GameController extends Controller
 
         $hamham = Patchnotes::latest()->take(12)->get();
 
-        $patchnotescount = Patchnotes::all()->count();
+        $patchnotescount = Patchnotes::count('id');
 
         $cumcum = Games::all();
 

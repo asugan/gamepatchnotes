@@ -9,29 +9,22 @@
 @section('og_image', 'http://latestpatchnote.com/images/lpnotes.png')
 @section('content')
     <div class="container pt-8">
-        <form action="{{ route('searchpn') }}" method="get">
-            {{ csrf_field() }}
-            <div class="flex items-center justify-center">
-                <div class="flex border-2 rounded">
-                    <input name="search" type="text" class="px-4 py-2 w-80" placeholder="Search a Patchnote!">
-                    <button class="flex items-center justify-center px-4 border-l">
-                        <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </form>
+        <h1 class="text-4xl font-bold tbaslik">Latest Patchnotes</h1>
+        <h2 class="text-2xl py-4 htext">Curated patch notes for Steam games</h3>
+            <p class="htext">We track every new build on Steam, and try connect these builds
+                to
+                announcements
+                by
+                the game developers in
+                their hub.</p>
     </div>
 
     <div class="container mt-5">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
             crossorigin="anonymous"></script>
         <!-- Yatay -->
-        <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-4215212273469017" data-ad-slot="1904430142"
-            data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle text-center" style="display:block;" data-ad-client="ca-pub-4215212273469017"
+            data-ad-slot="1904430142" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
@@ -39,7 +32,6 @@
 
     <section class="allpatchnotes">
         <div class="container mx-auto pt-4 pb-4">
-            <h1 class="text-center text-4xl font-bold htext pb-8">All Patchnotes ({{ $patchnotescount }})</h1>
             <div class="overflow-x-auto relative">
                 <table class="w-full text-left">
                     <thead class="tablehead">
@@ -82,9 +74,6 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
-            <div class="mt-5">
-                {{ $hamham->links() }}
             </div>
         </div>
     </section>

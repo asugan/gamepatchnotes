@@ -26,12 +26,20 @@
         </form>
     </div>
 
+    <div class="container pt-8">
+        <h1 class="text-4xl font-bold htext tbaslik">All Games and Latest Patchnotes</h1>
+        <h2 class="text-2xl py-4 htext">Curated patch notes for Steam games</h2>
+        <p class="htext">We track every new build on Steam, and try connect these builds to announcements by
+            the
+            game developers in their hub.</p>
+    </div>
+
     <div class="container mt-5">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
             crossorigin="anonymous"></script>
         <!-- Yatay -->
-        <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-4215212273469017" data-ad-slot="1904430142"
-            data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle text-center" style="display:block;" data-ad-client="ca-pub-4215212273469017"
+            data-ad-slot="1904430142" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
@@ -39,7 +47,6 @@
 
     <section class="allgames">
         <div class="container mx-auto pt-4 pb-4">
-            <h1 class="text-center text-4xl font-bold pb-8 htext">All Games ({{ $gamecount }})</h1>
             <div class="overflow-x-auto relative">
                 <table class="w-full text-left">
                     <thead class="tablehead">

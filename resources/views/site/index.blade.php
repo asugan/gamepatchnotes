@@ -48,8 +48,8 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
             crossorigin="anonymous"></script>
         <!-- Yatay -->
-        <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-4215212273469017" data-ad-slot="1904430142"
-            data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle text-center" style="display:block;" data-ad-client="ca-pub-4215212273469017"
+            data-ad-slot="1904430142" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
@@ -58,7 +58,7 @@
     <section class="gamesection">
         <h1 class="text-center text-4xl font-bold htext">Latest Games</h1>
         <div class="gamecount md:px-16 px-0">
-            <h1 class="text-2xl font-bold text-center pt-2 htext">Games In DB : {{ $cumcum->count() }}</h1>
+            <h1 class="text-2xl font-bold text-center pt-2 htext">Games in DB : {{ $gamecount }}</h1>
         </div>
         <div class="flex justify-center pt-2">
             <a class="butonbg inline-flex items-center h-12 px-8 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-gray-600 rounded-lg focus:shadow-outline hover:bg-indigo-800 htext"
@@ -117,74 +117,6 @@
                                     </td>
                                 </tr>
                             </section>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <div class="container mb-5 mt-1">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
-            crossorigin="anonymous"></script>
-        <!-- Yatay -->
-        <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-4215212273469017" data-ad-slot="1904430142"
-            data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-
-    <section class="pnotesection">
-        <h1 class="text-center text-4xl font-bold htext">Latest Patchnotes</h1>
-        <div class="patchnotecount md:px-16 px-0">
-            <h1 class="text-2xl font-bold text-center pt-2 htext">Patchnotes In DB : {{ $patchnotescount }}</h1>
-        </div>
-        <div class="flex justify-center pt-2">
-            <a class="inline-flex items-center h-12 px-8 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-gray-600 rounded-lg focus:shadow-outline hover:bg-indigo-800 htext"
-                href="{{ route('lpatchnotes') }}">View all</a>
-        </div>
-
-        <div class="container mx-auto pt-4 pb-4">
-            <div class="overflow-x-auto relative">
-                <table class="w-full text-left">
-                    <thead class="tablehead">
-                        <tr>
-                            <th scope="col" class="py-3 px-6">Image</th>
-                            <th scope="col" class="py-3 px-6">Date</th>
-                            <th scope="col" class="py-3 px-6">Patch Title</th>
-                            <th scope="col" class="py-3 px-6">Game ID</th>
-                        </tr>
-                    </thead>
-                    <tbody class="tablebody">
-                        @foreach ($hamham as $item)
-                            @foreach ($cumcum->where('id', $item->games_id) as $cum)
-                                <section class="{{ $item->slug }}">
-                                    <tr class="border-b hover:bg-indigo-800">
-                                        <th scope="row"
-                                            class="py-0 px-0 md:py-4 md:px-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            <a class="bg-indigo-800 inline-block"
-                                                href="{{ route('show', ['patchnote' => $item->slug]) }}">
-                                                <img src="{{ $item->post_image }}" alt="{{ $item->post_title }}"
-                                                    class="patchnote_image hover:opacity-50 duration-300">
-                                            </a>
-                                        </th>
-                                        <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
-                                            <a class="hover:underline"
-                                                href="{{ route('show', ['patchnote' => $item->slug]) }}">{{ $item->created_at->format('d/m/Y') }}</a>
-                                        </td>
-                                        <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
-                                            <a class="hover:underline"
-                                                href="{{ route('show', ['patchnote' => $item->slug]) }}">{{ $item->post_title }}
-                                            </a>
-                                        </td>
-                                        <td class="py-4 px-6 whitespace-nowrap">
-                                            <a class="hover:underline"
-                                                href="{{ route('showcg', ['game' => $cum->slug]) }}">{{ $item->games_id }}</a>
-                                        </td>
-                                    </tr>
-                                </section>
-                            @endforeach
                         @endforeach
                     </tbody>
                 </table>

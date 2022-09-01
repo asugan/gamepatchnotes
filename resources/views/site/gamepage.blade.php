@@ -15,7 +15,7 @@
         <div class="container py-8">
             <div class="grid grid-cols-1 md:grid-cols-3">
                 <div class="md:col-start-1 md:col-end-4">
-                    <h1 class="text-center text-4xl text-white pb-8">{{ $game->game_name }}</h1>
+                    <h1 class="text-4xl text-white pb-8">{{ $game->game_name }}</h1>
                 </div>
                 <div class="md:col-start-1 md:col-end-3 md:pr-12 pr-0">
                     <div class="overflow-x-auto relative">
@@ -99,8 +99,8 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
             crossorigin="anonymous"></script>
         <!-- Yatay -->
-        <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-4215212273469017" data-ad-slot="1904430142"
-            data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle text-center" style="display:block;" data-ad-client="ca-pub-4215212273469017"
+            data-ad-slot="1904430142" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>

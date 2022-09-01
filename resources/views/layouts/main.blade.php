@@ -75,7 +75,7 @@
                     </li>
                     <li>
                         <a href="{{ route('lpatchnotes') }}"
-                            class="duration-150 text-sm hover:text-indigo-500 hover:underline">All
+                            class="duration-150 text-sm hover:text-indigo-500 hover:underline">Latest
                             Patchnotes</a>
                     </li>
                     <li>
@@ -178,7 +178,7 @@
                     Games</a>
             </li>
             <li><a href="/latestnotes"
-                    class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">All
+                    class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Latest
                     Patchnotes</a>
             </li>
             <li><a href="/favgames"

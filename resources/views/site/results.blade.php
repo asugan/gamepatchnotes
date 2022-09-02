@@ -15,7 +15,7 @@
             {{ csrf_field() }}
             <div class="flex items-center justify-center">
                 <div class="flex border-2 rounded">
-                    <input name="search" type="text" class="px-4 py-2 w-80" placeholder="Search a Game!">
+                    <input name="search" id="search" type="text" class="px-4 py-2 w-80" placeholder="Search a Game!">
                     <button class="flex items-center justify-center px-4 border-l">
                         <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24">
@@ -28,9 +28,23 @@
         </form>
     </div>
 
+    <div class="container pt-8">
+        <h1 class="text-4xl font-bold tbaslik">Total Results in DB : ({{ count($results) }})</h1>
+    </div>
+
+    <div class="container mt-5">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
+            crossorigin="anonymous"></script>
+        <!-- Yatay -->
+        <ins class="adsbygoogle text-center" style="display:block;" data-ad-client="ca-pub-4215212273469017"
+            data-ad-slot="1904430142" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
     <section class="results">
         <div class="container mx-auto pt-4 pb-4">
-            <h1 class="text-center text-4xl font-bold pb-8 htext">Total Results in DB : ({{ count($results) }})</h1>
             <div class="overflow-x-auto relative">
                 <table class="w-full text-left">
                     <thead class="tablehead">

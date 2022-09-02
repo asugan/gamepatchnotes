@@ -14,7 +14,7 @@ class SearchController extends Controller
         $results = Games::where('game_name', 'LIKE', '%' . $q . '%')->with(['patchnotes' => function ($q) {
             $q->latest();
         }])
-            ->paginate(10);
+            ->paginate(30);
         $results->appends(['search' => $q]);
 
 
@@ -30,5 +30,14 @@ class SearchController extends Controller
 
 
         return view('site.patchnoteresults', compact('results'));
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $data = Games::select("game_name as value", "id")
+            ->where('game_name', 'LIKE', '%' . $request->get('search') . '%')->take(15)
+            ->get();
+
+        return response()->json($data);
     }
 }

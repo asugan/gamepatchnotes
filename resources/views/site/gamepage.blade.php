@@ -15,7 +15,7 @@
         <div class="container py-8">
             <div class="grid grid-cols-1 md:grid-cols-3">
                 <div class="md:col-start-1 md:col-end-4">
-                    <h1 class="text-4xl text-white pb-8 tbaslik">{{ $game->game_name }}</h1>
+                    <h1 class="text-3xl text-white pb-8 tbaslik">{{ $game->game_name }}</h1>
                 </div>
                 <div class="md:col-start-1 md:col-end-3 md:pr-12 pr-0">
                     <div class="overflow-x-auto relative">

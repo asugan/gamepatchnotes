@@ -18,11 +18,13 @@ $description = Illuminate\Support\Str::replace(['{STEAM_CLAN_IMAGE}', '[img]', '
 @endphp
 
 @extends('layouts.main')
-@section('title', $game->game_name . ' - ' . $patchnote->post_title . ' - Latest Patch Notes')
+@section('title', $patchnote->post_title . ' - ' . $game->game_name . ' patch notes for ' .
+    $patchnote->created_at->format('j F Y') . ' - Latest Patch Notes')
 @section('description', Str::limit(strip_tags_content($description), 150, '...'))
 @section('keywords', $patchnote->post_title . ',Latestpatchnotes,' . $patchnote->post_title . ' - Latestpatchnotes,' .
     $game->game_name . ' ' . $patchnote->post_title . ' patchnotes')
-@section('og.title', $game->game_name . ' - ' . $patchnote->post_title . ' - Latest Patch Notes')
+@section('og.title', $patchnote->post_title . ' - ' . $game->game_name . ' patch notes for ' .
+    $patchnote->created_at->format('j F Y') . ' - Latest Patch Notes')
 @section('og.desc', Str::limit(strip_tags_content($description), 150, '...'))
 @section('og.type', 'article')
 @section('og_image', $patchnote->post_image)
@@ -54,11 +56,11 @@ $description = Illuminate\Support\Str::replace(['{STEAM_CLAN_IMAGE}', '[img]', '
     <div class="pnheader py-16"
         style="background-image: url('https://cdn.cloudflare.steamstatic.com/steam/apps/{{ $game->id }}/page_bg_generated_v6b.jpg?t=1660374201')">
         <div class="container flex flex-col gap-4">
-            <h2 class="text-3xl pb-4"><a class="link"
+            <h1 class="text-xl pb-4"><a class="link"
                     href="{{ route('showcg', ['game' => $game->slug]) }}">{{ $game->game_name }}</a>
-                <span class="text-blue-400">update for {{ $patchnote->created_at->format('d/m/Y') }}</span>
-            </h2>
-            <h1 class="text-3xl htext">{{ $patchnote->post_title }}</h1>
+                <span class="text-blue-400">patch notes for {{ $patchnote->created_at->format('j F Y') }}</span>
+            </h1>
+            <h2 class="text-2xl htext">{{ $patchnote->post_title }}</h2>
             <p class="flex"><span class="flex-grow text-gray-400">
                     <a href="{{ route('showcg', ['game' => $game->slug]) }}">View all patches</a> · <a
                         href="{{ route('showcg', ['game' => $game->slug]) }}" rel="nofollow">Gameid {{ $game->id }}</a>

@@ -17,7 +17,7 @@
             itemtype="http://schema.org/SearchAction">
             <div class="flex items-center justify-center">
                 <div class="flex border-2 rounded">
-                    <meta itemprop="target" content="https://latestpatchnotes.com/search?search={query}">
+                    <meta itemprop="target" content="https://latestpatchnotes.com/search?search={search}">
                     <input name="search" id="search" type="text" class="px-4 py-2 w-80" placeholder="Search a Game!"
                         itemprop="query-input">
                     <button class="flex items-center justify-center px-4 border-l">

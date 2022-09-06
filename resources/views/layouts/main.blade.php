@@ -60,7 +60,7 @@
     <nav class="navigbg bg-black shadow-lg pt-3 pb-3 border-b-2 border-gray-600">
         <div class="flex justify-between container">
             <div class="logo">
-                <a itemprop=“url” href="{{ route('welcome') }}">
+                <a itemprop="url" href="{{ route('welcome') }}">
                     <img src="{{ asset('images/logo2.png') }}" alt="latestpatchnotes" class="w-24">
                 </a>
             </div>
@@ -212,7 +212,15 @@
         @yield('content')
     </section>
 
-    <footer class="py-4 htext border-t-2 border-gray-600 sticky top-[100vh]">
+    <footer class="py-4 htext border-t-2 border-gray-600 sticky top-[100vh]" itemscope
+        itemtype="http://schema.org/Organization" itemprop="publisher" role="contentinfo">
+        <meta itemprop="name" content="LatestPatchNotes">
+        <meta itemprop="url" content="{{ url()->current() }}">
+        <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="https://latestpatchnotes.com/images/logo2.png">
+            <meta itemprop="width" content="512">
+            <meta itemprop="height" content="512">
+        </span>
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
                 <div class="flex flex-col justify-center items-center">
@@ -220,7 +228,7 @@
                         <h5>Social Media</h5>
                     </div>
                     <div class="social flex gap-4">
-                        <a href="https://twitter.com/latestpnotes">
+                        <a href="https://twitter.com/latestpnotes" itemprop="sameAs">
                             <i
                                 class="fa-brands fa-twitter-square fa-4x text-gray-600 hover:text-indigo-800 transition duration-150"></i>
                         </a>

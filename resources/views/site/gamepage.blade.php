@@ -11,7 +11,9 @@
 @section('og_image', $game->game_image)
 @section('content')
 
-    <section class="game" itemscope itemtype="http://schema.org/VideoGame" data-appid="{{ $game->id }}">
+    <div class="game" itemscope itemtype="http://schema.org/VideoGame">
+        <meta itemprop="applicationCategory" content="Game">
+        <meta itemprop="operatingSystem" content="Windows, macOS, Linux">
         <div class="container py-8">
             <div class="grid grid-cols-1 md:grid-cols-3">
                 <div class="md:col-start-1 md:col-end-4">
@@ -75,8 +77,7 @@
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
                                         Genre
                                     </td>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap"
-                                        itemprop="applicationCategory">
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="genre">
                                         {{ $game->genre }}
                                     </td>
                                 </tr>
@@ -85,14 +86,16 @@
                                         Developer
                                     </td>
                                     <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="author">
-                                        {{ $game->developer }}
+                                        <a class="hover:underline"
+                                            href="https://www.google.com/search?q={{ $game->developer }}"
+                                            itemprop="author">{{ $game->developer }}</a>
                                     </td>
                                 </tr>
                                 <tr class="border-b hover:bg-indigo-800">
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
                                         Platform
                                     </td>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="operatingSystem">
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="gamePlatform">
                                         {{ $game->game_platform }}
                                     </td>
                                 </tr>
@@ -128,7 +131,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <div class="container">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"

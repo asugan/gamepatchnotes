@@ -11,7 +11,7 @@
 @section('og_image', $game->game_image)
 @section('content')
 
-    <div class="game" itemscope itemtype="http://schema.org/VideoGame">
+    <section class="game" itemscope itemtype="http://schema.org/VideoGame">
         <meta itemprop="applicationCategory" content="Game">
         <meta itemprop="operatingSystem" content="Windows, macOS, Linux">
         <div class="container py-8">
@@ -131,7 +131,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <div class="container">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"

@@ -60,7 +60,7 @@
     <nav class="navigbg bg-black shadow-lg pt-3 pb-3 border-b-2 border-gray-600">
         <div class="flex justify-between container">
             <div class="logo">
-                <a href="{{ route('welcome') }}">
+                <a itemprop=“url” href="{{ route('welcome') }}">
                     <img src="{{ asset('images/logo2.png') }}" alt="latestpatchnotes" class="w-24">
                 </a>
             </div>

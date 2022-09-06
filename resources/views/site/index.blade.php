@@ -13,11 +13,13 @@
 @section('content')
 
     <div class="searchbar pt-8 pb-4">
-        <form action="{{ route('search') }}" method="get">
-            {{ csrf_field() }}
+        <form action="{{ route('search') }}" method="get" itemprop="potentialAction" itemscope
+            itemtype="http://schema.org/SearchAction">
             <div class="flex items-center justify-center">
                 <div class="flex border-2 rounded">
-                    <input name="search" id="search" type="text" class="px-4 py-2 w-80" placeholder="Search a Game!">
+                    <meta itemprop="target" content="https://latestpatchnotes.com/search?search={query}">
+                    <input name="search" id="search" type="text" class="px-4 py-2 w-80" placeholder="Search a Game!"
+                        itemprop="query-input">
                     <button class="flex items-center justify-center px-4 border-l">
                         <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24">

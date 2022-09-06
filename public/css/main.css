@@ -114,6 +114,10 @@ body{
     margin-bottom: 10px;
 }
 
+.bctext{
+    color: var(--font-color);
+}
+
 @media (max-width: 768px) { 
     .md{
         display: none;

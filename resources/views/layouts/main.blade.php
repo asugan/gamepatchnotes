@@ -55,7 +55,7 @@
 
 </head>
 
-<body class="min-h-screen">
+<body class="min-h-screen" itemscope itemtype="http://schema.org/WebSite">
 
     <nav class="navigbg bg-black shadow-lg pt-3 pb-3 border-b-2 border-gray-600">
         <div class="flex justify-between container">

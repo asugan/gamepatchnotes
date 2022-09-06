@@ -11,37 +11,45 @@
 @section('og_image', $game->game_image)
 @section('content')
 
-    <section class="game">
+    <section class="game" itemscope itemtype="http://schema.org/VideoGame" data-appid="{{ $game->id }}">
         <div class="container py-8">
             <div class="grid grid-cols-1 md:grid-cols-3">
                 <div class="md:col-start-1 md:col-end-4">
                     <div class="breadcrumb flex justify-start items-center pb-8">
                         <nav class="bctext font-bold" aria-label="Breadcrumb">
-                            <ol class="list-none p-0 inline-flex">
-                                <li class="flex items-center">
-                                    <a class="hover:underline" href="{{ route('welcome') }}">Home</a>
+                            <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
+                                <li class="flex items-center" itemprop="itemListElement" itemscope
+                                    itemtype="https://schema.org/ListItem">
+                                    <a itemprop="item" class="hover:underline" href="{{ route('welcome') }}"><span
+                                            itemprop="name">Home</span></a>
                                     <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 320 512">
                                         <path
                                             d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
                                     </svg>
+                                    <meta itemprop="position" content="1" />
                                 </li>
-                                <li class="flex items-center">
-                                    <a class="hover:underline" href="{{ route('allgames') }}">All Games</a>
+                                <li class="flex items-center" itemprop="itemListElement" itemscope
+                                    itemtype="https://schema.org/ListItem">
+                                    <a class="hover:underline" itemprop="item" href="{{ route('allgames') }}"> <span
+                                            itemprop="name">All Games</span></a>
                                     <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 320 512">
                                         <path
                                             d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
                                     </svg>
+                                    <meta itemprop="position" content="2" />
                                 </li>
-                                <li>
-                                    <a href="{{ route('showcg', ['game' => $game->slug]) }}" class="text-gray-400"
-                                        aria-current="page">{{ $game->game_name }}</a>
+                                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                    <a itemprop="item" href="{{ route('showcg', ['game' => $game->slug]) }}"
+                                        class="text-gray-400" aria-current="page"> <span
+                                            itemprop="name">{{ $game->game_name }}</span></a>
+                                    <meta itemprop="position" content="3" />
                                 </li>
                             </ol>
                         </nav>
                     </div>
-                    <h1 class="text-3xl text-white pb-8 tbaslik">{{ $game->game_name }}</h1>
+                    <h1 class="text-3xl text-white pb-8 tbaslik" itemprop="name">{{ $game->game_name }}</h1>
                 </div>
                 <div class="md:col-start-1 md:col-end-3 md:pr-12 pr-0">
                     <div class="overflow-x-auto relative">
@@ -59,7 +67,7 @@
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
                                         Release Date
                                     </td>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="datePublished">
                                         {{ $game->release_date }}
                                     </td>
                                 </tr>
@@ -67,7 +75,8 @@
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
                                         Genre
                                     </td>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap"
+                                        itemprop="applicationCategory">
                                         {{ $game->genre }}
                                     </td>
                                 </tr>
@@ -75,7 +84,7 @@
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
                                         Developer
                                     </td>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="author">
                                         {{ $game->developer }}
                                     </td>
                                 </tr>
@@ -83,7 +92,7 @@
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
                                         Platform
                                     </td>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="operatingSystem">
                                         {{ $game->game_platform }}
                                     </td>
                                 </tr>
@@ -93,7 +102,7 @@
                 </div>
                 <div class="md:col-start-3 md:col-end-4 pt-8 md:pt-0">
                     <div class="image flex justify-center">
-                        <img class="" src="{{ $game->game_image }}" alt="">
+                        <img class="" itemprop="image" src="{{ $game->game_image }}" alt="">
                     </div>
                     <div class="likebutton pt-4 flex justify-center content-center">
                         <td class="px-6 py-4 text-sm text-gray-500 border-b border-gray-200">

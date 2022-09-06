@@ -53,66 +53,89 @@ $description = Illuminate\Support\Str::replace(['{STEAM_CLAN_IMAGE}', '[img]', '
         
     @endphp
 
-    <div class="pnheader py-8"
-        style="background-image: url('https://cdn.cloudflare.steamstatic.com/steam/apps/{{ $game->id }}/page_bg_generated_v6b.jpg?t=1660374201')">
-        <div class="container">
-            <div class="breadcrumb flex justify-start items-center pb-8">
-                <nav class="bctext font-bold" aria-label="Breadcrumb">
-                    <ol class="list-none p-0 inline-flex">
-                        <li class="flex items-center">
-                            <a class="hover:underline" href="{{ route('welcome') }}">Home</a>
-                            <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                <path
-                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center">
-                            <a class="hover:underline"
-                                href="{{ route('showcg', ['game' => $game->slug]) }}">{{ $game->game_name }}</a>
-                            <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                <path
-                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="{{ route('show', ['patchnote' => $patchnote->slug]) }}" class="text-gray-400"
-                                aria-current="page">{{ $patchnote->post_title }}</a>
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-            <div class="flex flex-col gap-4">
-                <h1 class="text-xl pb-4"><a class="link"
-                        href="{{ route('showcg', ['game' => $game->slug]) }}">{{ $game->game_name }}</a>
-                    <span class="text-blue-400">patch notes for {{ $patchnote->created_at->format('j F Y') }}</span>
-                </h1>
-                <h2 class="text-2xl htext">{{ $patchnote->post_title }}</h2>
-                <p class="flex"><span class="flex-grow text-gray-400">
-                        <a href="{{ route('showcg', ['game' => $game->slug]) }}">View all patches</a> · <a
-                            href="{{ route('showcg', ['game' => $game->slug]) }}" rel="nofollow">Gameid
-                            {{ $game->id }}</a>
-                        · Last
-                        edited
-                        <time>{{ $patchnote->updated_at->format('d/m/Y') }}</time>
-                    </span></p>
-            </div>
+    <article class="patchnotes" itemscope itemtype="http://schema.org/Article">
+        <meta itemprop="mainEntityOfPage" content="{{ url()->current() }}">
+        <meta itemprop="image" content="{{ $patchnote->post_image }}">
+        <meta itemprop="datePublished" content="{{ $patchnote->updated_at }}">
+        <meta itemprop="author" content="LatestPatchNotes">
+        <span itemscope="" itemtype="http://schema.org/Organization" itemprop="publisher">
+            <meta itemprop="name" content="LatestPatchNotes">
+            <meta itemprop="url" content="https://latestpatchnotes.com/">
+            <span itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+                <meta itemprop="url" content="https://latestpatchnotes.com/images/logo2.png">
+                <meta itemprop="width" content="512">
+                <meta itemprop="height" content="512">
+            </span>
+        </span>
+        <div class="pnheader py-8"
+            style="background-image: url('https://cdn.cloudflare.steamstatic.com/steam/apps/{{ $game->id }}/page_bg_generated_v6b.jpg?t=1660374201')">
+            <div class="container">
+                <div class="breadcrumb flex justify-start items-center pb-8">
+                    <nav class="bctext font-bold" aria-label="Breadcrumb">
+                        <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
+                            <li class="flex items-center" itemprop="itemListElement" itemscope
+                                itemtype="https://schema.org/ListItem">
+                                <a itemprop="item" class="hover:underline" href="{{ route('welcome') }}"><span
+                                        itemprop="name">Home</span></a>
+                                <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 320 512">
+                                    <path
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                                </svg>
+                                <meta itemprop="position" content="1" />
+                            </li>
+                            <li class="flex items-center" itemprop="itemListElement" itemscope
+                                itemtype="https://schema.org/ListItem">
+                                <a class="hover:underline" itemprop="item"
+                                    href="{{ route('showcg', ['game' => $game->slug]) }}"> <span
+                                        itemprop="name">{{ $game->game_name }}</span></a>
+                                <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 320 512">
+                                    <path
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                                </svg>
+                                <meta itemprop="position" content="2" />
+                            </li>
+                            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <a itemprop="item" href="{{ route('show', ['patchnote' => $patchnote->slug]) }}"
+                                    class="text-gray-400" aria-current="page"> <span
+                                        itemprop="name">{{ $patchnote->post_title }}</span></a>
+                                <meta itemprop="position" content="3" />
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h1 class="text-xl pb-4" itemprop="headline"><a class="link"
+                            href="{{ route('showcg', ['game' => $game->slug]) }}">{{ $game->game_name }}</a>
+                        <span class="text-blue-400">patch notes for {{ $patchnote->created_at->format('j F Y') }}</span>
+                    </h1>
+                    <h2 class="text-2xl htext" itemprop="alternativeHeadline">{{ $patchnote->post_title }}</h2>
+                    <p class="flex"><span class="flex-grow text-gray-400">
+                            <a href="{{ route('showcg', ['game' => $game->slug]) }}">View all patches</a> · <a
+                                href="{{ route('showcg', ['game' => $game->slug]) }}" rel="nofollow">Gameid
+                                {{ $game->id }}</a>
+                            · Last
+                            edited
+                            <time itemprop="dateModified">{{ $patchnote->updated_at->format('d/m/Y') }}</time>
+                        </span></p>
+                </div>
 
+            </div>
         </div>
-    </div>
 
-    <div class="container mt-5">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
-            crossorigin="anonymous"></script>
-        <!-- Yatay -->
-        <ins class="adsbygoogle text-center" style="display:block;" data-ad-client="ca-pub-4215212273469017"
-            data-ad-slot="1904430142" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+        <div class="container mt-5">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4215212273469017"
+                crossorigin="anonymous"></script>
+            <!-- Yatay -->
+            <ins class="adsbygoogle text-center" style="display:block;" data-ad-client="ca-pub-4215212273469017"
+                data-ad-slot="1904430142" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
 
-    <div class="container">
-        <article class="{{ $patchnote->post_title }}">
+        <div class="container" itemprop="articleBody">
             <div class="flex flex-col htext py-8">
                 <h3 class="text-start text-3xl font-bold pb-4">Patch Notes</h3>
                 <div class="steamcom">
@@ -128,6 +151,6 @@ $description = Illuminate\Support\Str::replace(['{STEAM_CLAN_IMAGE}', '[img]', '
                     {!! $hamham18 !!}
                 </div>
             </div>
-        </article>
-    </div>
+        </div>
+    </article>
 @endsection

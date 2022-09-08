@@ -45,8 +45,17 @@ class gameinfo extends Command
                     };
                     $game_image = 'https://cdn.cloudflare.steamstatic.com/steam/apps/' . $q . '/capsule_sm_120.jpg';
                     $type = 'Game';
-                    $website = $game->data->website;
-                    $bg_image = $game->data->background;
+                    if (empty($game->data->website)) {
+                        $hamham = Games::find($q);
+                        $website = 'https://www.google.com/search?q=' . $hamham->developer;
+                    } else {
+                        $website = $game->data->website;
+                    }
+                    if (empty($game->data->background)) {
+                        $bg_image = 'https://t3.ftcdn.net/jpg/02/10/55/60/360_F_210556027_pNmg4EUFwrn2W25SDdWayPakVIztTSe8.jpg';
+                    } else {
+                        $bg_image = $game->data->background;
+                    }
 
                     Games::find($q)->update([
                         'description' => $gameinfo,

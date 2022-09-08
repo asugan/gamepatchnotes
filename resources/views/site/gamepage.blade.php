@@ -82,7 +82,7 @@
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
                                         Developer
                                     </td>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="author">
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap">
                                         <a class="hover:underline"
                                             href="https://www.google.com/search?q={{ $game->developer }}"
                                             itemprop="author">{{ $game->developer }}</a>
@@ -100,7 +100,8 @@
                                     <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
                                         Type
                                     </td>
-                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="gamePlatform">
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap"
+                                        itemprop="applicationCategory">
                                         {{ $game->type }}
                                     </td>
                                 </tr>
@@ -109,7 +110,8 @@
                                         Website
                                     </td>
                                     <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="gamePlatform">
-                                        <a class="hover:underline" href="{{ $game->website }}">Go to Website</a>
+                                        <a class="hover:underline" itemprop="publisher" href="{{ $game->website }}">Go to
+                                            Website</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -118,8 +120,8 @@
                 </div>
                 <div class="md:col-start-3 md:col-end-4 pt-8 md:pt-0">
                     <div class="image flex justify-center flex-col">
-                        <img class="" itemprop="image" src="{{ $game->game_image }}" alt="">
-                        <p class="htext pt-4">{{ $game->description }}</p>
+                        <img itemprop="image" src="{{ $game->game_image }}" alt="{{ $game->game_name }}">
+                        <p itemprop="description" class="htext pt-4">{{ $game->description }}</p>
                     </div>
                     <div class="likebutton pt-4 flex justify-center content-center">
                         <td class="px-6 py-4 text-sm text-gray-500 border-b border-gray-200">

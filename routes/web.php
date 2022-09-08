@@ -111,5 +111,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('/pn', 'NewApiController@topla')->name('patchnoteekle2');
         Route::get('/postgame', 'NewApiController@post')->name('post');
         Route::get('/steamdb', 'SteamApiController@topla')->name('steamdb');
+        Route::get('/gameinfooooo', 'DescriptionController@description')->name('gameinfo');
     });
 });

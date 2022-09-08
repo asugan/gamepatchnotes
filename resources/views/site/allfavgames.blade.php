@@ -70,7 +70,7 @@
                                             class="py-0 px-0 md:py-4 md:px-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             <a class="bg-indigo-800 inline-block"
                                                 href="{{ route('showcg', ['game' => $gameliked->slug]) }}">
-                                                <img src="{{ $gameliked->game_image }}"
+                                                <img src="{{ $gameliked->short_image }}"
                                                     class="game_image hover:opacity-50 duration-300"
                                                     alt="{{ $gameliked->game_name }}">
                                             </a>

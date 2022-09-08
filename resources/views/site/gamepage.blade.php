@@ -1,18 +1,15 @@
 @extends('layouts.main')
 @section('title', $game->game_name . ' - Latest Patch Notes')
-@section('description', Str::limit('Follow the latest patchnotes of ' . $game->game_name . ' in Latestpatchnotes.com!',
-    120, '...'))
+@section('description', $game->description)
 @section('keywords', $game->game_name . ',Latestpatchnotes,' . $game->game_name . ' - Latestpatchnotes,' .
     $game->game_name . ' Patchnotes')
 @section('og.title', $game->game_name . ' - Latest Patch Notes')
-@section('og.desc', Str::limit('Follow the latest patchnotes of ' . $game->game_name . ' in Latestpatchnotes.com!', 120,
-    '...'))
+@section('og.desc', $game->description)
 @section('og.type', 'article')
 @section('og_image', $game->game_image)
 @section('content')
 
     <section class="game" itemscope itemtype="http://schema.org/VideoGame">
-        <meta itemprop="applicationCategory" content="Game">
         <meta itemprop="operatingSystem" content="Windows, macOS, Linux">
         <div class="container py-8">
             <div class="grid grid-cols-1 md:grid-cols-3">
@@ -99,13 +96,30 @@
                                         {{ $game->game_platform }}
                                     </td>
                                 </tr>
+                                <tr class="border-b hover:bg-indigo-800">
+                                    <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
+                                        Type
+                                    </td>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="gamePlatform">
+                                        {{ $game->type }}
+                                    </td>
+                                </tr>
+                                <tr class="border-b hover:bg-indigo-800">
+                                    <td class="py-4 border-r px-4 md:whitespace-normal whitespace-nowrap">
+                                        Website
+                                    </td>
+                                    <td class="py-4 px-4 md:whitespace-normal whitespace-nowrap" itemprop="gamePlatform">
+                                        <a class="hover:underline" href="{{ $game->website }}">Go to Website</a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="md:col-start-3 md:col-end-4 pt-8 md:pt-0">
-                    <div class="image flex justify-center">
+                    <div class="image flex justify-center flex-col">
                         <img class="" itemprop="image" src="{{ $game->game_image }}" alt="">
+                        <p class="htext pt-4">{{ $game->description }}</p>
                     </div>
                     <div class="likebutton pt-4 flex justify-center content-center">
                         <td class="px-6 py-4 text-sm text-gray-500 border-b border-gray-200">

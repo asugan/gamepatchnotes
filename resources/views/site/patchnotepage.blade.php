@@ -67,8 +67,7 @@ $description = Illuminate\Support\Str::replace(['{STEAM_CLAN_IMAGE}', '[img]', '
                 <meta itemprop="height" content="512">
             </span>
         </span>
-        <div class="pnheader py-8"
-            style="background-image: url('https://cdn.cloudflare.steamstatic.com/steam/apps/{{ $game->id }}/page_bg_generated_v6b.jpg?t=1660374201')">
+        <div class="pnheader py-8" style="background-image: url({{ $game->background_image }})">
             <div class="container">
                 <div class="breadcrumb flex justify-start items-center pb-8">
                     <nav class="bctext font-bold" aria-label="Breadcrumb">

@@ -58,6 +58,18 @@
                             @endif
                         </div>
                     </div>
+
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Header Image URL</label>
+                            <input value="{{ $post->slug }}" type="text" class="form-control" name="slug"
+                                placeholder="Header Image URL" required>
+
+                            @if ($errors->has('description'))
+                                <span class="text-danger text-left">{{ $errors->first('description') }}</span>
+                            @endif
+                        </div>
+                    </div>
                 </div>
 
                 <div class="d-flex justify-content-center gap-3">

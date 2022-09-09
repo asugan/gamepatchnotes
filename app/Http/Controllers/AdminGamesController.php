@@ -117,6 +117,10 @@ class AdminGamesController extends Controller
             'developer' => $request->developer,
             'recommended' => $request->recommended,
             'game_image' => $url,
+            'short_image' => $request->short_image,
+            'background_image' => $request->background_image,
+            'description' => $request->description,
+            'website' => $request->website,
         ]);
 
         return redirect()->route('games.index')

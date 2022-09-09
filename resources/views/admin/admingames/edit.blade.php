@@ -113,6 +113,46 @@
                             @endif
                         </div>
 
+                        <div class="mb-3 px-5">
+                            <label for="body" class="form-label">Game short URL</label>
+                            <input class="form-control" name="short_image" value="{{ $post->short_image }}"
+                                placeholder="Game Image URL" required>{{ old('body') }}
+
+                            @if ($errors->has('body'))
+                                <span class="text-danger text-left">{{ $errors->first('body') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="mb-3 px-5">
+                            <label for="body" class="form-label">Game bg URL</label>
+                            <input class="form-control" name="background_image" value="{{ $post->background_image }}"
+                                placeholder="Game Image URL" required>{{ old('body') }}
+
+                            @if ($errors->has('body'))
+                                <span class="text-danger text-left">{{ $errors->first('body') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="mb-3 px-5">
+                            <label for="body" class="form-label">Desc</label>
+                            <input class="form-control" name="description" value="{{ $post->description }}"
+                                placeholder="Game Image URL" required>{{ old('body') }}
+
+                            @if ($errors->has('body'))
+                                <span class="text-danger text-left">{{ $errors->first('body') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="mb-3 px-5">
+                            <label for="body" class="form-label">Desc</label>
+                            <input class="form-control" name="website" value="{{ $post->website }}"
+                                placeholder="Game Image URL" required>{{ old('body') }}
+
+                            @if ($errors->has('body'))
+                                <span class="text-danger text-left">{{ $errors->first('body') }}</span>
+                            @endif
+                        </div>
+
                     </div>
                 </div>
 

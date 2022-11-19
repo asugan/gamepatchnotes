@@ -30,7 +30,7 @@ class SteamDB extends Command
      */
     public function handle()
     {
-        $hamham_response = HTTP::acceptJson()->get('https://hamhamapi.herokuapp.com/steamdb');
+        $hamham_response = HTTP::acceptJson()->get('https://steamdbapi.herokuapp.com/steamdb');
         $response2 = json_decode($hamham_response);
 
         foreach ($response2 as $q) {

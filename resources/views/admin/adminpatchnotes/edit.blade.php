@@ -29,7 +29,7 @@
                         <div class="card-body">
 
                             <div class="form-group">
-                                <textarea class="ckeditor form-control" name="post_body">{{ $post->post_body }}</textarea>
+                                <textarea id="editor"class="ckeditor form-control" name="post_body">{{ $post->post_body }}</textarea>
                             </div>
 
                         </div>
@@ -80,4 +80,15 @@
         </div>
 
     </div>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 @endsection

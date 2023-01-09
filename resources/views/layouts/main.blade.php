@@ -22,7 +22,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="title" content="@yield('title')">
     <meta name="description" content="@yield('description')">
-    <meta name="keywords" content="@yield('keywords')">
     <meta name="language" content="English">
     <meta name="author" content="LatestPatchNotes">
     <meta name="robots" content="index, follow">
@@ -73,11 +72,6 @@
                     <li>
                         <a href="{{ route('allgames') }}"
                             class="duration-150 text-sm hover:text-indigo-500 hover:underline">All Games</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('lpatchnotes') }}"
-                            class="duration-150 text-sm hover:text-indigo-500 hover:underline">Latest
-                            Patchnotes</a>
                     </li>
                     <li>
                         <a href="{{ route('followedgames') }}"
@@ -177,10 +171,6 @@
             <li><a href="/games"
                     class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">All
                     Games</a>
-            </li>
-            <li><a href="/latestnotes"
-                    class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Latest
-                    Patchnotes</a>
             </li>
             <li><a href="/favgames"
                     class="block text-sm px-2 py-4 hover:bg-indigo-800 hover:text-white transition duration-300">Followed

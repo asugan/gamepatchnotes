@@ -1,8 +1,6 @@
 @extends('layouts.main')
 @section('title', 'Latest Patch Notes - All Patchnotes')
 @section('description', 'We are publishing the latest patch notes for you.Check out all patch notes.')
-@section('keywords', 'Patchnotes,Latest Patchnotes,Game Patchnotes,Game News,Game Latest Patchnotes,Game Latest,' .
-    'News,Patchnotes for games,latest news')
 @section('og.title', 'Latest Patch Notes - All Patchnotes')
 @section('og.desc', 'We are publishing the latest patch notes for you.Check out all patch notes.')
 @section('og.type', 'website')

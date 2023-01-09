@@ -11,6 +11,16 @@
 
     <section class="game" itemscope itemtype="http://schema.org/VideoGame">
         <meta itemprop="operatingSystem" content="Windows, macOS, Linux">
+        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <meta itemprop="availability" content="http://schema.org/OnlineOnly">
+            <meta itemprop="price" content="0">
+            <meta itemprop="priceCurrency" content="USD">
+            <meta itemprop="url" content="{{ $game->website }}">
+        </div>
+        <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="ratingCount" content="25">
+        </div>
         <div class="container py-8">
             <div class="grid grid-cols-1 md:grid-cols-3">
                 <div class="md:col-start-1 md:col-end-4">

@@ -9,83 +9,74 @@ use Illuminate\Support\Facades\Auth;
 
 class GameController extends Controller
 {
-    public function index()
-    {
-        $latest = Games::with(['patchnotes' => function ($q) {
-            $q->latest();
-        }])
-            ->latest()
-            ->take(30)
-            ->get();
+  public function index()
+  {
+    $latest = Games::with(['patchnotes' => function ($q) {
+      $q->latest();
+    }])
+      ->latest()
+      ->take(30)
+      ->get();
 
-        $gamecount = Games::count('id');
+    $gamecount = Games::count('id');
 
-        return view('site.index', compact('latest', 'gamecount'));
-    }
+    return view('site.index', compact('latest', 'gamecount'));
+  }
 
-    public function likePost($id)
-    {
-        $post = Games::find($id);
-        $post->like();
-        $post->save();
+  public function likePost($id)
+  {
+    $post = Games::find($id);
+    $post->like();
+    $post->save();
 
-        return redirect()->route('welcome')->with('message', 'Post Like successfully!');
-    }
+    return redirect()->route('welcome')->with('message', 'Post Like successfully!');
+  }
 
-    public function unlikePost($id)
-    {
-        $post = Games::find($id);
-        $post->unlike();
-        $post->save();
+  public function unlikePost($id)
+  {
+    $post = Games::find($id);
+    $post->unlike();
+    $post->save();
 
-        return redirect()->route('welcome')->with('message', 'Post Like undo successfully!');
-    }
+    return redirect()->route('welcome')->with('message', 'Post Like undo successfully!');
+  }
 
-    public function showpatchnote(Patchnotes $patchnote)
-    {
-        $game = Games::where('id', $patchnote->games_id)->first();
+  public function showpatchnote(Patchnotes $patchnote)
+  {
+    $game = Games::where('id', $patchnote->games_id)->first();
 
-        return view('site.patchnotepage', ['patchnote' => $patchnote, 'game' => $game]);
-    }
+    return view('site.patchnotepage', ['patchnote' => $patchnote, 'game' => $game]);
+  }
 
-    public function showcategory(Games $game)
-    {
-        $post = $game->patchnotes()->latest()->paginate(10);
+  public function showcategory(Games $game)
+  {
+    $post = $game->patchnotes()->latest()->paginate(10);
 
-        return view('site.gamepage', ['game' => $game, 'patchnotes' => $post]);
-    }
+    return view('site.gamepage', ['game' => $game, 'patchnotes' => $post]);
+  }
 
-    public function allgames()
-    {
+  public function allgames()
+  {
 
-        $games = Games::with(['patchnotes' => function ($q) {
-            $q->latest();
-        }])->paginate(30);
+    $games = Games::with(['patchnotes' => function ($q) {
+      $q->latest();
+    }])->paginate(30);
 
-        return view('site.allgames', compact('games'));
-    }
+    return view('site.allgames', compact('games'));
+  }
 
-    public function followedgames()
-    {
-        $user = Auth::id();
+  public function followedgames()
+  {
+    $user = Auth::id();
 
-        $games = Games::with(['patchnotes' => function ($q) {
-            $q->latest();
-        }])
-            ->whereLikedBy($user)
-            ->paginate(30);
+    $games = Games::with(['patchnotes' => function ($q) {
+      $q->latest();
+    }])
+      ->whereLikedBy($user)
+      ->paginate(30);
 
-        $gamecount = Games::whereLikedBy($user)->count();
+    $gamecount = Games::whereLikedBy($user)->count();
 
-        return view('site.allfavgames', compact('games', 'gamecount'));
-    }
-
-    public function latestpatchnotes()
-    {
-
-        $hamham = Patchnotes::latest()->take(60)->get();
-        $cumcum = Games::all();
-
-        return view('site.latestpatchnotes', compact('hamham', 'cumcum'));
-    }
+    return view('site.allfavgames', compact('games', 'gamecount'));
+  }
 }

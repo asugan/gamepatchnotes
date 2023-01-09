@@ -2,8 +2,6 @@
 @section('title', 'Latest Patch Notes - Game Search Results')
 @section('description', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
     'notification when game updated!')
-@section('keywords', 'Patchnotes,Latest Patchnotes,Game Patchnotes,Game News,Game Latest Patchnotes,Game Latest,' .
-    'News,Patchnotes for games,latest news')
 @section('og.title', 'Latest Patch Notes - Game Search Results')
 @section('og.desc', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
     'notification when game updated!')

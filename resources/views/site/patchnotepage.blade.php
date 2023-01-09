@@ -1,36 +1,33 @@
 @php
-
-function strip_tags_content($string)
-{
-    // ----- remove HTML TAGs -----
-    $string = preg_replace('/<[^>]*>/', ' ', $string);
-    // ----- remove control characters -----
-    $string = str_replace("\r", '', $string);
-    $string = str_replace("\n", ' ', $string);
-    $string = str_replace("\t", ' ', $string);
-    // ----- remove multiple spaces -----
-    $string = trim(preg_replace('/ {2,}/', ' ', $string));
-    return $string;
-}
-
-$description = Illuminate\Support\Str::replace(['{STEAM_CLAN_IMAGE}', '[img]', '[/img]', '[h1]', '[/h1]', '[h3]', '[/h3]', '[h2]', '[/h2]', '[b]', '[/b]', '[list]', '[/list]', '[*]', '[hr]', '[/hr]', '[i>', '[/i>', '[u>', '[/u>', '<br />', '<u>', '</u>'], ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], $patchnote->post_body);
-
+    
+    function strip_tags_content($string)
+    {
+        // ----- remove HTML TAGs -----
+        $string = preg_replace('/<[^>]*>/', ' ', $string);
+        // ----- remove control characters -----
+        $string = str_replace("\r", '', $string);
+        $string = str_replace("\n", ' ', $string);
+        $string = str_replace("\t", ' ', $string);
+        // ----- remove multiple spaces -----
+        $string = trim(preg_replace('/ {2,}/', ' ', $string));
+        return $string;
+    }
+    
+    $description = Illuminate\Support\Str::replace(['{STEAM_CLAN_IMAGE}', '[img]', '[/img]', '[h1]', '[/h1]', '[h3]', '[/h3]', '[h2]', '[/h2]', '[b]', '[/b]', '[list]', '[/list]', '[*]', '[hr]', '[/hr]', '[i>', '[/i>', '[u>', '[/u>', '<br />', '<u>', '</u>', '[u]', '[/u]'], ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], $patchnote->post_body);
+    
 @endphp
 
 @extends('layouts.main')
-@section('title', $patchnote->post_title . ' - ' . $game->game_name . ' patch notes for ' .
-    $patchnote->created_at->format('j F Y') . ' - Latest Patch Notes')
+@section('title', $patchnote->post_title . ' - ' . $game->game_name . ' patch notes' . ' | Latest Patch Notes')
 @section('description', Str::limit(strip_tags_content($description), 150, '...'))
-@section('keywords', $patchnote->post_title . ',Latestpatchnotes,' . $patchnote->post_title . ' - Latestpatchnotes,' .
-    $game->game_name . ' ' . $patchnote->post_title . ' patchnotes')
 @section('og.title', $patchnote->post_title . ' - ' . $game->game_name . ' patch notes for ' .
     $patchnote->created_at->format('j F Y') . ' - Latest Patch Notes')
 @section('og.desc', Str::limit(strip_tags_content($description), 150, '...'))
 @section('og.type', 'article')
 @section('og_image', $patchnote->post_image)
 @section('content')
+
     @php
-        
         $hamham = Illuminate\Support\Str::replace('{STEAM_CLAN_IMAGE}', 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans', $patchnote->post_body);
         $hamham2 = Illuminate\Support\Str::replace('[img]', '<img src="', $hamham);
         $hamham3 = Illuminate\Support\Str::replace('[/img]', '">  ', $hamham2);
@@ -51,12 +48,19 @@ $description = Illuminate\Support\Str::replace(['{STEAM_CLAN_IMAGE}', '[img]', '
         
         $hamham18 = nl2br($hamham17);
         
+        $hamham14 = Illuminate\Support\Str::replace('[*]', '<li>', $hamham13);
+        $hamham15 = Illuminate\Support\Str::replace('[hr]', '', $hamham14);
+        $hamham16 = Illuminate\Support\Str::replace('[/hr]', '', $hamham15);
+        $hamham17 = Illuminate\Support\Str::replace(['[url=', ']', '[/url>', '[i>', '[/i>', '[previewyoutube=', '[/previewyoutube>', ';full>', '[code>', '[/code>', '[/*>', '[olist>', '[/olist>', '[u>', '[/u>', '[table>', '[/table>', '[tr>', '[/tr>', '[td>', '[/td>', '[th>', '[/th>', '[h4>', '[/h4>'], ['<a href=', '>', '</a>', '<i>', '</i>', 'https://www.youtube.com/watch?v=', '<br>', '', '', '', '', '<ul>', '</ul>', '<u>', '</u>', '<table>', '</table>', '<tr>', '</tr>', '<td>', '</td>', '<th>', '</th>', '<h4>', '</h4>'], $hamham16);
+        
+        $hamham18 = nl2br($hamham17);
     @endphp
 
     <article class="patchnotes" itemscope itemtype="http://schema.org/Article">
         <meta itemprop="mainEntityOfPage" content="{{ url()->current() }}">
         <meta itemprop="image" content="{{ $patchnote->post_image }}">
-        <meta itemprop="datePublished" content="{{ $patchnote->updated_at }}">
+        <meta itemprop="datePublished" content="{{ $patchnote->created_at->format('d/m/Y') }}">
+        <meta itemprop="dateModified" content="{{ $patchnote->updated_at->format('d/m/Y') }}">
         <meta itemprop="author" content="LatestPatchNotes">
         <span itemscope="" itemtype="http://schema.org/Organization" itemprop="publisher">
             <meta itemprop="name" content="LatestPatchNotes">

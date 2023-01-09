@@ -1,8 +1,6 @@
 @extends('layouts.main')
 @section('title', $game->game_name . ' - Latest Patch Notes')
 @section('description', $game->description)
-@section('keywords', $game->game_name . ',Latestpatchnotes,' . $game->game_name . ' - Latestpatchnotes,' .
-    $game->game_name . ' Patchnotes')
 @section('og.title', $game->game_name . ' - Latest Patch Notes')
 @section('og.desc', $game->description)
 @section('og.type', 'article')

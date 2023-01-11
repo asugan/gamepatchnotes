@@ -1,8 +1,8 @@
 @extends('layouts.main')
-@section('title', 'Latest Patch Notes - Followed Games')
+@section('title', 'Latest Patch Notes | Followed Games')
 @section('description', 'You can add the games to your favorites by signing up or logging in immediately,and you can' .
     ' easily follow the patch notes.')
-@section('og.title', 'Latest Patch Notes - Followed Games')
+@section('og.title', 'Latest Patch Notes | Followed Games')
 @section('og.desc', 'You can add the games to your favorites by signing up or logging in immediately,and you can easily'
     . ' follow the patch notes.')
 @section('og.type', 'website')

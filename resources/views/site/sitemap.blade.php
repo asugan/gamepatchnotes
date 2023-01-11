@@ -10,11 +10,6 @@
         <changefreq>daily</changefreq>
     </url>
     <url>
-        <loc>https://latestpatchnotes.com/latestnotes</loc>
-        <priority>0.8</priority>
-        <changefreq>daily</changefreq>
-    </url>
-    <url>
         <loc>https://latestpatchnotes.com/favgames</loc>
         <priority>0.8</priority>
         <changefreq>daily</changefreq>
@@ -25,14 +20,6 @@
             <lastmod>{{ gmdate('Y-m-d\TH:i:s\Z', strtotime($post->updated_at)) }}</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.7</priority>
-        </url>
-    @endforeach
-    @foreach ($pnotes as $post)
-        <url>
-            <loc>https://latestpatchnotes.com/patchnote/{{ $post->slug }}</loc>
-            <lastmod>{{ gmdate('Y-m-d\TH:i:s\Z', strtotime($post->updated_at)) }}</lastmod>
-            <changefreq>weekly</changefreq>
-            <priority>0.5</priority>
         </url>
     @endforeach
 </urlset>

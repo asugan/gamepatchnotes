@@ -8,13 +8,21 @@ use Illuminate\Http\Request;
 
 class SitemapController extends Controller
 {
-    public function index(Request $r)
-    {
+  public function index(Request $r)
+  {
 
-        $posts = Games::orderBy('id', 'desc')->get();
-        $pnotes = Patchnotes::orderBy('id', 'desc')->get();
+    $posts = Games::orderBy('id', 'desc')->get();
 
-        return response()->view('site.sitemap', compact('posts', 'pnotes'))
-            ->header('Content-Type', 'text/xml');
-    }
+    return response()->view('site.sitemap', compact('posts'))
+      ->header('Content-Type', 'text/xml');
+  }
+
+  public function index2(Request $r)
+  {
+
+    $pnotes = Patchnotes::orderBy('id', 'desc')->get();
+
+    return response()->view('site.sitemap2', compact('pnotes'))
+      ->header('Content-Type', 'text/xml');
+  }
 }

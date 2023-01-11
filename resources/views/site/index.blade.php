@@ -1,10 +1,10 @@
 @extends('layouts.main')
-@section('title', 'Latest Patch Notes - Get Latest Patchnotes and News for Games')
-@section('description', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
-    'notification when game updated!')
-@section('og.title', 'Latest Patch Notes - Get Latest Patchnotes and News for Games')
-@section('og.desc', 'We publish the latest news and patchnotes about the games for you.Follow your game and get ' .
-    'notification when game updated!')
+@section('title', 'LPN Patch Bot | Latest Game Updates and Patch Notes')
+@section('description', 'We Publish the Latest Patch Notes and Game Updates on Steam and other games.' . 'You can ' .
+    'follow ' . 'your games ' . 'and' . ' get notification when game updated!')
+@section('og.title', 'LPN Patch Bot | Latest Game Updates and Patch Notes')
+@section('og.desc', 'We Publish the Latest Patch Notes and Game Updates on Steam and other games.' . 'You can follow ' .
+    'your games ' . 'and' . ' get notification when game updated!')
 @section('og.type', 'website')
 @section('og_image', 'http://latestpatchnote.com/images/lpnotes.png')
 
@@ -32,14 +32,10 @@
 
     <section class="tanitim">
         <div class="container py-5">
-            <h1 class="tbaslik text-4xl font-bold">Patch notes database of every games.
-            </h1>
-            <p class="htext py-5 pr-0 md:pr-48">This third-party website gives you better insight into the latest patch
-                notes of
-                games in every platforms.<br><br>
+            <h1 class="tbaslik text-4xl font-bold">Latest Patch Notes and Updates</h1>
+            <p class="htext py-5 pr-0 md:pr-48">We Publish the Latest Patch Notes and Game Updates on Steam.<br><br>
 
-                Look through our FAQ if you have any questions, join our Discord. Follow @latestpnotes on
-                Twitter.
+                You can follow your game and get notification when game updated!
             </p>
         </div>
     </section>

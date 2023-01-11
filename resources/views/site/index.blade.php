@@ -32,8 +32,9 @@
 
     <section class="tanitim">
         <div class="container py-5">
-            <h1 class="tbaslik text-4xl font-bold">Latest Patch Notes and Updates</h1>
-            <p class="htext py-5 pr-0 md:pr-48">We Publish the Latest Patch Notes and Game Updates on Steam.<br><br>
+            <h1 class="tbaslik text-4xl font-bold">LPN Patch Bot | Latest Game Updates and Patch Notes</h1>
+            <p class="htext py-5 pr-0 md:pr-48">We publish the latest patch notes and game updates on Steam and other
+                games.<br><br>
 
                 You can follow your game and get notification when game updated!
             </p>

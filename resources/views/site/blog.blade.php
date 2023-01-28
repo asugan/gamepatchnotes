@@ -51,7 +51,7 @@
             @foreach ($posts as $post)
             <div class="flex flex-col justify-center mt-5 mb-5 border-b-2 border-gray-600"> 
                     <div class="md:mr-4 mb-2 md:mb-0">
-                        <a class="bg-gray-100" href="#">
+                        <a class="bg-gray-100" href="{{ route('showblog', ['post' => $post->slug]) }}">
                             <img
                                 class="rounded mb-3 hover:opacity-70 transition duration-300 ease-in-out md:w-8/12"
                                 alt="{{ $post->blog_title }}" src="storage/{{ $post->image }}" /></a>
@@ -65,7 +65,7 @@
 
                         <p class="font-light htext mb-4 mt-2">{{ $post->blog_description }}</p>
 
-                          <a href="#">
+                          <a href="{{ route('showblog', ['post' => $post->slug]) }}">
                             <h2 class="text-2xl bctext font-bold mb-1">Read More -></h2>
                         </a>
                     </div>

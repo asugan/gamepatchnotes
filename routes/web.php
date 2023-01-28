@@ -31,9 +31,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
   Route::get('/blog/{post}', [App\Http\Controllers\BlogController::class, 'showblog'])->name('showblog');
   Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index']);
   Route::get('sitemap2.xml', [App\Http\Controllers\SitemapController::class, 'index2']);
+  Route::get('sitemap3.xml', [App\Http\Controllers\SitemapController::class, 'index3']);
   Route::get('autocomplete', [App\Http\Controllers\SearchController::class, 'autocomplete'])->name('autocomplete');
   Route::get('feed1', [App\Http\Controllers\RSSFeedController::class, 'feed1']);
   Route::get('feed2', [App\Http\Controllers\RSSFeedController::class, 'feed2']);
+  Route::get('feed3', [App\Http\Controllers\RSSFeedController::class, 'feed3']);
 
   Route::group(['middleware' => ['guest']], function () {
     /**

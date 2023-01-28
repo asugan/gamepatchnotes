@@ -78,6 +78,10 @@
                             class="duration-150 text-sm hover:text-indigo-500 hover:underline">Followed
                             Games</a>
                     </li>
+                    <li>
+                        <a href="{{ route('allblog') }}"
+                            class="duration-150 text-sm hover:text-indigo-500 hover:underline">Blog</a>
+                    </li>
                     @guest
                         <li>
                             <a href="{{ route('register.show') }}"

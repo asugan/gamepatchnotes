@@ -1,45 +1,49 @@
-:root{
-    --background-color : #161920;
-    --background-arkaplan : #1f232e;
-    --font-color:#ddd;
-    --link-color:#00aff4;
-    --link-hover:#0095ff;
+:root {
+    --background-color: #161920;
+    --background-arkaplan: #1f232e;
+    --font-color: #ddd;
+    --link-color: #00aff4;
+    --link-hover: #0095ff;
 }
 
-body{
-    font-family: 'Inter', sans-serif;
+body {
+    font-family: "Inter", sans-serif;
     background-color: var(--background-color);
 }
 
-.steamcom{
+.steamcom {
     color: #8bc34a;
 }
 
-.link{
+.link {
     color: var(--link-color);
 }
 
-.link:hover{
+.link:hover {
     color: var(--link-hover);
     text-decoration: underline;
 }
 
-.octicon{
+.octicon {
     display: inline-block;
     vertical-align: text-top;
     fill: currentColor;
     background-color: #161920 !important;
 }
 
-.pnheader{
+.pnheader {
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.tbaslik{
-    background: linear-gradient(-70deg,#a2facf,#64acff);
-    background-image: linear-gradient(-70deg, rgb(162, 250, 207), rgb(100, 172, 255));
+.tbaslik {
+    background: linear-gradient(-70deg, #a2facf, #64acff);
+    background-image: linear-gradient(
+        -70deg,
+        rgb(162, 250, 207),
+        rgb(100, 172, 255)
+    );
     background-position-x: initial;
     background-position-y: initial;
     background-size: initial;
@@ -52,16 +56,16 @@ body{
     -webkit-text-fill-color: transparent;
 }
 
-.tablebody{
+.tablebody {
     background-color: var(--background-arkaplan);
     color: var(--font-color);
 }
 
-.htext{
+.htext {
     color: var(--font-color);
 }
 
-.game_image{
+.game_image {
     min-width: 120px;
     min-height: 60px;
     width: 120px;
@@ -69,7 +73,7 @@ body{
     display: inline-block;
 }
 
-.patchnote_image{
+.patchnote_image {
     min-width: 120px;
     min-height: 60px;
     width: 120px;
@@ -77,11 +81,10 @@ body{
     display: inline-block;
 }
 
-.tablehead{
+.tablehead {
     background-color: #4b5563;
     color: var(--font-color);
 }
-
 
 .pncontainer p {
     margin: 1rem 0;
@@ -114,12 +117,75 @@ body{
     margin-bottom: 10px;
 }
 
-.bctext{
+.blogcontainer h2 {
+    background: linear-gradient(-70deg, #a2facf, #64acff);
+    background-image: linear-gradient(
+        -70deg,
+        rgb(162, 250, 207),
+        rgb(100, 172, 255)
+    );
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-color: initial;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.blogcontainer h3 {
+    background: linear-gradient(-70deg, #a2facf, #64acff);
+    background-image: linear-gradient(
+        -70deg,
+        rgb(162, 250, 207),
+        rgb(100, 172, 255)
+    );
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-color: initial;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.blogcontainer h4 {
+    background: linear-gradient(-70deg, #a2facf, #64acff);
+    background-image: linear-gradient(
+        -70deg,
+        rgb(162, 250, 207),
+        rgb(100, 172, 255)
+    );
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-color: initial;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.bctext {
     color: var(--font-color);
 }
 
-@media (max-width: 768px) { 
-    .md{
+@media (max-width: 768px) {
+    .md {
         display: none;
     }
 }

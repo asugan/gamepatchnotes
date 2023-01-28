@@ -28,6 +28,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
   Route::get('/terms-of-use', [App\Http\Controllers\Privacy::class, 'termsfunction'])->name('terms');
   Route::get('/cookies-policy', [App\Http\Controllers\Privacy::class, 'cookiefunction'])->name('cookie');
   Route::get('/blog', [App\Http\Controllers\BlogController::class, 'allblog'])->name('allblog');
+  Route::get('/blog/{post}', [App\Http\Controllers\BlogController::class, 'showblog'])->name('showblog');
   Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index']);
   Route::get('sitemap2.xml', [App\Http\Controllers\SitemapController::class, 'index2']);
   Route::get('autocomplete', [App\Http\Controllers\SearchController::class, 'autocomplete'])->name('autocomplete');

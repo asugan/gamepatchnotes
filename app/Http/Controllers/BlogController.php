@@ -79,6 +79,19 @@ class BlogController extends Controller
       ->withSuccess(__('Post created successfully.'));
   }
 
+    /**
+   * Display the specified resource.
+   *
+   * @param  \App\Models\Blog  $post
+   * @return \Illuminate\Http\Response
+   */
+  public function showblog(Blog $post)
+  {
+    return view('site.blogpage', [
+      'post' => $post
+    ]);
+  }
+
   /**
    * Display the specified resource.
    *

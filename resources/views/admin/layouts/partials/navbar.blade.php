@@ -15,6 +15,7 @@
                         <li><a href="{{ route('roles.index') }}" class="nav-link px-2 text-white">Roles</a></li>
                         <li><a href="{{ route('games.index') }}" class="nav-link px-2 text-white">Games</a></li>
                         <li><a href="{{ route('patchnotes.index') }}" class="nav-link px-2 text-white">Patchnotes</a></li>
+                        <li><a href="{{ route('blog.index') }}" class="nav-link px-2 text-white">Blog</a></li>
                     @endrole
                 @endauth
             </ul>

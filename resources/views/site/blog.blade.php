@@ -29,6 +29,9 @@
                 </ol>
             </nav>
         </div>
+
+        <h1 class="text-4xl font-bold htext tbaslik">Blog Page</h1>
+        <h2 class="text-2xl py-4 htext">Everything About Games !</h2>
     </div>
 
     <div class="container mt-5">
@@ -45,33 +48,31 @@
     <section class="allgames">
 
         <div class="container">
-            <div class="flex flex-col md:flex-row w-full lg:w-10/12">
-
-                @foreach ($posts as $post)
-                    <div class="md:mr-4 mb-2 md:mb-0 md:w-4/12 ">
+            @foreach ($posts as $post)
+            <div class="flex flex-col justify-center mt-5 mb-5 border-b-2 border-gray-600"> 
+                    <div class="md:mr-4 mb-2 md:mb-0">
                         <a class="bg-gray-100" href="#">
-                            <img width="640" height="360"
-                                class="rounded mb-3 hover:opacity-70 transition duration-300 ease-in-out"
-                                alt="{{ $post->image }}" src="storage/{{ $post->image }}" /></a>
+                            <img
+                                class="rounded mb-3 hover:opacity-70 transition duration-300 ease-in-out md:w-8/12"
+                                alt="{{ $post->blog_title }}" src="storage/{{ $post->image }}" /></a>
                     </div>
 
                     <div class="flex-1">
-                        <div class="flex items-center">
-                            <div class="flex ml-4">
-                            </div>
-                        </div>
 
-                        <a href="#" class="hover:text-green-400">
-                            <h2 class="text-2xl font-semibold mb-1">{{ $post->blog_title }}</h2>
+                        <a href="{{ route('showblog', ['post' => $post->slug]) }}">
+                            <h2 class="text-2xl bctext font-bold mb-1">{{ $post->blog_title }}</h2>
                         </a>
 
-                        <p class="text-base font-light text-gray-600 mb-4">{{ $post->blog_description }}</p>
+                        <p class="font-light htext mb-4 mt-2">{{ $post->blog_description }}</p>
 
+                          <a href="#">
+                            <h2 class="text-2xl bctext font-bold mb-1">Read More -></h2>
+                        </a>
                     </div>
             </div>
             @endforeach
 
-            <div class="mt-5">
+            <div class="mt-5 mb-5">
                 {{ $posts->links() }}
             </div>
         </div>

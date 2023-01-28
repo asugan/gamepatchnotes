@@ -17,13 +17,12 @@
         @foreach ($games as $post)
             <item>
                 <title>
-                    <![CDATA[{{ $post->name }}]]>
+                    <![CDATA[{{ $post->game_name }}]]>
                 </title>
                 <link>https://latestpatchnotes.com/game/{{ $post->slug }}</link>
                 <description>
                     <![CDATA[{!! $post->description !!}]]>
                 </description>
-                <category>{{ $post->genre }}</category>
                 <author>
                     <![CDATA[Asugan]]>
                 </author>

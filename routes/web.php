@@ -27,6 +27,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
   Route::get('/privacy-policy', [App\Http\Controllers\Privacy::class, 'privacyfunction'])->name('privacy');
   Route::get('/terms-of-use', [App\Http\Controllers\Privacy::class, 'termsfunction'])->name('terms');
   Route::get('/cookies-policy', [App\Http\Controllers\Privacy::class, 'cookiefunction'])->name('cookie');
+  Route::get('/blog', [App\Http\Controllers\BlogController::class, 'allblog'])->name('allblog');
   Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index']);
   Route::get('sitemap2.xml', [App\Http\Controllers\SitemapController::class, 'index2']);
   Route::get('autocomplete', [App\Http\Controllers\SearchController::class, 'autocomplete'])->name('autocomplete');
@@ -93,6 +94,22 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
       Route::patch('/{post}/update', 'AdminPostController@update')->name('patchnotes.update');
       Route::delete('/{post}/delete', 'AdminPostController@destroy')->name('patchnotes.destroy');
     });
+
+    /**
+     * Blog Routes
+     */
+    Route::group(['prefix' => 'admin/blog'], function () {
+      Route::get('/', 'BlogController@index')->name('blog.index');
+      Route::get('/create', 'BlogController@create')->name('blog.create');
+      Route::post('/create', 'BlogController@store')->name('blog.store');
+      Route::post('/image-upload', 'BlogController@storeImage')->name('blog.imageupload');
+      Route::get('/{post}/show', 'BlogController@show')->name('blog.show');
+      Route::get('/{post}/edit', 'BlogController@edit')->name('blog.edit');
+      Route::patch('/{post}/update', 'BlogController@update')->name('blog.update');
+      Route::delete('/{post}/delete', 'BlogController@destroy')->name('blog.destroy');
+    });
+
+
 
     /**
      * Admin Routes

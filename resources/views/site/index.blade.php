@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('title', 'LPN Patch Bot | Latest Game Updates and Patch Notes')
-@section('description', 'We Publish the Latest Patch Notes and Game Updates on Steam and other games.' . 'You can ' .
-    'follow ' . 'your games ' . 'and' . ' get notification when game updated!')
+@section('description', 'We Publish the latest patch notes and game updates on Steam and other games.' . 'You can ' .
+    'follow ' . 'your games ' . 'and' . ' get notification when game updated !')
 @section('og.title', 'LPN Patch Bot | Latest Game Updates and Patch Notes')
-@section('og.desc', 'We Publish the Latest Patch Notes and Game Updates on Steam and other games.' . 'You can follow ' .
-    'your games ' . 'and' . ' get notification when game updated!')
+@section('og.desc', 'We Publish the latest patch notes and game updates on Steam and other games.' . 'You can follow ' .
+    'your games ' . 'and' . ' get notification when game updated !')
 @section('og.type', 'website')
 @section('og_image', 'http://latestpatchnote.com/images/lpnotes.png')
 
@@ -36,7 +36,7 @@
             <p class="htext py-5 pr-0 md:pr-48">We publish the latest patch notes and game updates on Steam and other
                 games.<br><br>
 
-                You can follow your game and get notification when game updated!
+                You can follow your game and get notification when game updated !
             </p>
         </div>
     </section>

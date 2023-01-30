@@ -31,7 +31,7 @@ class RSSFeedController extends Controller
   {
     $posts = Blog::latest()->get();
 
-    return response()->view('site/feed2', [
+    return response()->view('site/feed3', [
       'patchnotes' => $posts
     ])->header('Content-Type', 'text/xml');
   }

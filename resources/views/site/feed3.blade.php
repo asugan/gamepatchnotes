@@ -17,11 +17,11 @@
         @foreach ($patchnotes as $post)
             <item>
                 <title>
-                    <![CDATA[{{ $post->post_title }}]]>
+                    <![CDATA[{{ $post->blog_title }}]]>
                 </title>
                 <link>https://latestpatchnotes.com/blog/{{ $post->slug }}</link>
                 <description>
-                    <![CDATA[{{ $post->post_description }}]]>
+                    <![CDATA[{{ $post->blog_description }}]]>
                 </description>
                 <author>
                     <![CDATA[Asugan]]>

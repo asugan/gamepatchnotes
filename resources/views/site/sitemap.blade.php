@@ -9,6 +9,11 @@
         <priority>0.8</priority>
         <changefreq>daily</changefreq>
     </url>
+     <url>
+        <loc>https://latestpatchnotes.com/blog</loc>
+        <priority>0.8</priority>
+        <changefreq>daily</changefreq>
+    </url>
     <url>
         <loc>https://latestpatchnotes.com/favgames</loc>
         <priority>0.8</priority>

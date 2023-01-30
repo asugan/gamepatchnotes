@@ -32,7 +32,7 @@ class SitemapController extends Controller
 
     $pnotes = Blog::orderBy('id', 'desc')->get();
 
-    return response()->view('site.sitemap2', compact('pnotes'))
+    return response()->view('site.sitemap3', compact('pnotes'))
       ->header('Content-Type', 'text/xml');
   }
 }

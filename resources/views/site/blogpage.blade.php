@@ -1,9 +1,9 @@
 @extends('layouts.main')
-@section('title', '$post->blog_title | Latest Patch Notes')
-@section('description', '$post->blog_description')
-@section('og.title', '$post->blog_title | Latest Patch Notes')
-@section('og.desc', '$post->blog_description')
-@section('og_image', '$post->image')
+@section('title', $post->blog_title . ' | Latest Patch Notes')
+@section('description', $post->blog_description)
+@section('og.title', $post->blog_title . ' | Latest Patch Notes')
+@section('og.desc', $post->blog_description)
+@section('og_image', $post->image)
 @section('og.type', 'article')
 
 @php
@@ -82,6 +82,9 @@ $output = nl2br(str_replace("&nbsp;", "</br>", $post->blog_body));
         <div class="container" itemprop="articleBody">
             <div class="flex flex-col htext py-8">
                 <h1 class="text-start text-3xl font-bold pb-4 text-blue-400" itemprop="headline">{{ $post->blog_title }}</h1>
+                <img
+                                class="rounded mb-3 hover:opacity-70 transition duration-300 ease-in-out md:w-8/12"
+                                alt="{{ $post->blog_title }}" src="/storage/{{ $post->image }}" />
                 <span class="text-blue-400 mt-2">Posted {{ $post->created_at->format('j F Y') }}</span>
                 <p class="flex mt-3 mb-3"><span class="flex-grow text-gray-400">
                             Last
